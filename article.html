@@ -19,6 +19,18 @@
 
 	<!-- CSS
   ================================================== -->
+
+[(#REM) font-face minimaliste inline pour eviter le FOUC ]
+<style>
+@font-face {font-family: 'LeagueGothic';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/leaguegothic-regular-webfont.ttf}') format('truetype');}
+@font-face {font-family: 'Alegreya';font-weight: normal;src:url('#CHEMIN{stylesheets/polis/Alegreya-Regular.otf}') format('truetype');}
+@font-face {font-family: 'Alegreya';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/Alegreya-Bold.otf}') format('truetype');}
+@font-face {font-family: 'Alegreya';font-style: italic;src:url('#CHEMIN{stylesheets/polis/Alegreya-Italic.otf}') format('truetype');}
+body { font-family: Alegreya, serif; }
+h1 { font-family: LeagueGothic, "Arial", "Lucida Grande", "Verdana", "Gill Sans", sans-serif; }
+</style>
+
+
 	<link rel="stylesheet" href="#CHEMIN{stylesheets/base.css}">
 	<link rel="stylesheet" href="#CHEMIN{stylesheets/skeleton.css}">
 	<link rel="stylesheet" href="#CHEMIN{stylesheets/layout.css}">
@@ -44,6 +56,7 @@
 div.header {
 width:100%;
 background-size: cover;
+min-height: 25rem;
 }
 
 .header h1 {
@@ -54,6 +67,7 @@ padding-bottom: 0.2em;
 /* en attente de chargement du background-image */
 .white-on-black {
 background-color: #888;
+background-image: url([(#GET{bando}|extraire_balise{img}|extraire_attribut{src})]);
 }
 .white-on-black, .white-on-black p {
 color: white;

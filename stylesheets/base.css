@@ -181,7 +181,6 @@ audio:not([controls]) {
  */
 
 html {
-    font-family: sans-serif; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
     -ms-text-size-adjust: 100%; /* 2 */
 }
@@ -535,7 +534,6 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -589,7 +587,7 @@ html {
 }
 /* Cf.: http://www.pompage.net/pompe/definir-des-tailles-de-polices-en-CSS/ et http://forum.alsacreations.com/topic-4-54377-1.html */
 
-body { background: #FFFFFF; font: 1em/1.4em Georgia, Cambria, Times New Roman, Times, serif; color: #222222; }
+body { background: #FFFFFF; font: 1em/1.4em Alegreya, serif; color: #222222; }
 
 /* Titraille / Intertitres */
 h1,.h1,
@@ -749,14 +747,9 @@ a[hreflang]:after { content: "\0000a0(" attr(hreflang) ")"; }
 /* # Font settings
 ===============     */
 
-@font-face {font-family: 'LeagueGothic';font-weight: bold;src:url('polis/leaguegothic-regular-webfont.ttf') format('truetype');}
-@font-face {font-family: 'Alegreya';font-weight: normal;src:url('polis/Alegreya-Regular.otf') format('truetype');}
-@font-face {font-family: 'Alegreya';font-weight: bold;src:url('polis/Alegreya-Bold.otf') format('truetype');}
-@font-face {font-family: 'Alegreya';font-style: italic;src:url('polis/Alegreya-Italic.otf') format('truetype');}
 
 body {
 	font-size: 160%;
-	font-family: Alegreya, serif;
 	color: black;
 	background-color: white;
 }
@@ -767,7 +760,6 @@ h3,.h3,
 h4,.h4,
 h5,.h5,
 h6,.h6 {
-	font-family: LeagueGothic,sans-serif;
 	line-height: 1em;
 	margin-bottom: 0.5em;
 }
