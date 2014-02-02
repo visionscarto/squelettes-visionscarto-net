@@ -1,0 +1,134 @@
+<BOUCLE_a(ARTICLES){id_article}><!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>#TITRE</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="initial-scale=1.0">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="#CHEMIN{stylesheets/base.css}">
+	<link rel="stylesheet" href="#CHEMIN{stylesheets/skeleton.css}">
+	<link rel="stylesheet" href="#CHEMIN{stylesheets/layout.css}">
+	<link rel="stylesheet" href="#CHEMIN{stylesheets/perso.css}">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+
+	<INCLURE{fond=head/dist} />
+
+[(#SET{bando,[(#SURTITRE*|propre|adaptive_images{2048})]})]
+[<style>(#GET{bando}|extraire_balise{img}|oui)
+
+@media screen and (max-width:767px) {
+ div.header { background-image:none !important; }
+}
+@media screen and (min-width:768px) {
+.surtitre {
+	display:none;
+}
+div.header {
+width:100%;
+background-size: cover;
+}
+
+.header h1 {
+padding-top: 1.2em;
+padding-bottom: 0.2em;
+}
+
+/* en attente de chargement du background-image */
+.white-on-black {
+background-color: #888;
+}
+.white-on-black, .white-on-black p {
+color: white;
+text-shadow: 2px 2px 2px #333;
+}
+
+}
+
+.content {
+margin-top: 1.5em;
+
+}
+
+</style>]
+
+
+</head>
+<body>
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+
+[<div class="surtitre #EDIT{surtitre}" style="margin:auto;">(#GET{bando})</div>]
+
+<div class="white-on-black">
+<div class="header[ (#GET{bando}|extraire_balise{span}|extraire_attribut{class}|replace{adapt-img-wrapper })]">
+ <div class="container">
+  <div class="sixteen columns">
+   <h1 class="#EDIT{titre}">#TITRE</h1>
+  </div>
+ </div>
+[<p style="text-align:right; padding-right:2em;">(#DATE_REDAC|sinon{#DATE}|sinon{#DATE_MODIF}|affdate)</p>]
+<span class="clear"> </span>
+</span>
+</div>
+</div>
+
+	<div class="container content">
+
+		<div class="sixteen columns chapo">
+		[(#CHAPO|sinon{ })]
+		</div>
+
+		<div class="sixteen columns texte #EDIT{texte}" style="margin-top:1.3em;">
+
+		#TEXTE
+
+		[<div class="notes">(#NOTES)</div>]
+
+		<span> </span><!-- never empty -->
+		</div>
+
+		<div class="two-thirds column">
+		</div>
+
+		<div class="one-third column">
+
+		#FORMULAIRE_RECHERCHE
+
+
+		{{{nav}}}
+
+		</div>
+
+		<div class="sixteen columns">
+		<p style='text-align:right'><small><tt>{{source}} <a href="{{open}}" onclick="document.location=this.href;">*</a></tt></small></p>
+
+		</div>
+
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
+</BOUCLE_a>
