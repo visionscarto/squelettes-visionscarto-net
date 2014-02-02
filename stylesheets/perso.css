@@ -11,5 +11,39 @@ p + p {
   margin-top: 0 }
 
 
-.chapo { font-size: 130%; line-height: 1.3em; }
+.logo {
+position: fixed;
+top: 10px;
+right: 10px;
+width: 40px;
+height: 40px;
+background-color: #333;
+z-index: 500;
+padding:0;
+border:0;
+}
 
+
+html { font-size: 150%; line-height: 1.2em; }
+h1,.h1 {
+ font-size: 4rem;
+ line-height: 0.95em;
+ margin-left: 1em;
+ margin-right: 1em; }
+.chapo { font-size: 1.3em; line-height: 1.3em; }
+p { line-height: 1.43em; }
+
+.surtitre dl {
+margin-top: 0px;
+}
+
+
+@media screen and (max-width: 959px) {
+	html { font-size: 120%; }
+}
+@media screen and (max-width: 599px) {
+	html { font-size: 100%; }
+}
+@media screen and (min-width: 600px) {
+	strong,b,.chapo { color: #444; }
+}

@@ -31,9 +31,9 @@ h1 { font-family: LeagueGothic, "Arial", "Lucida Grande", "Verdana", "Gill Sans"
 </style>
 
 
-	<link rel="stylesheet" href="#CHEMIN{stylesheets/base.css}">
-	<link rel="stylesheet" href="#CHEMIN{stylesheets/skeleton.css}">
-	<link rel="stylesheet" href="#CHEMIN{stylesheets/layout.css}">
+ <link rel="stylesheet" type="text/css" class="ui" href="semantic-ui/build/packaged/css/semantic.min.css">
+  
+	<link rel="stylesheet" href="#CHEMIN{stylesheets/tinytypo.css}">
 	<link rel="stylesheet" href="#CHEMIN{stylesheets/perso.css}">
 
 	<!--[if lt IE 9]>
@@ -56,12 +56,13 @@ h1 { font-family: LeagueGothic, "Arial", "Lucida Grande", "Verdana", "Gill Sans"
 div.header {
 width:100%;
 background-size: cover;
-min-height: 25rem;
+min-height: 19rem;
 }
 
 .header h1 {
 padding-top: 1.2em;
 padding-bottom: 0.2em;
+margin-top: 0;
 }
 
 /* en attente de chargement du background-image */
@@ -83,63 +84,77 @@ margin-top: 1.5em;
 
 </style>]
 
+  <script src="semantic-ui/build/packaged/javascript/semantic.min.js"></script>
+  
+<script>
+$('#menu')
+    .sidebar('attach events', '.launch.button, .launch.item')
+    .sidebar('attach events', '.launch.button, .launch.item', 'hide')
+  ;
+</script>
 
 </head>
-<body>
-
 	<!-- Primary Page Layout
 	================================================== -->
+
+<body id="example" class="index" style="margin:0;">
+
+<a class="logo" href="?page=plan" rel="start home"
+onclick="$('.ui.sidebar').sidebar('toggle');return false;"
+>[(#LOGO_SITE_SPIP|image_reduire{40,*})]</a>
+
 
 
 [<div class="surtitre #EDIT{surtitre}" style="margin:auto;">(#GET{bando})</div>]
 
 <div class="white-on-black">
 <div class="header[ (#GET{bando}|extraire_balise{span}|extraire_attribut{class}|replace{adapt-img-wrapper })]">
- <div class="container">
-  <div class="sixteen columns">
    <h1 class="#EDIT{titre}">#TITRE</h1>
-  </div>
- </div>
 [<p style="text-align:right; padding-right:2em;">(#DATE_REDAC|sinon{#DATE}|sinon{#DATE_MODIF}|affdate)</p>]
 <span class="clear"> </span>
 </span>
 </div>
 </div>
 
-	<div class="container content">
+<div class="masthead segment">
+  <div class="ui page grid">
+    <div class="column">
 
-		<div class="sixteen columns chapo">
+		<div class="chapo #EDIT{chapo}">
 		[(#CHAPO|sinon{ })]
 		</div>
 
-		<div class="sixteen columns texte #EDIT{texte}" style="margin-top:1.3em;">
-
+		<div class="texte #EDIT{texte}" style="margin-top:1.3em;">
 		#TEXTE
+		</div>
 
 		[<div class="notes">(#NOTES)</div>]
 
-		<span> </span><!-- never empty -->
-		</div>
+	</div><!-- /column -->
+  </div><!-- /page grid -->
+</div><!-- /segment -->
 
-		<div class="two-thirds column">
-		</div>
+  <div class="ui thin vertical inverted labeled icon floating sidebar menu right" id="menu">
 
-		<div class="one-third column">
-
-		#FORMULAIRE_RECHERCHE
-
-
-		{{{nav}}}
-
-		</div>
-
-		<div class="sixteen columns">
-		<p style='text-align:right'><small><tt>{{source}} <a href="{{open}}" onclick="document.location=this.href;">*</a></tt></small></p>
-
-		</div>
-
-	</div><!-- container -->
-
+<div class="ui fluid vertical menu inverted">
+    <a class="item" onclick="$('.ui.sidebar').sidebar('toggle');return false;">
+      <i class="close outline icon"></i>
+      Fermer
+    </a>
+    <a class="item">
+      <i class="chat outline icon"></i>
+      More by this author
+    </a>
+    <a class="item">
+      <i class="text file icon"></i>
+      Suggested Articles
+    </a>
+    <a class="item">
+      <i class="search outline icon"></i>
+      #FORMULAIRE_RECHERCHE
+    </a>
+  </div>
+  </div>
 
 <!-- End Document
 ================================================== -->
