@@ -1,14 +1,19 @@
 .container p:first-of-type { width: 100%; }
 .container p {  }
-.container p.in:first-line, h2 + p:first-line, h3 + p:first-line { font-variant:small-caps }
+.container p.in:first-line, h2 + p:first-line { font-variant:small-caps }
 
 p {
-  margin-bottom: 0 }
-p + * {
-  margin-top: 0.6em; }
-p + p {
+  text-indent: 0;
+  margin-top:0;
+  margin-bottom: 0.6em; }
+p + p:not(.section) {
   text-indent: 1.8em;
-  margin-top: 0 }
+  margin-top: -0.6em }
+
+/* avec p.section, on met de l'air entre les paragraphes */
+p + p.section {
+  text-indent: 0;
+  margin-top: 1em; }
 
 
 .logo {
@@ -25,13 +30,16 @@ border:0;
 
 
 html { font-size: 150%; line-height: 1.2em; }
-h1,.h1 {
+.header h1,.header .h1 {
  font-size: 4rem;
+ margin: 0.5em 4% 0.3em;
  line-height: 0.95em;
- margin-left: 1em;
- margin-right: 1em; }
-.chapo { font-size: 1.3em; line-height: 1.3em; }
+ }
 p { line-height: 1.43em; }
+
+.lead {
+  font-weight: 700;
+  color: #444;}
 
 .surtitre dl {
 margin-top: 0px;
@@ -47,3 +55,7 @@ margin-top: 0px;
 @media screen and (min-width: 600px) {
 	strong,b,.chapo { color: #444; }
 }
+
+h2, .h2, h3, .h3  {margin-top: 0.7em; margin-bottom: 0.3em;}
+h4, .h4, h5, .h5  {margin-top: 0.5em; margin-bottom: 0.2em;}
+h6, .h6  {margin-top: 0.4em; margin-bottom: 0.1em;}
