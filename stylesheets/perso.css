@@ -1,3 +1,5 @@
+body {margin:0}
+
 .container p:first-of-type { width: 100%; }
 .container p {  }
 .container p.in:first-line, h2 + p:first-line { font-variant:small-caps }
@@ -59,3 +61,7 @@ margin-top: 0px;
 h2, .h2, h3, .h3  {margin-top: 0.7em; margin-bottom: 0.3em;}
 h4, .h4, h5, .h5  {margin-top: 0.5em; margin-bottom: 0.2em;}
 h6, .h6  {margin-top: 0.4em; margin-bottom: 0.1em;}
+
+
+#menu { font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 1rem/1; }
+

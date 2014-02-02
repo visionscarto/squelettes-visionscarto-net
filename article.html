@@ -4,42 +4,15 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
 
 	<!-- Basic Page Needs
   ================================================== -->
-	<meta charset="utf-8">
 	<title>#TITRE</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 
 	<!-- Mobile Specific Metas
   ================================================== -->
-	<meta name="viewport" content="initial-scale=1.0">
-
-	<!-- CSS
-  ================================================== -->
-
-[(#REM) font-face minimaliste inline pour eviter le FOUC ]
-<style>
-@font-face {font-family: 'LeagueGothic';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/leaguegothic-regular-webfont.ttf}') format('truetype');}
-@font-face {font-family: 'Alegreya';font-weight: normal;src:url('#CHEMIN{stylesheets/polis/Alegreya-Regular.otf}') format('truetype');}
-@font-face {font-family: 'Alegreya';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/Alegreya-Bold.otf}') format('truetype');}
-@font-face {font-family: 'Alegreya';font-style: italic;src:url('#CHEMIN{stylesheets/polis/Alegreya-Italic.otf}') format('truetype');}
-body { font-family: Alegreya, serif; }
-h1 { font-family: LeagueGothic, "Arial", "Lucida Grande", "Verdana", "Gill Sans", sans-serif; }
-</style>
-
-
- <link rel="stylesheet" type="text/css" class="ui" href="semantic-ui/build/packaged/css/semantic.min.css">
-  
-	<link rel="stylesheet" href="#CHEMIN{stylesheets/tinytypo.css}">
-	<link rel="stylesheet" href="#CHEMIN{stylesheets/perso.css}">
-
-	<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
 
 	<INCLURE{fond=head/dist} />
 
@@ -84,20 +57,11 @@ margin-top: 1.5em;
 
 </style>]
 
-  <script src="semantic-ui/build/packaged/javascript/semantic.min.js"></script>
-  
-<script>
-$('#menu')
-    .sidebar('attach events', '.launch.button, .launch.item')
-    .sidebar('attach events', '.launch.button, .launch.item', 'hide')
-  ;
-</script>
-
 </head>
 	<!-- Primary Page Layout
 	================================================== -->
 
-<body id="example" class="index" style="margin:0;">
+<body>
 
 <a class="logo" href="?page=plan" rel="start home"
 onclick="$('.ui.sidebar').sidebar('toggle');return false;"
@@ -116,7 +80,6 @@ onclick="$('.ui.sidebar').sidebar('toggle');return false;"
 </div>
 </div>
 
-<div class="masthead segment">
   <div class="ui page grid">
     <div class="column">
 
@@ -132,14 +95,18 @@ onclick="$('.ui.sidebar').sidebar('toggle');return false;"
 
 	</div><!-- /column -->
   </div><!-- /page grid -->
-</div><!-- /segment -->
 
-  <div class="ui thin vertical inverted labeled icon floating sidebar menu right" id="menu">
+<div class="ui thin vertical inverted labeled icon floating right sidebar menu" id="menu">
 
 <div class="ui fluid vertical menu inverted">
     <a class="item" onclick="$('.ui.sidebar').sidebar('toggle');return false;">
       <i class="close outline icon"></i>
       Fermer
+    </a>
+
+    <a class="item" onclick="$('.ui.sidebar').sidebar('toggle');toggleFullScreen();">
+      <i class="fullscreen outline icon"></i>
+      Plein écran
     </a>
     <a class="item">
       <i class="chat outline icon"></i>
@@ -155,6 +122,22 @@ onclick="$('.ui.sidebar').sidebar('toggle');return false;"
     </a>
   </div>
   </div>
+
+<script>
+function toggleFullScreen() {
+  var doc = window.document;
+  var docEl = doc.documentElement;
+
+  var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen;
+  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen;
+
+  if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement) {
+    requestFullScreen.call(docEl);
+  }
+  else {
+    cancelFullScreen.call(doc);
+  }
+}</script>
 
 <!-- End Document
 ================================================== -->
