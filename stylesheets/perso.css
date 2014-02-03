@@ -59,7 +59,7 @@ margin-top: 0px;
 }
 @media screen and (min-width: 600px) {
 	strong,b { color: #444; }
-	.inverted strong, .inverted b { color: #fff; }
+	.inverted strong, .inverted b { color: #fff!important; }
 	.texte p {max-width: 90%; text-align: justify; }
 	.texte iframe { margin-left: -5% }
 }

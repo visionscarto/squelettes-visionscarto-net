@@ -7,15 +7,23 @@
 <meta name="viewport" content="initial-scale=1.0">
 
 
-[(#REM) font-face minimaliste inline pour eviter le FOUC ]
+[(#REM) @font-face inline pour eviter le FOUC
+
+   quelques font-stacks sympa sans font-face :
+]
+[(#SET{stack_sans_1,'"Trebuchet MS", Candara, "Segoe UI", "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", Verdana, "Verdana Ref", sans-serif'})
+]
+[(#SET{stack_serif_1,'"Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif'})]
 <style>
+body { font-family: [(#GET{stack_serif_1})]; }
+h1 { font-family: [(#GET{stack_sans_1})]; }
 @media screen and (min-width: 600px) {
  @font-face {font-family: 'LeagueGothic';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/leaguegothic-regular-webfont.ttf}') format('truetype');}
  @font-face {font-family: 'Alegreya';font-weight: normal;src:url('#CHEMIN{stylesheets/polis/Alegreya-Regular.otf}') format('truetype');}
  @font-face {font-family: 'Alegreya';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/Alegreya-Bold.otf}') format('truetype');}
  @font-face {font-family: 'Alegreya';font-style: italic;src:url('#CHEMIN{stylesheets/polis/Alegreya-Italic.otf}') format('truetype');}
- body { font-family: Alegreya, serif; }
- h1 { font-family: LeagueGothic, "Arial", "Lucida Grande", "Verdana", "Gill Sans", sans-serif; }
+ body { font-family: Alegreya[, (#GET{stack_serif_1})]; }
+ h1 { font-family: LeagueGothic[, (#GET{stack_sans_1})]; }
 }
 </style>
 
