@@ -18,3 +18,8 @@ Z ?
 
 ## font-face : ne l’utiliser que dans les bons @media
 
+## vidéo responsive, fullscreen, qui fasse vimeo
+cédric préconise videojs
+http://dfcb.github.io/BigVideo.js/ <= une big vidéo en fond d’écran ?
+https://github.com/okfocus/okvideo <= mieux ? (vimeo, youtube)
+fitvis.js (responsive)

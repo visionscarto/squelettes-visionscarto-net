@@ -26,8 +26,8 @@
 
    Reglage du bandeau  image
 
-]
-[<style>(#GET{bando}|extraire_balise{img}|oui)
+][(#SET{bandeau,[(#GET{bando}|extraire_balise{img}|extraire_attribut{src})]})]
+[<style>(#GET{bandeau}|oui)
 
 @media screen and (max-width:767px) {
  div.header { background-image:none !important; }
@@ -38,8 +38,9 @@
 }
 div.header {
 width:100%;
-background-size: cover;
 min-height: 19rem;
+background-image: url([(#GET{bandeau})]);
+background-size: cover;
 }
 
 .header h1 {
@@ -50,8 +51,7 @@ margin-top: 0;
 
 /* en attente de chargement du background-image */
 .white-on-black {
-background-color: #888;
-background-image: url([(#GET{bando}|extraire_balise{img}|extraire_attribut{src})]);
+background-color: [#(#GET{bandeau}|image_reduire{10}|couleur_extraire{3,2}|couleur_foncer)];
 }
 .white-on-black, .white-on-black p {
 color: white;
@@ -125,13 +125,17 @@ onclick="setTimeout(function(){$('.ui.sidebar').sidebar('toggle');},20);return f
 
 		[<div class="notes">(#NOTES)</div>]
 
+
+		[<div class="ui red inverted piled segment ps #EDIT{ps}">(#PS|sinon{#VAL{"
+			Cet article fait partie d'une recherche en cours ; si vous souhaitez participer, l’utiliser, ou publier nos travaux, veuillez nous envoyer un email. Nous vous répondrons très vite.
+		"}|propre})</div>]
+
 	</div><!-- /column -->
   </div><!-- /page grid -->
 
 </div><!-- /content -->
 
-<div class="ui wide vertical inverted labeled icon floating right sidebar menu" id="menu">
-
+<div class="ui wide vertical inverted labeled icon floating right sidebar menu inverted" id="menu">
 <div class="ui fluid vertical menu inverted">
     <a class="item fullscreen disabled" onclick="$('.ui.sidebar').sidebar('hide');toggleFullScreen();">
       <i class="fullscreen outline icon"></i>
@@ -141,11 +145,18 @@ onclick="setTimeout(function(){$('.ui.sidebar').sidebar('toggle');},20);return f
       <i class="chat outline icon"></i>
       More by this author
     </a>
-    <a class="item">
-      <i class="text file icon"></i>
-      Suggested Articles
-    </a>
       #FORMULAIRE_RECHERCHE
+
+	<BOUCLE_z(ARTICLES){!par popularite}{exclus}{0,8}>
+    [<a class="item small" href="#URL_ARTICLE">
+      <i class="text file icon"></i>
+      (#TITRE|couper{20})
+    </a>]
+	</BOUCLE_z>
+    <a class="item">
+      <i class="email outline icon"></i>
+      Contact
+    </a>
   </div>
   </div>
 

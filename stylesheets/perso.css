@@ -31,7 +31,7 @@ border:0;
 }
 
 
-html { font-size: 150%; line-height: 1.2em; }
+html { font-size: 150.1%; line-height: 1.2em; }
 .header h1,.header .h1 {
  font-size: 4rem;
  margin: 0.5em 4% 0.3em;
@@ -42,6 +42,9 @@ p { line-height: 1.43em; }
 .lead {
   font-weight: 700;
   color: #444;}
+.inverted .lead {
+  color: #fff;
+}
 
 .surtitre dl {
 margin-top: 0px;
@@ -55,7 +58,10 @@ margin-top: 0px;
 	html { font-size: 100%; }
 }
 @media screen and (min-width: 600px) {
-	strong,b,.chapo { color: #444; }
+	strong,b { color: #444; }
+	.inverted strong, .inverted b { color: #fff; }
+	.texte p {max-width: 90%; text-align: justify; }
+	.texte iframe { margin-left: -5% }
 }
 
 h2, .h2, h3, .h3  {margin-top: 0.7em; margin-bottom: 0.3em;}
@@ -75,3 +81,6 @@ blockquote { border: 0 }
 
 .texte { margin-top:1.3em; }
 .bando { margin:auto; } /* petite image en bandeau ? centrer */
+
+.notes { font-size: 0.85em; color: #666; }
+
