@@ -63,5 +63,15 @@ h4, .h4, h5, .h5  {margin-top: 0.5em; margin-bottom: 0.2em;}
 h6, .h6  {margin-top: 0.4em; margin-bottom: 0.1em;}
 
 
-#menu { font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 1rem/1; }
+.ui.menu .item, .ui.input input {
+font-family: "Gill Sans", "Lucida Grande", "Verdana", sans-serif;
+}
 
+/* interactions parfois difficiles avec semantic-ui */
+.box { padding: 0.6rem 0.6rem 0.6rem 0.6rem;}
+.box p { margin-bottom: 0 }
+blockquote { border: 0 }
+.center { margin-left: auto!important; margin-right: auto!important}
+
+.texte { margin-top:1.3em; }
+.bando { margin:auto; } /* petite image en bandeau ? centrer */

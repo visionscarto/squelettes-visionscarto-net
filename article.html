@@ -5,18 +5,28 @@
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <head>
 
-	<!-- Basic Page Needs
-  ================================================== -->
-	<title>#TITRE</title>
-	<meta name="description" content="">
-	<meta name="author" content="">
+<INCLURE{fond=head/dist} />
 
-	<!-- Mobile Specific Metas
-  ================================================== -->
 
-	<INCLURE{fond=head/dist} />
+<title>#TITRE</title>
+<meta name="description" content="">
+<meta name="author" content="">
 
-[(#SET{bando,[(#SURTITRE*|propre|adaptive_images{2048})]})]
+[(#REM) ---------------------------------------------------
+
+   Calculs du contenu
+
+]
+[(#SET{bando,[(#SURTITRE*|propre)]})]
+[(#SET{texte,[(#TEXTE)]})]
+
+
+
+[(#REM) ---------------------------------------------------
+
+   Reglage du bandeau  image
+
+]
 [<style>(#GET{bando}|extraire_balise{img}|oui)
 
 @media screen and (max-width:767px) {
@@ -57,19 +67,39 @@ margin-top: 1.5em;
 
 </style>]
 
+[(#REM) ---------------------------------------------------
+
+   Is video included? => fitvid.js will give a responsive player
+
+]
+[(#GET{bando}|concat{#GET{texte}}|match{player.vimeo|youtube}|oui)[
+<script type='text/javascript'>
+$(function() {
+	$.ajax({
+		url: '(#CHEMIN{js/jquery.fitvid.js})',
+		success: function() { $('body').fitVids(); },
+		dataType: "script",
+		cache: true
+	});
+});
+</script>
+]]
+
+
 </head>
 	<!-- Primary Page Layout
 	================================================== -->
 
 <body>
 
+<div onclick="if($('body').is('.pushed')) {$('.ui.sidebar').sidebar('toggle');}">
+
 <a class="logo" href="?page=plan" rel="start home"
-onclick="$('.ui.sidebar').sidebar('toggle');return false;"
+onclick="setTimeout(function(){$('.ui.sidebar').sidebar('toggle');},20);return false;"
 >[(#LOGO_SITE_SPIP|image_reduire{40,*})]</a>
 
 
-
-[<div class="surtitre #EDIT{surtitre}" style="margin:auto;">(#GET{bando})</div>]
+[<div class="bando surtitre #EDIT{surtitre}">(#GET{bando}|adaptive_images{2048})</div>]
 
 <div class="white-on-black">
 <div class="header[ (#GET{bando}|extraire_balise{span}|extraire_attribut{class}|replace{adapt-img-wrapper })]">
@@ -87,24 +117,23 @@ onclick="$('.ui.sidebar').sidebar('toggle');return false;"
 		[(#CHAPO|sinon{ })]
 		</div>
 
-		<div class="texte #EDIT{texte}" style="margin-top:1.3em;">
-		#TEXTE
+		[
+		<div class="texte #EDIT{texte}">
+		(#GET{texte}|adaptive_images{2048})
 		</div>
+		]
 
 		[<div class="notes">(#NOTES)</div>]
 
 	</div><!-- /column -->
   </div><!-- /page grid -->
 
-<div class="ui thin vertical inverted labeled icon floating right sidebar menu" id="menu">
+</div><!-- /content -->
+
+<div class="ui wide vertical inverted labeled icon floating right sidebar menu" id="menu">
 
 <div class="ui fluid vertical menu inverted">
-    <a class="item" onclick="$('.ui.sidebar').sidebar('toggle');return false;">
-      <i class="close outline icon"></i>
-      Fermer
-    </a>
-
-    <a class="item" onclick="$('.ui.sidebar').sidebar('toggle');toggleFullScreen();">
+    <a class="item fullscreen disabled" onclick="$('.ui.sidebar').sidebar('hide');toggleFullScreen();">
       <i class="fullscreen outline icon"></i>
       Plein écran
     </a>
@@ -116,28 +145,27 @@ onclick="$('.ui.sidebar').sidebar('toggle');return false;"
       <i class="text file icon"></i>
       Suggested Articles
     </a>
-    <a class="item">
-      <i class="search outline icon"></i>
       #FORMULAIRE_RECHERCHE
-    </a>
   </div>
   </div>
 
-<script>
+<script type="text/javascript">
+var doc = window.document,
+ docEl = doc.documentElement,
+ requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen,
+ cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen;
+$(function() {
+  if (typeof requestFullScreen == 'function') $('.fullscreen').removeClass('disabled');
+});
 function toggleFullScreen() {
-  var doc = window.document;
-  var docEl = doc.documentElement;
-
-  var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen;
-  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen;
-
   if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement) {
     requestFullScreen.call(docEl);
   }
   else {
     cancelFullScreen.call(doc);
   }
-}</script>
+}
+</script>
 
 <!-- End Document
 ================================================== -->
