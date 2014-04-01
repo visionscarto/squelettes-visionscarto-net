@@ -2,18 +2,19 @@ body {margin:0}
 
 .container p:first-of-type { width: 100%; }
 .container p {  }
-.container p.in:first-line, h2 + p:first-line { font-variant:small-caps }
+p.in:first-line, h2 + p:first-line { font-variant:small-caps }
 
-p {
+/* class = tight pour resserrer les paragraphes */
+.tight p {
   text-indent: 0;
   margin-top:0;
   margin-bottom: 0.6em; }
-p + p:not(.section) {
+.tight p + p:not(.section) {
   text-indent: 1.8em;
   margin-top: -0.6em }
 
-/* avec p.section, on met de l'air entre les paragraphes */
-p + p.section {
+/* a l'inverse avec p.section, on met de l'air entre les paragraphes */
+.tight p + p.section {
   text-indent: 0;
   margin-top: 1em; }
 
@@ -22,25 +23,26 @@ p + p.section {
 position: fixed;
 top: 10px;
 right: 10px;
-width: 40px;
-height: 40px;
-background-color: #333;
 z-index: 500;
 padding:0;
 border:0;
 }
 
 
-html { font-size: 150.1%; line-height: 1.2em; }
+html { font-size: 145.1%; }
+
+html { line-height: 1.2em; }
+
 .header h1,.header .h1 {
- font-size: 4rem;
+ font-size: 4em;
  margin: 0.5em 4% 0.3em;
  line-height: 0.95em;
  }
-p { line-height: 1.43em; }
+.content p { line-height: 1.43em; }
+.content p { max-width: 34em; }
 
 .lead {
-  font-weight: 700;
+  font-weight: 500;
   color: #444;}
 .inverted .lead {
   color: #fff;
@@ -50,18 +52,29 @@ p { line-height: 1.43em; }
 margin-top: 0px;
 }
 
+@media screen and (max-width: 1299px) {
+	html { font-size: 135.1%; }
+}
 
 @media screen and (max-width: 959px) {
-	html { font-size: 120%; }
+	html { font-size: 125.1%; }
+	/* ecran etroit : les docs ne flottent plus */
+	.spip_documents_right, .spip_documents_left {
+		float: none !important;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 @media screen and (max-width: 599px) {
-	html { font-size: 100%; }
+	html { font-size: 110.1%; }
+	.iflarge {display: none !important}
 }
 @media screen and (min-width: 600px) {
 	strong,b { color: #444; }
 	.inverted strong, .inverted b { color: #fff!important; }
-	.texte p {max-width: 90%; text-align: justify; }
+	p { text-align: justify; }
 	.texte iframe { margin-left: -5% }
+	.ifsmall {display: none !important}
 }
 
 h2, .h2, h3, .h3  {margin-top: 0.7em; margin-bottom: 0.3em;}
@@ -83,4 +96,33 @@ blockquote { border: 0 }
 .bando { margin:auto; } /* petite image en bandeau ? centrer */
 
 .notes { font-size: 0.85em; color: #666; }
+
+
+
+/* fixes tinytypo for SPIP */
+.formulaire_spip ul,
+.comments-items { list-style: none; margin: 0; }
+
+/* fixes for tinytypo */
+.invisible { display: none; }
+blockquote { z-index: 0; }
+.box_modalbox,
+.box_modalbox * { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
+
+/* https://github.com/Schepp/CSS-Filters-Polyfill */
+.logo img {
+            transition-duration: 0.5s;
+            filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+}
+
+.logo img:hover {
+            transition-duration: 0.5s;
+            filter: none;
+    -webkit-filter: none;
+}
+
+
+/* eviter que la page n'explose lorsqu'on decale le menu */
+body.pushed dl { max-width: 50em; }
 

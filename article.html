@@ -8,7 +8,7 @@
 <INCLURE{fond=head/dist} />
 
 
-<title>#TITRE</title>
+[<title>(#TITRE|supprimer_tags)</title>]
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -72,7 +72,7 @@ margin-top: 1.5em;
    Is video included? => fitvid.js will give a responsive player
 
 ]
-[(#GET{bando}|concat{#GET{texte}}|match{player.vimeo|youtube}|oui)[
+[(#GET{xxxxbando}|concat{#GET{xxxxtexte}}|match{player.vimeo|youtube}|oui)[
 <script type='text/javascript'>
 $(function() {
 	$.ajax({
@@ -85,6 +85,21 @@ $(function() {
 </script>
 ]]
 
+[	<script type="text/javascript">
+	function downloadJSAtOnload() {
+		var script1 = document.createElement("script");
+		var player = document.createElement("iframe");player.setAttribute('allowtransparency','true');
+		script1.src = "(#CHEMIN{js/fatmedia.js}|url_absolue)";
+
+		document.body.appendChild(script1);
+		var pl = document.getElementById("player");
+		if (pl) pl.appendChild(player);
+	}
+	if (window.addEventListener) window.addEventListener("load", downloadJSAtOnload, false);
+	else if (window.attachEvent) window.attachEvent("onload", downloadJSAtOnload);
+	else window.onload = downloadJSAtOnload;
+	</script>
+]
 
 </head>
 	<!-- Primary Page Layout
@@ -95,8 +110,8 @@ $(function() {
 <div onclick="if($('body').is('.pushed')) {$('.ui.sidebar').sidebar('toggle');}">
 
 <a class="logo" href="?page=plan" rel="start home"
-onclick="setTimeout(function(){$('.ui.sidebar').sidebar('toggle');},20);return false;"
->[(#LOGO_SITE_SPIP|image_reduire{40,*})]</a>
+onclick="setTimeout(function(){$('#menu').sidebar('toggle');},20);return false;"
+>[(#LOGO_SITE_SPIP|image_reduire{120,*}|inserer_attribut{class,thumb})]</a>
 
 
 [<div class="bando surtitre #EDIT{surtitre}">(#GET{bando}|adaptive_images{2048})</div>]
@@ -104,7 +119,7 @@ onclick="setTimeout(function(){$('.ui.sidebar').sidebar('toggle');},20);return f
 <div class="white-on-black">
 <div class="header[ (#GET{bando}|extraire_balise{span}|extraire_attribut{class}|replace{adapt-img-wrapper })]">
    <h1 class="#EDIT{titre}">#TITRE</h1>
-[<p style="text-align:right; padding-right:2em;">(#DATE_REDAC|sinon{#DATE}|sinon{#DATE_MODIF}|affdate)</p>]
+[<p style="text-align:right; padding-right:2em; margin:0;">(#DATE_REDAC|sinon{#DATE}|sinon{#DATE_MODIF}|affdate)</p>]
 <span class="clear"> </span>
 </span>
 </div>
@@ -112,53 +127,100 @@ onclick="setTimeout(function(){$('.ui.sidebar').sidebar('toggle');},20);return f
 
   <div class="ui page grid">
     <div class="column">
+	  <div class="content">
 
 		<div class="lead #EDIT{chapo}">
 		[(#CHAPO|sinon{ })]
 		</div>
 
 		[
-		<div class="texte #EDIT{texte}">
+		<div class="NOT-tight texte #EDIT{texte} container">
 		(#GET{texte}|adaptive_images{2048})
 		</div>
 		]
 
 		[<div class="notes">(#NOTES)</div>]
 
+	  </div><!-- /content -->
 
-		[<div class="ui red inverted piled segment ps #EDIT{ps}">(#PS|sinon{#VAL{"
-			Cet article fait partie d'une recherche en cours ; si vous souhaitez participer, l’utiliser, ou publier nos travaux, veuillez nous envoyer un email. Nous vous répondrons très vite.
-		"}|propre})</div>]
+	  [<div class="ui red inverted piled segment ps #EDIT{ps}">(#PS|sinon{#VAL{"
+		Cet article fait partie d'une recherche en cours ; si vous souhaitez participer, l’utiliser, ou publier nos travaux, veuillez nous envoyer un email. Nous vous répondrons très vite.
+	  "}|propre})</div>]
+
 
 	</div><!-- /column -->
+
   </div><!-- /page grid -->
 
 </div><!-- /content -->
 
-<div class="ui wide vertical inverted labeled icon floating right sidebar menu inverted" id="menu">
-<div class="ui fluid vertical menu inverted">
-    <a class="item fullscreen disabled" onclick="$('.ui.sidebar').sidebar('hide');toggleFullScreen();">
+<div class="ui vertical sidebar wide right menu" id="menu">
+
+
+   <div class="item">
+    <i class="globe icon"></i> Visionscarto
+    <div class="menu">
+      <a class="item" href="#URL_ARTICLE{26}"><i class="question no-icon"></i> À propos</a>
+
+      <a class="item"><i class="mail no-icon"></i> Contact</a>
+
+      <a class="item" href="#URL_ARTICLE{27}"><i class="mail no-icon"></i> Contribuer</a>
+
+      <a class="item" href="#URL_ARTICLE{28}"><i class="rss no-icon"></i> Pour nous suivre</a>
+
+    </div>
+  </div>
+
+   <div class="ui item">
+    <i class="tags icon"></i> <a>Projets &amp; Archives</a>
+
+    <div class="menu vertical">
+    <a class="item"> <i class="tag no-icon"></i> Bédouins </a>
+    <a class="item"> <i class="tag no-icon"></i> Cartographie </a>
+    <a class="item"> <i class="tag no-icon"></i> Art </a>
+
+      <div class="item">
+      <div class="ui simple fluid dropdown">
+      <i class="dropdown icon"></i>
+      <div class="text">Plus…</div>
+      <div class="small menu">
+        <div class="item">Aéroports</div>
+        <div class="item">Robots &amp; drones</div>
+        <div class="item">Ukraine</div>
+        <div class="item text-right"><em>tous les thèmes…</em></div>
+      </div>
+      </div>
+      </div>
+
+    </div>
+
+  </div>
+
+   <div class="item">
+   <div class="ui input"><input placeholder="Rechercher…" type="text"></div>
+   </div>
+
+   <div class="ui item">
+    <i class="github icon"></i> <a>Ressources libres</a>
+
+  </div>
+  <a class="item disabled">
+      Espace de vente
+      <div class="ui teal label">Todo</div>
+   </a>
+
+  <a class="item fullscreen disabled" onclick="$('.ui.sidebar').sidebar('hide');toggleFullScreen();">
       <i class="fullscreen outline icon"></i>
       Plein écran
-    </a>
-    <a class="item">
-      <i class="chat outline icon"></i>
-      More by this author
-    </a>
-      #FORMULAIRE_RECHERCHE
+   </a>
 
-	<BOUCLE_z(ARTICLES){!par popularite}{exclus}{0,8}>
-    [<a class="item small" href="#URL_ARTICLE">
-      <i class="text file icon"></i>
-      (#TITRE|couper{20})
-    </a>]
-	</BOUCLE_z>
-    <a class="item">
-      <i class="email outline icon"></i>
-      Contact
-    </a>
+  <div class="item ifsmall">
+  <a onclick="$('#menu').sidebar('toggle');"><small>Fermer ce menu</small></a>
   </div>
-  </div>
+
+</div>
+
+<!-- /sidebar -->
 
 <script type="text/javascript">
 var doc = window.document,
@@ -176,6 +238,15 @@ function toggleFullScreen() {
     cancelFullScreen.call(doc);
   }
 }
+</script>
+
+<script type="text/javascript">
+$(function() {
+//  $('#menu').sidebar('toggle');
+  // activate dropdowns etc.
+  $('.ui.dropdown').dropdown();
+  $('.ui.accordion').accordion()
+;});
 </script>
 
 <!-- End Document
