@@ -17,7 +17,7 @@
    Calculs du contenu
 
 ]
-[(#SET{bando,[(#SURTITRE*|propre)]})]
+[(#SET{bando,[(#SURTITRE*|propre|sinon{#LOGO_ARTICLE})]})]
 [(#SET{texte,[(#TEXTE)]})]
 
 
@@ -55,17 +55,17 @@ background-color: [#(#GET{bandeau}|image_reduire{10}|couleur_extraire{3,2}|coule
 }
 .white-on-black, .white-on-black p {
 color: white;
-text-shadow: 2px 2px 2px #333;
+text-shadow: 7px 4px 2px #111;
 }
 
 }
 
 .content {
 margin-top: 1.5em;
-
 }
 
 </style>]
+
 
 [(#REM) ---------------------------------------------------
 
@@ -158,27 +158,28 @@ onclick="setTimeout(function(){$('#menu').sidebar('toggle');},20);return false;"
 
 
    <div class="item">
-    <i class="globe icon"></i> Visionscarto
+    <i class="globe icon"></i> <a href="#URL_SITE_SPIP/">Visionscarto</a>
     <div class="menu">
-      <a class="item" href="#URL_ARTICLE{26}"><i class="question no-icon"></i> À propos</a>
+      <a class="item" href="#URL_ARTICLE{1}"><i class="question no-icon"></i> À propos</a>
 
-      <a class="item"><i class="mail no-icon"></i> Contact</a>
+      <a class="item" href="#URL_ARTICLE{6}"><i class="mail no-icon"></i> Contact</a>
 
-      <a class="item" href="#URL_ARTICLE{27}"><i class="mail no-icon"></i> Contribuer</a>
+      <a class="item" href="#URL_ARTICLE{3}"><i class="mail no-icon"></i> Contribuer</a>
 
-      <a class="item" href="#URL_ARTICLE{28}"><i class="rss no-icon"></i> Pour nous suivre</a>
+      <a class="item" href="#URL_ARTICLE{2}"><i class="rss no-icon"></i> Pour nous suivre</a>
 
     </div>
   </div>
 
    <div class="ui item">
-    <i class="tags icon"></i> <a>Projets &amp; Archives</a>
+    <i class="tags icon"></i> <!-- <a href="?page=plan"> -->Projets &amp; Archives
 
     <div class="menu vertical">
-    <a class="item"> <i class="tag no-icon"></i> Bédouins </a>
-    <a class="item"> <i class="tag no-icon"></i> Cartographie </a>
-    <a class="item"> <i class="tag no-icon"></i> Art </a>
+    <BOUCLE_t(ARTICLES){!par date}{id_secteur!=1}{0,3}>
+    <a class="item" href="#URL_ARTICLE"> <i class="tag no-icon"></i> #TITRE </a>
+    </BOUCLE_t>
 
+<!--
       <div class="item">
       <div class="ui simple fluid dropdown">
       <i class="dropdown icon"></i>
@@ -191,17 +192,20 @@ onclick="setTimeout(function(){$('#menu').sidebar('toggle');},20);return false;"
       </div>
       </div>
       </div>
-
+-->
     </div>
 
   </div>
 
-   <div class="item">
-   <div class="ui input"><input placeholder="Rechercher…" type="text"></div>
-   </div>
+   <form class="item" action="./" method="get">
+   <input type="hidden" name="page" value="recherche" />
+   <div class="ui input"><input name="recherche" placeholder="Rechercher…" type="text"></div>
+   <button class="ui grey button offscreen">ok</button>
+   </form>
 
-   <div class="ui item">
-    <i class="github icon"></i> <a>Ressources libres</a>
+   <div class="ui item disabled">
+    <i class="github no-icon"></i> <a>Ressources libres</a>
+    <div class="ui teal label">Todo</div>
 
   </div>
   <a class="item disabled">

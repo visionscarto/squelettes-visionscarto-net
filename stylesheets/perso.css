@@ -126,3 +126,31 @@ blockquote { z-index: 0; }
 /* eviter que la page n'explose lorsqu'on decale le menu */
 body.pushed dl { max-width: 50em; }
 
+
+/* compenser les padding ajoutés par ui.page.grid pour les images .fullwidth */
+
+@media only screen and (max-width : 991px) {
+  .ui.page.grid .fullwidth {
+    margin: 0% -6%;
+  }
+}
+@media only screen and (min-width : 992px) {
+  .ui.page.grid .fullwidth {
+    margin: 0% -11.4%;
+  }
+}
+@media only screen and (min-width : 1500px) {
+  .ui.page.grid .fullwidth {
+    margin: 0% -19.7%;
+  }
+}
+@media only screen and (min-width : 1750px) {
+  .ui.page.grid .fullwidth {
+    margin: 0% -20%;
+  }
+}
+@media only screen and (min-width : 2000px) {
+  .ui.page.grid .fullwidth {
+    margin: 0% -20%;
+  }
+}
