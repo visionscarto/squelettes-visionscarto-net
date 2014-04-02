@@ -154,3 +154,81 @@ body.pushed dl { max-width: 50em; }
     margin: 0% -20%;
   }
 }
+
+/* style effects généralisés (pas seulement img) */
+.round {
+  border-radius: 5px;
+}
+.circle {
+  border-radius: 50%;
+}
+.border {
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #bbb;
+}
+span.shadow {
+  box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7), -1px 2px 20px rgba(255, 255, 255, 0.6) inset;
+  display: inline-block;
+  max-width:100%;
+}
+
+
+/* eviter que la lagende ne soit trop large ou trop collee a l'image */
+figcaption {
+	font-size: 0.9em;
+	max-width: 30em;
+	text-align: left;
+	line-height: 1.3em;
+	margin-top: 0.5em;
+}
+
+.fullwidth figcaption {
+	margin-left: 15%;
+}
+
+.right figcaption {
+	text-align: right;
+}
+
+.left figcaption {
+}
+
+@media (min-width: 960px) {
+figure.text-left:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  overflow: hidden;
+}
+figure.text-left > * {
+  float: left;
+}
+figure.text-left > figcaption {
+  display: inline-block;
+  width: 20%;
+  padding-left: 0.8em;
+}
+}
+
+/* eviter que les images ne flottent dans une colonne etroite
+
+  nb : normalement ça devrait dépendre de la largeur de la colonne qui reste…
+*/
+@media (max-width: 9px) {
+  figure {
+    margin-bottom: 1.5em;
+  }
+  figure.left {
+    float: none;
+    margin-right: 0;
+  }
+  figure.right {
+    float: none;
+    margin-left: 0;
+  }
+}
+
+
