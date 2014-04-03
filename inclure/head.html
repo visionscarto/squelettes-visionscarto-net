@@ -19,11 +19,13 @@ body { font-family: [(#GET{stack_serif_1})]; }
 h1 { font-family: [(#GET{stack_sans_1})]; }
 @media screen and (min-width: 600px) {
  @font-face {font-family: 'LeagueGothic';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/leaguegothic-regular-webfont.ttf}') format('truetype');}
+ @font-face {font-family: 'fengardo-neue';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/fengardoneue_regular-webfont.ttf}') format('truetype');}
+ @font-face {font-family: 'fengardo-neue-black';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/fengardoneue_black-webfont.ttf}') format('truetype');}
  @font-face {font-family: 'Alegreya';font-weight: normal;src:url('#CHEMIN{stylesheets/polis/Alegreya-Regular.otf}') format('truetype');}
  @font-face {font-family: 'Alegreya';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/Alegreya-Bold.otf}') format('truetype');}
  @font-face {font-family: 'Alegreya';font-style: italic;src:url('#CHEMIN{stylesheets/polis/Alegreya-Italic.otf}') format('truetype');}
- body { font-family: Alegreya[, (#GET{stack_serif_1})]; }
- h1 { font-family: LeagueGothic[, (#GET{stack_sans_1})]; }
+ body { font-family: fengardo-neue[, (#GET{stack_serif_1})]; }
+ h1 { font-family: fengardo-neue[, (#GET{stack_sans_1})]; font-weight:900; }
 }
 </style>
 
