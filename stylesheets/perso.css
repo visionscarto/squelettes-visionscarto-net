@@ -176,59 +176,84 @@ span.shadow {
 
 /* eviter que la lagende ne soit trop large ou trop collee a l'image */
 figcaption {
-	font-size: 0.9em;
-	max-width: 30em;
-	text-align: left;
+	font-size: 0.8em;
 	line-height: 1.3em;
 	margin-top: 0.5em;
+	margin-left: 1em;
+	margin-right: 0px;
 }
 
 .fullwidth figcaption {
 	margin-left: 15%;
+	margin-right: 2em;
 }
 
-.right figcaption {
+figure.spip_documents figcaption,figure.spip_documents_right figcaption {
 	text-align: right;
 }
-
-.left figcaption {
+figure.spip_documents_left {
+	text-align: left;
 }
 
+figcaption {
+	/* background: yellow; */
+}
+
+/* ecran large : .caption-right a la caption a droite */
 @media (min-width: 960px) {
-figure.text-left:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-  overflow: hidden;
-}
-figure.text-left > * {
-  float: left;
-}
-figure.text-left > figcaption {
-  display: inline-block;
-  width: 20%;
-  padding-left: 0.8em;
-}
-}
-
-/* eviter que les images ne flottent dans une colonne etroite
-
-  nb : normalement ça devrait dépendre de la largeur de la colonne qui reste…
-*/
-@media (max-width: 9px) {
-  figure {
-    margin-bottom: 1.5em;
-  }
-  figure.left {
-    float: none;
-    margin-right: 0;
-  }
-  figure.right {
-    float: none;
-    margin-left: 0;
-  }
+	figure.caption-right:after {
+		content: "\0020";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+		overflow: hidden;
+	}
+	figure.caption-right > * {
+		float: left;
+	}
+	figure.caption-right > figcaption {
+		display: inline-block;
+		width: 20%;
+		padding-left: 0.8em;
+		margin-left: 0;
+		margin-top: 0;
+	}
 }
 
+/* ecran etroit : les docs ne flottent plus */
+@media (max-width: 959px) {
+	.spip_documents_right, .spip_documents_left {
+		float: none !important;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	figure.spip_documents_right, figure.spip_documents_left {
+		display:table;
+	}
+	figure.spip_documents_right figcaption, figure.spip_documents_left figcaption {
+		text-align:left;
+	}
+}
+
+
+
+/* la legende de la colorbox */
+#cboxTitle {
+	font-weight: normal;
+	font-family: "Lucida Grande", sans-serif;
+	color: #fff;
+	font-size: 0.65rem;
+	padding: 0.25rem 1rem;
+	text-align: left;
+}
+#cboxPrevious, #cboxNext {
+background: none;
+border: none;
+}
+
+/* small-caps d'orthotypo */
+.caps {
+ font-size: 0.85em;
+}
 
