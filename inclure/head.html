@@ -26,6 +26,8 @@
 
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700);
 
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300);
+
 body { font-family: [(#GET{stack_serif_1})]; }
 h1 { font-family: [(#GET{stack_sans_1})]; }
 @media screen and (min-width: 600px) {
@@ -36,7 +38,8 @@ h1 { font-family: [(#GET{stack_sans_1})]; }
  @font-face {font-family: 'Alegreya';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/Alegreya-Bold.otf}') format('truetype');}
  @font-face {font-family: 'Alegreya';font-style: italic;src:url('#CHEMIN{stylesheets/polis/Alegreya-Italic.otf}') format('truetype');}
  body { font-family: cardo,'PT Serif', Merriweather,'Old Standard TT'[, (#GET{stack_serif_1})]; }
- h1 { font-family:  x-fengardo-neue-black, 'PT Sans', 'PT Serif', Merriweather,'Old Standard TT',cardo[, (#GET{stack_sans_1})]; font-weight:900; }
+ h1,h2,h3 { font-family:  Oswald, x-fengardo-neue-black, 'PT Sans', 'PT Serif', Merriweather,'Old Standard TT',cardo[, (#GET{stack_sans_1})]; font-weight:900; }
+ figcaption { font-family:  Oswald, x-fengardo-neue-black, 'PT Sans', 'PT Serif', Merriweather,'Old Standard TT',cardo[, (#GET{stack_sans_1})]; font-weight:normal; }
 }
 </style>
 
