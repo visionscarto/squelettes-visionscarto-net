@@ -207,7 +207,7 @@ figure.spip_documents_left {
    toutes les figures doivent avoir une légende qui reste liée à l'image
    .caption-right a la caption a droite (mais pas en écran étroit)
 */
-figure.spip_documents:not(.spip_documents_right) {
+figure.spip_documents:not(.spip_documents_right):not(.fullwidth) {
 	display: table;
 	margin-left: 0;
 }
@@ -284,8 +284,7 @@ border: none;
 
 
 div#spip-admin.spip-admin-float {
-position: fixed;
-right: 0%;
-bottom: -3px !important;
+position: absolute !important;
 font-size: 0.8rem;
 }
+#icone_travaux { position: absolute !important; opacity: 0.2; }
