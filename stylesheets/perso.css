@@ -244,6 +244,11 @@ figcaption {
 	}
 }
 
+/* la bio de l'auteur·e */
+.lead h5 {
+	font-size: 0.8em;
+	font-weight: normal;
+}
 
 
 /* la legende de la colorbox */
