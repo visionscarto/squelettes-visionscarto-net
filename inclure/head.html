@@ -15,6 +15,17 @@
 ]
 [(#SET{stack_serif_1,'"Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif'})]
 <style>
+/* @import url(http://fonts.googleapis.com/css?family=Vollkorn:400,400italic,700,700italic); */
+
+@import url(http://fonts.googleapis.com/css?family=Cardo:400,400italic,700);
+
+/* @import url(http://fonts.googleapis.com/css?family=Old+Standard+TT:400,400italic,700); */
+/* @import url(http://fonts.googleapis.com/css?family=Merriweather:400,400italic,900); */
+
+/*@import url(http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic);*/
+
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700);
+
 body { font-family: [(#GET{stack_serif_1})]; }
 h1 { font-family: [(#GET{stack_sans_1})]; }
 @media screen and (min-width: 600px) {
@@ -24,8 +35,8 @@ h1 { font-family: [(#GET{stack_sans_1})]; }
  @font-face {font-family: 'Alegreya';font-weight: normal;src:url('#CHEMIN{stylesheets/polis/Alegreya-Regular.otf}') format('truetype');}
  @font-face {font-family: 'Alegreya';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/Alegreya-Bold.otf}') format('truetype');}
  @font-face {font-family: 'Alegreya';font-style: italic;src:url('#CHEMIN{stylesheets/polis/Alegreya-Italic.otf}') format('truetype');}
- body { font-family: fengardo-neue[, (#GET{stack_serif_1})]; }
- h1 { font-family: fengardo-neue[, (#GET{stack_sans_1})]; font-weight:900; }
+ body { font-family: cardo,'PT Serif', Merriweather,'Old Standard TT'[, (#GET{stack_serif_1})]; }
+ h1 { font-family:  x-fengardo-neue-black, 'PT Sans', 'PT Serif', Merriweather,'Old Standard TT',cardo[, (#GET{stack_sans_1})]; font-weight:900; }
 }
 </style>
 
