@@ -72,7 +72,7 @@ margin-top: 0px;
 @media screen and (min-width: 600px) {
 	strong,b { color: #444; }
 	.inverted strong, .inverted b { color: #fff!important; }
-	p { text-align: justify; }
+	p { /*text-align: justify;*/ }
 	.texte iframe { margin-left: -5% }
 	.ifsmall {display: none !important}
 }
@@ -277,10 +277,18 @@ background: none;
 border: none;
 }
 
+.notes>div>p {
+	margin-bottom: 0.7em;
+}
+
 /* small-caps d'orthotypo */
 .caps {
  font-size: 0.85em;
 }
+
+/* appels de notes */
+.spip_note_ref { font-size: 0.5em; position: relative; top: -0.7em; }
+.spip_note_ref a { text-decoration: none; }
 
 
 div#spip-admin.spip-admin-float {
