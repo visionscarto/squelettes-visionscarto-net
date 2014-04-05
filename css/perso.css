@@ -81,6 +81,14 @@ h1,.h1 {
 	.ifsmall {display: none !important}
 }
 
+/* ecrans geants */
+@media screen and (min-width: 1500px) {
+	html { font-size: 180.1%; }
+}
+@media screen and (min-width: 2200px) {
+	html { font-size: 260.1%; }
+}
+
 
 /* header */
 header.cartouche {
