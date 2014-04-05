@@ -1,3 +1,4 @@
+<!-- DEBUT HEAD -->
 [(#REM)
 	Head standard de toutes les pages ;
 	les elements specifiques (title, description) figurent dans chaque squelette
@@ -15,41 +16,24 @@
 ]
 [(#SET{stack_serif_1,'"Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif'})]
 <style>
-/* @import url(http://fonts.googleapis.com/css?family=Vollkorn:400,400italic,700,700italic); */
-
 @import url(http://fonts.googleapis.com/css?family=Cardo:400,400italic,700);
-
-/* @import url(http://fonts.googleapis.com/css?family=Old+Standard+TT:400,400italic,700); */
-/* @import url(http://fonts.googleapis.com/css?family=Merriweather:400,400italic,900); */
-
-/*@import url(http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic);*/
-
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700);
-
-@import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300);
-
 @font-face {font-family: 'titling';font-weight:normal;src:url('http://www.thedailybeast.com/etc/clientlibs/dailybeast2/font/Titling-Gothic-FB-Cond-Standard.woff') format('woff');}
 
 body { font-family: [(#GET{stack_serif_1})]; }
 h1 { font-family: [(#GET{stack_sans_1})]; }
 @media screen and (min-width: 600px) {
- @font-face {font-family: 'LeagueGothic';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/leaguegothic-regular-webfont.ttf}') format('truetype');}
- @font-face {font-family: 'fengardo-neue';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/fengardoneue_regular-webfont.ttf}') format('truetype');}
- @font-face {font-family: 'fengardo-neue-black';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/fengardoneue_black-webfont.ttf}') format('truetype');}
- @font-face {font-family: 'Alegreya';font-weight: normal;src:url('#CHEMIN{stylesheets/polis/Alegreya-Regular.otf}') format('truetype');}
- @font-face {font-family: 'Alegreya';font-weight: bold;src:url('#CHEMIN{stylesheets/polis/Alegreya-Bold.otf}') format('truetype');}
- @font-face {font-family: 'Alegreya';font-style: italic;src:url('#CHEMIN{stylesheets/polis/Alegreya-Italic.otf}') format('truetype');}
- body { font-family: cardo,'PT Serif', Merriweather,'Old Standard TT'[, (#GET{stack_serif_1})]; }
- h1,h2,h3 { font-family: titling, Oswald, x-fengardo-neue-black, 'PT Sans', 'PT Serif', Merriweather,'Old Standard TT',cardo[, (#GET{stack_sans_1})]; font-weight:600; 
+
+ body { font-family: cardo[, (#GET{stack_serif_1})]; }
+ h1,h2,h3 { font-family: titling,cardo[, (#GET{stack_sans_1})]; font-weight:600; 
 
 /* 
  transform: scale(1,0.85);
 -ms-transform: scale(1,0.85);
 -webkit-transform: scale(1,0.85);
 */
-line-height: 1.2em !important;
+line-height: 1em !important;
 }
- .header p /* la date */, figcaption { font-family: titling, "Lucida Console", Monaco, monospace; }
+ .info-publi, figcaption { font-family: titling, "Lucida Console", Monaco, monospace; }
 }
 </style>
 
@@ -70,8 +54,8 @@ line-height: 1.2em !important;
 
 <link rel="stylesheet" type="text/css" class="ui" href="semantic-ui/build/packaged/css/semantic.min.css">
   
-<link rel="stylesheet" href="#CHEMIN{stylesheets/tinytypo.css}">
-<link rel="stylesheet" href="#CHEMIN{stylesheets/perso.css}">
+<link rel="stylesheet" href="#CHEMIN{css/tinytypo.css}">
+<link rel="stylesheet" href="#CHEMIN{css/perso.css}?date=#DATE">
 
 <!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -100,3 +84,5 @@ line-height: 1.2em !important;
 [<link rel="icon" type="image/x-icon" href="(#CHEMIN{favicon.ico})" />
 [<link rel="shortcut icon" type="image/x-icon" href="(#CHEMIN{favicon.ico})" />]]
 
+
+<!-- FIN HEAD -->

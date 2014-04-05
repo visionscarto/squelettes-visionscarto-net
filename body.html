@@ -1,0 +1,21 @@
+﻿<body>
+	<section class="page">
+		<header id="header"><INCLURE{fond=header/#ENV{type-page},env} /></header>
+		<nav class="hornav clearfix" id="nav"><INCLURE{fond=inclure/nav,env} /></nav>
+		<section class="container" id="container" role="main">
+
+<div onclick="if($('body').is('.pushed')) {$('.ui.sidebar').sidebar('toggle');}">
+<a class="logo" href="?page=plan" rel="start home"
+onclick="setTimeout(function(){$('#menu').sidebar('toggle');},20);return false;"
+>[(#LOGO_SITE_SPIP|image_reduire{120,*}|inserer_attribut{class,thumb})]</a>
+			<section class="content" id="content"><INCLURE{fond=content/#ENV{type-page},env} /></section>
+</div>
+
+			<nav class="ui vertical sidebar wide right menu" id="menu">
+			<INCLURE{fond=extra1/#ENV{type-page},env} />
+			</nav>
+			<!-- aside class="extra2 col" id="extra2">< INCLURE{fond=extra2/#ENV{type-page},env} /></aside -->
+		</section>
+		<footer id="footer"><INCLURE{fond=footer/#ENV{type-page},env} /></footer>
+	</section>
+</body>

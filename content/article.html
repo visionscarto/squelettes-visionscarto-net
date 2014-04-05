@@ -1,0 +1,92 @@
+﻿<BOUCLE_content(ARTICLES){id_article}>
+[(#REM) Fil d'Ariane ]
+<nav id="hierarchie"><a href="#URL_SITE_SPIP/"><:accueil_site:></a><BOUCLE_ariane(HIERARCHIE){id_article}><span class="sep"> &gt; </span><a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[<span class="sep"> &gt; </span><strong class="on">(#TITRE|couper{80})</strong>]</nav>
+
+
+[(#REM) ---------------------------------------------------
+
+   Calculs du contenu
+
+]
+[(#SET{bando,[(#SURTITRE*|propre|PtoBR|sinon{#LOGO_ARTICLE})]})]
+[(#SET{texte,[(#TEXTE)]})]
+
+
+
+[(#REM) ---------------------------------------------------
+
+   Reglage du bandeau  image
+
+][(#SET{bandeau,[(#GET{bando}|extraire_balise{img}|extraire_attribut{src})]})]
+[<style>(#GET{bandeau}|oui)
+
+@media screen and (max-width:767px) {
+ header.cartouche { background-image:none !important; }
+}
+@media screen and (min-width:768px) {
+header.cartouche {
+width:100%;
+min-height: 19rem;
+background-image: url([(#GET{bandeau})]);
+background-size: cover;
+}
+
+header.cartouche h1 {
+padding-top: 2em;
+padding-bottom: 0.2em;
+margin-top: 0;
+}
+
+/* en attente de chargement du background-image */
+header.cartouche {
+background-color: [#(#GET{bandeau}|image_reduire{10}|couleur_extraire{3,2}|couleur_foncer)];
+}
+header.cartouche * {
+color: white;
+text-shadow: 0.1em 0.05em 3px #555;
+}
+
+}
+
+header.cartouche {
+	margin-bottom: 1.5em;
+}
+
+</style>]
+
+
+
+
+<article class="content-principal">
+	<header class="cartouche fullwidth surtitre #EDIT{surtitre}
+	[
+	(#GET{bando}|extraire_balise{span}|extraire_attribut{class}|replace{adapt-img-wrapper })]">
+	<h1 class="#EDIT{titre}">#TITRE</h1>
+	[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</p>]
+	[<p class="info-publi">(#DATE_REDAC|sinon{#DATE}|sinon{#DATE_MODIF}|affdate)</p>]
+	<span class="clear">&nbsp;</span>
+
+	</header>
+
+	[<section class="#EDIT{chapo} chapo surlignable">(#CHAPO)</section>]
+	[<section class="#EDIT{texte} texte surlignable">(#TEXTE)</section>]
+	[<section class="#EDIT{hyperlien} hyperlien"><p><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p></section>]
+
+	[(#REM) Gestion du portfolio et des documents ]
+	[(#INCLURE{fond=inclure/documents,id_article})]
+
+
+
+	[<section class="ui red inverted piled segment  #EDIT{ps} ps surlignable">(#PS)</section>]
+
+	<footer>
+		[(#REM) Inclure le modele des liens de traductions ]
+		#MODELE{article_traductions}
+		[<aside class="notes"><h2><:info_notes:></h2>(#NOTES)</aside>]
+		[(#REM) inclure de partage RS ]
+		[(#REM) bloc precedent/suivant en guise de <nav></nav> ]
+	</footer>
+</article>
+
+
+</BOUCLE_content>

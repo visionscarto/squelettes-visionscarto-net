@@ -1,6 +1,99 @@
-body {margin:0}
+/* bloquer les largeurs maxi */
 
-.container p:first-of-type { width: 100%; }
+article > *:not(.fullwidth) > *:not(.fullwidth) {
+	margin-left: 3rem;
+	max-width: 42rem;
+	padding-right: 2em;
+}
+article > section.texte p:not(.fullwidth) {
+	max-width: 35rem;
+}
+article .notes p:not(.fullwidth) {
+	max-width: 30rem;
+}
+
+.surtitre, .surtitre *,
+.fullwidth, .fullwidth span, .fullwidth figure, .fullwidth img {
+	margin-left: 0;
+	margin-right: 0;
+	max-width: 100%;
+	width: 100%;
+}
+
+img { max-width: 100% }
+
+/* effacer les blocs qui nous embetent et tout caler en haut */
+
+#header, #nav, #hierarchie {display:none}
+
+#footer { display: none; } /* TODO */
+
+.surtitre figure { margin-top: 0 }
+html {
+background-color: #ddd;
+}
+body {margin: 0; width: 100%; max-width: 3000px; background-color: white; }
+
+.surtitre figure * { width: 100%!important; height: auto; }
+
+
+/* base font size */
+html { font-size: 145.1%; }
+
+html { line-height: 1.2em; }
+
+.content p { line-height: 1.43em; }
+
+h1,.h1 {
+ font-size: 4em;
+ margin: 0.5em 3rem 0.3em;
+ line-height: 0.95em;
+}
+
+
+/* responsive font size and margins */
+@media screen and (max-width: 1299px) {
+	html { font-size: 135.1%; }
+}
+
+@media screen and (max-width: 959px) {
+	html { font-size: 125.1%; }
+	/* ecran etroit : les docs ne flottent plus */
+	.spip_documents_right, .spip_documents_left {
+		float: none !important;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	article > *:not(.fullwidth) > *:not(.fullwidth) {
+		margin-left: 1rem;
+		padding-right: 1rem;
+	}
+	.content p { line-height: 1.3em; }
+}
+@media screen and (max-width: 599px) {
+	html { font-size: 110.1%; }
+	.iflarge {display: none !important}
+}
+@media screen and (min-width: 600px) {
+	strong,b { color: #444; }
+	.inverted strong, .inverted b { color: #fff!important; }
+	p { /*text-align: justify;*/ }
+	.ifsmall {display: none !important}
+}
+
+
+/* header */
+header.cartouche {
+	padding-left: 3rem;
+	padding-right: 2rem;
+}
+.info-publi {
+	text-align:right;
+}
+
+
+/* paragraphs */
+
 .container p {  }
 p.in:first-line, h2 + p:first-line { font-variant:small-caps }
 
@@ -29,53 +122,17 @@ border:0;
 }
 
 
-html { font-size: 145.1%; }
-
-html { line-height: 1.2em; }
-
-.header h1,.header .h1 {
- font-size: 4em;
- margin: 0.5em 4% 0.3em;
- line-height: 0.95em;
- }
-.content { max-width: 58em; }
-.content p { line-height: 1.43em; }
-.content p { max-width: 34em; }
-
-.lead {
+/* chapo */
+.chapo {
   font-weight: 900;
-  color: #444;}
-.inverted .lead {
+  color: #444;
+  }
+.inverted .chapo {
   color: #fff;
 }
-
-.surtitre dl {
-margin-top: 0px;
-}
-
-@media screen and (max-width: 1299px) {
-	html { font-size: 135.1%; }
-}
-
-@media screen and (max-width: 959px) {
-	html { font-size: 125.1%; }
-	/* ecran etroit : les docs ne flottent plus */
-	.spip_documents_right, .spip_documents_left {
-		float: none !important;
-		margin-left: auto;
-		margin-right: auto;
-	}
-}
-@media screen and (max-width: 599px) {
-	html { font-size: 110.1%; }
-	.iflarge {display: none !important}
-}
-@media screen and (min-width: 600px) {
-	strong,b { color: #444; }
-	.inverted strong, .inverted b { color: #fff!important; }
-	p { /*text-align: justify;*/ }
-	.texte iframe { margin-left: -5% }
-	.ifsmall {display: none !important}
+.chapo p {
+  text-align: justify;
+  max-width: 42em !important;
 }
 
 h2, .h2, h3, .h3  {margin-top: 0.7em; margin-bottom: 0.3em;}
@@ -124,37 +181,6 @@ blockquote { z-index: 0; }
 }
 
 
-/* eviter que la page n'explose lorsqu'on decale le menu */
-body.pushed dl { max-width: 50em; }
-
-
-/* compenser les padding ajoutés par ui.page.grid pour les images .fullwidth */
-
-@media only screen and (max-width : 991px) {
-  .ui.page.grid .fullwidth {
-    margin: 0% -6%;
-  }
-}
-@media only screen and (min-width : 992px) {
-  .ui.page.grid .fullwidth {
-    margin: 0% -11.4%;
-  }
-}
-@media only screen and (min-width : 1500px) {
-  .ui.page.grid .fullwidth {
-    margin: 0% -19.7%;
-  }
-}
-@media only screen and (min-width : 1750px) {
-  .ui.page.grid .fullwidth {
-    margin: 0% -20%;
-  }
-}
-@media only screen and (min-width : 2000px) {
-  .ui.page.grid .fullwidth {
-    margin: 0% -20%;
-  }
-}
 
 /* style effects généralisés (pas seulement img) */
 .round {
@@ -179,9 +205,12 @@ span.shadow {
 figcaption {
 	font-size: 0.8em;
 	line-height: 1.3em;
-	margin-top: 0.5em;
-	margin-left: 1em;
-	margin-right: 0px;
+	margin-top: 0.4em;
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+.fullwidth figcaption {
+	padding-right: 1rem;
 }
 
 .album figcaption {
@@ -191,6 +220,10 @@ figcaption {
 	margin-top: 1em;
 	margin-bottom: 0.7em;
 	text-align: left;
+}
+section:after {
+	content: " ";
+	clear: both;
 }
 
 .fullwidth figcaption {
@@ -209,10 +242,8 @@ figure.spip_documents_left {
    toutes les figures doivent avoir une légende qui reste liée à l'image
    .caption-right a la caption a droite (mais pas en écran étroit)
 */
-figure.spip_documents:not(.spip_documents_right):not(.fullwidth) {
-	display: table;
-	margin-left: 0;
-}
+div>figure { margin-top: 0; }
+
 figcaption {
 /*	display: table-caption;
 	caption-side: bottom;
@@ -250,16 +281,19 @@ figcaption {
 		margin-left: auto;
 		margin-right: auto;
 	}
-	figure.spip_documents_right, figure.spip_documents_left {
-		display:table;
+	figure.spip_documents, figure.spip_documents_right, figure.spip_documents_left {
+		text-align: left;
+		margin-left: 0;
 	}
 	figure.spip_documents_right figcaption, figure.spip_documents_left figcaption {
 		text-align:left;
+		margin-left: 0;
+		
 	}
 }
 
 /* la bio de l'auteur·e */
-.lead h5 {
+.chapo h5 {
 	font-size: 0.8em;
 	font-weight: normal;
 }
@@ -279,10 +313,13 @@ background: none;
 border: none;
 }
 
-.notes>div>p {
-	margin-bottom: 0.7em;
+
+.notes > div {
 	padding-left: 1em;
 	text-indent: -1em;
+}
+.notes>div>p {
+	margin-bottom: 0.7em;
 }
 
 /* small-caps d'orthotypo */
@@ -291,7 +328,8 @@ border: none;
 }
 
 /* appels de notes */
-.spip_note_ref { font-size: 0.5em; position: relative; top: -0.5em; }
+footer .notes h2 { display:none }
+.notes .spip_note_ref, .spip_note_ref { display: inline; font-size: 0.5em; position: relative; top: -0.5em; }
 .spip_note_ref a { text-decoration: none; }
 
 
@@ -300,3 +338,12 @@ position: absolute !important;
 font-size: 0.8rem;
 }
 #icone_travaux { position: absolute !important; opacity: 0.2; }
+
+
+body {position: absolute;
+	left:0;
+} body.pushed {
+    -webkit-transition:left 0.5s;
+    transition:left 0.5s;
+	left:-350px;
+}
