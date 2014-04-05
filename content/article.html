@@ -9,7 +9,6 @@
 
 ]
 [(#SET{bando,[(#SURTITRE*|propre|PtoBR|sinon{#LOGO_ARTICLE})]})]
-[(#SET{texte,[(#TEXTE)]})]
 
 
 
@@ -69,7 +68,7 @@ header.cartouche {
 	</header>
 
 	[<section class="#EDIT{chapo} chapo surlignable">(#CHAPO)</section>]
-	[<section class="#EDIT{texte} texte surlignable">(#TEXTE)</section>]
+	[<section class="#EDIT{texte} texte surlignable">(#TEXTE|adaptive_images{2048})</section>]
 	[<section class="#EDIT{hyperlien} hyperlien"><p><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p></section>]
 
 	[(#REM) Gestion du portfolio et des documents ]
