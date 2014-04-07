@@ -26,7 +26,7 @@
 	|sinon{#GET{captionspip}}
 )]})]
 
-[(#SET{caption,[<div class="title">(#TITLE)</div>]#CAPTION[<div class="credits">(#CREDIT|sinon{#CREDITS})<div>]})]
+[(#SET{caption,[<div class="title">(#TITLE)</div>]#GET{caption}[<div class="credits">(#CREDIT|sinon{#CREDITS})<div>]})]
 
 <div class="#ENV{class}"><figure class='[spip_document_(#ID_DOCUMENT) ]spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})] spip_lien_ok'>
 [<span class="(#IMGCLASS)">][<a href="(#GET{NONfichier})"[ class="(#ENV{lien_class}|concat{" display_box"})"][ (#ENV{lien}|?{'',type="image/jpeg"})]>]<img src='#GET{fichier}' width='#GET{width}' height='#GET{height}'[
