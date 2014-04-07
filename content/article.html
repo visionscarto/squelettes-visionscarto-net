@@ -20,18 +20,21 @@
 [<style>(#GET{bandeau}|oui)
 
 @media screen and (max-width:767px) {
- header.cartouche { background-image:none !important; }
+ header.cartouche { background-image:none !important;
+ padding-left: 1rem;
+ padding-right: 1.5rem;
+}
 }
 @media screen and (min-width:768px) {
 header.cartouche {
 width:100%;
-min-height: 19rem;
+min-height: 14rem;
 background-image: url([(#GET{bandeau})]);
 background-size: cover;
 }
 
 header.cartouche h1 {
-padding-top: 2em;
+padding-top: 1.5em;
 padding-bottom: 0.2em;
 margin-top: 0;
 }

@@ -27,15 +27,11 @@ body { font-family: [(#GET{stack_serif_1})]; }
 h1 { font-family: [(#GET{stack_sans_1})]; }
 @media screen and (min-width: 600px) {
 
- body { font-family: cardo[, (#GET{stack_serif_1})]; }
- h1,h2,h3 { font-family: titling,cardo[, (#GET{stack_sans_1})]; font-weight:600; 
-
-/* 
- transform: scale(1,0.85);
--ms-transform: scale(1,0.85);
--webkit-transform: scale(1,0.85);
-line-height: 1em !important;
-*/
+body { font-family: cardo[, (#GET{stack_serif_1})]; }
+h1,h2,h3 { font-family: titling,cardo[, (#GET{stack_sans_1})]; font-weight:600; 
+        transform: scale(1,0.9);
+    -ms-transform: scale(1,0.9);
+-webkit-transform: scale(1,0.9);
 }
  .info-publi, figcaption { font-family: titling, "Lucida Console", Monaco, monospace; }
 }
