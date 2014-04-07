@@ -1,21 +1,24 @@
 ﻿<body>
 	<section class="page">
 		<header id="header"><INCLURE{fond=header/#ENV{type-page},env} /></header>
-		<nav class="hornav clearfix" id="nav"><INCLURE{fond=inclure/nav,env} /></nav>
-		<section class="container" id="container" role="main">
+		<section class="container" id="container" role="main"
+		onclick="if($('body').is('.pushed')) {$('.ui.sidebar').sidebar('toggle');}"
+		>
 
-<div onclick="if($('body').is('.pushed')) {$('.ui.sidebar').sidebar('toggle');}">
-<a class="logo" href="?page=plan" rel="start home"
-onclick="setTimeout(function(){$('#menu').sidebar('toggle');},20);return false;"
->[(#LOGO_SITE_SPIP|image_reduire{120,*}|inserer_attribut{class,thumb})]</a>
-			<section class="content" id="content"><INCLURE{fond=content/#ENV{type-page},env} /></section>
-</div>
+		<a class="logo" href="?page=plan" rel="start home"
+		onclick="setTimeout(function(){$('#menu').sidebar('toggle');},20);return false;"
+		>[(#LOGO_SITE_SPIP|image_reduire{120,*}
+			|inserer_attribut{class,thumb})]</a>
 
-			<nav class="ui vertical sidebar wide right menu" id="menu">
-			<INCLURE{fond=extra1/#ENV{type-page},env} />
-			</nav>
-			<!-- aside class="extra2 col" id="extra2">< INCLURE{fond=extra2/#ENV{type-page},env} /></aside -->
+			<section class="content" id="content"><INCLURE{fond=content/#ENV{type-page},env} />
+			</section>
+
 		</section>
+
+		<nav class="ui vertical sidebar wide right menu hornav" id="menu">
+		<INCLURE{fond=inclure/nav} />
+		</nav>
+
 		<footer id="footer"><INCLURE{fond=footer/#ENV{type-page},env} /></footer>
 	</section>
 </body>
