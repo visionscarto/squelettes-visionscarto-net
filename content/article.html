@@ -33,25 +33,27 @@ background-image: url([(#GET{bandeau})]);
 background-size: cover;
 }
 
-header.cartouche h1 {
-padding-top: 1.5em;
-padding-bottom: 0.2em;
-margin-top: 0;
-}
-
 /* en attente de chargement du background-image */
 header.cartouche {
-background-color: [#(#GET{bandeau}|image_reduire{10}|couleur_extraire{3,2}|couleur_foncer)];
+background-color: [#(#GET{bandeau}|image_reduire{10}|couleur_extraire{5,6}|couleur_luminance{0.8})];
 }
 header.cartouche * {
+[(#SET{c1,#GET{bandeau}|couleur_extraire})]
+[(#SET{c2,#GET{c1}|couleur_foncer_si_claire})]
 color: white;
-text-shadow: 0.1em 0.05em 3px #555;
+text-shadow: 0.2rem 0.15rem 3px ##GET{c2}[, -1px -1px 2px #(#GET{c1}|couleur_extreme|=={ffffff}|?{#GET{c2}})];
 }
 
 }
 
 header.cartouche {
 	margin-bottom: 1.5em;
+}
+
+header.cartouche h1 {
+margin-top: 0;
+padding-top: 2.5rem;
+padding-bottom: 0.2em;
 }
 
 </style>]
