@@ -221,6 +221,10 @@ figcaption {
 	padding-right: 1rem;
 }
 
+figcaption { color: #777; }
+figcaption .title { color: black; }
+figcaption .credits { color: #aaa; font-size: 0.8em; }
+
 .album figcaption {
 	font-size: 1.2em;
 	font-weight: 400;
