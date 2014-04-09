@@ -66,7 +66,7 @@ padding-bottom: 0.2em;
 	[
 	(#GET{bando}|extraire_balise{span}|extraire_attribut{class}|replace{adapt-img-wrapper })]">
 	<h1 class="#EDIT{titre}">#TITRE</h1>
-	[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</p>]
+	[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE|pretty_hashtags)</p>]
 	[<p class="info-publi">(#DATE_REDAC|sinon{#DATE}|sinon{#DATE_MODIF}|affdate)</p>]
 	<span class="clear">&nbsp;</span>
 
@@ -79,14 +79,22 @@ padding-bottom: 0.2em;
 	[(#REM) Gestion du portfolio et des documents ]
 	[(#INCLURE{fond=inclure/documents,id_article})]
 
-
-
-	[<section class="ui red inverted piled segment  #EDIT{ps} ps surlignable">(#PS)</section>]
-
 	<footer>
 		[(#REM) Inclure le modele des liens de traductions ]
 		#MODELE{article_traductions}
 		[<aside class="notes"><h2><:info_notes:></h2>(#NOTES)</aside>]
+
+		[<section class="#EDIT{ps} ps surlignable">(#PS)</section>]
+
+		[<section id="appel" class="ui inverted segment #EDIT{ps}" ></section>
+		<script type='text/javascript'>
+		$('#appel')
+		.html(
+			(#APPEL|sinon{"Cette recherche en cours, n'hésitez pas à nous contacter quoi"}|json_encode)
+		);
+		</script>
+		]
+  
 		[(#REM) inclure de partage RS ]
 		[(#REM) bloc precedent/suivant en guise de <nav></nav> ]
 	</footer>
