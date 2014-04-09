@@ -221,9 +221,9 @@ figcaption {
 	padding-right: 1rem;
 }
 
-figcaption { color: #777; }
-figcaption .title { color: black; }
-figcaption .credits { color: #aaa; font-size: 0.8em; }
+figcaption { color: #888; }
+figcaption .title { color: #333; }
+figcaption .credits { color: #aaa; }
 
 .album figcaption {
 	font-size: 1.2em;
@@ -262,8 +262,18 @@ figcaption {
 */
 }
 @media (min-width: 960px) {
+	/* par defaut on est aligne à gauche, la legende ne doit pas deborder */
+	figure.spip_documents {
+		display: table;
+		margin-left: 0;
+		max-width: 100%
+	}
+	figure.spip_documents_right {
+		margin-left: 1.5em;
+	}
 	figure.caption-right {
 		display: block;
+		position: relative;
 	}
 	figure.caption-right:after {
 		content: "\0020";
@@ -284,6 +294,15 @@ figcaption {
 		margin-left: 0;
 		margin-top: 0;
 	}
+	/* attention: absolute explose avec les legendes qui seraient plus hautes que l'image, car elle ne cree pas de margin-top */
+	figure.caption-right > figcaption > div {
+		position: absolute; 
+		bottom:0;
+		min-width: 12em;
+		max-width: 25%;
+	}
+	/* que faire des triples legendes en fullwidth ? */
+	figure.fullwidth > figcaption > div > div { /* ?? */ }
 }
 
 /* ecran etroit : les docs ne flottent plus */
@@ -358,4 +377,22 @@ body {position: absolute;
     -webkit-transition:left 0.5s;
     transition:left 0.5s;
 	left:-350px;
+}
+
+/* eviter de coller les crayons juste au bord (effet de bord du 100%) */
+.crayon-html {
+	left:3rem!important;
+}
+.formulaire_crayon .crayon-active {
+	border: 1px dashed #ccc !important;
+}
+
+/* appel a collaboration */
+#appel {
+	background-color: #92100E; /* rouge sombre */
+}
+
+/* annuler les coins arrondis de semantic-ui */
+.ui.segment {
+ border-radius: 0 !important;
 }
