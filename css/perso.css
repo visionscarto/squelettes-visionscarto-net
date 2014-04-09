@@ -419,3 +419,9 @@ blockquote {
 ul.spip li {
 	list-style-type: square;
 }
+
+/* background sous la cbox */
+#cboxOverlay {
+	background-color: black !important;
+	opacity: 0.7 !important;
+}
