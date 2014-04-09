@@ -396,3 +396,21 @@ body {position: absolute;
 .ui.segment {
  border-radius: 0 !important;
 }
+
+
+/* quote */
+blockquote.spip {
+    background-color: #ECECE4;
+    border: 0px none;
+    padding: 20px 15px 10px;
+    margin: 2em 0px;
+}
+blockquote.spip:before {
+	content: ''; /* annuler le << de tinytypo */
+}
+/* blockquote (natif HTML) */
+blockquote {
+	max-width: 32em !important;
+}
+
+/* aside class=box (fourni par tinytypo) */
