@@ -429,3 +429,21 @@ ul.spip li {
 	background-color: black !important;
 	opacity: 0.7 !important;
 }
+
+/* les liens ! */
+.content a {
+text-decoration: none;
+border-bottom: 1px #a11 inset;
+}
+.content a:hover {
+border-bottom: 3px #a11 inset
+}
+a:link {
+transition: all 0s; /* contre tinytypo */
+}
+a.spip_out:after {
+  content: "\0000a0\279A";
+  font-size: 0.6em;
+  position: relative;
+  bottom: 0.4em;
+}
