@@ -388,8 +388,8 @@ body {position: absolute;
 }
 
 /* appel a collaboration */
-#appel {
-	background-color: #92100E; /* rouge sombre */
+#appel > div.inverted {
+	background-color: #92100E !important; /* rouge sombre */
 }
 
 /* annuler les coins arrondis de semantic-ui */

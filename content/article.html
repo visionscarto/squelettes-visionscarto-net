@@ -86,14 +86,14 @@ padding-bottom: 0.2em;
 
 		[<section class="#EDIT{ps} ps surlignable">(#PS)</section>]
 
-		[<section id="appel" class="ui inverted segment #EDIT{ps}" ></section>
+		<section id="appel" class="#EDIT{appel}" ></section>
 		<script type='text/javascript'>
 		$('#appel')
 		.html(
-			(#APPEL|sinon{"Cette recherche en cours, n'hésitez pas à nous contacter quoi"}|json_encode)
+			[(#VAL{[<div class="ui inverted segment">(#APPEL*|propre)</div>]}|json_encode)]
 		);
 		</script>
-		]
+		
   
 		[(#REM) inclure de partage RS ]
 		[(#REM) bloc precedent/suivant en guise de <nav></nav> ]
