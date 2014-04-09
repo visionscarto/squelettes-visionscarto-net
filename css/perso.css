@@ -414,3 +414,8 @@ blockquote {
 }
 
 /* aside class=box (fourni par tinytypo) */
+
+/* listes à puce de base (simple tiret ou -* */
+ul.spip li {
+	list-style-type: square;
+}
