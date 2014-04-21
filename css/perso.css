@@ -256,11 +256,12 @@ figure.spip_documents_left {
 */
 div>figure { margin-top: 0; }
 
-figcaption {
-/*	display: table-caption;
-	caption-side: bottom;
-*/
+figcaption {}
+figcaption > div > div {
+	display: inline-block;
+	margin-right: 1em;
 }
+
 @media (min-width: 960px) {
 	/* par defaut on est aligne à gauche, la legende ne doit pas deborder */
 	figure.spip_documents {
@@ -301,8 +302,9 @@ figcaption {
 		min-width: 12em;
 		max-width: 25%;
 	}
-	/* que faire des triples legendes en fullwidth ? */
-	figure.fullwidth > figcaption > div > div { /* ?? */ }
+	figure.caption-right > figcaption > div > div {
+		display: block;
+	}
 }
 
 /* ecran etroit : les docs ne flottent plus */
@@ -333,7 +335,7 @@ figcaption {
 /* la legende de la colorbox */
 #cboxTitle {
 	font-weight: normal;
-	font-family: "Lucida Grande", sans-serif;
+	font-family: "nitti-grotesk", "Lucida Grande", sans-serif;
 	color: #fff;
 	font-size: 0.65rem;
 	padding: 0.25rem 1rem;

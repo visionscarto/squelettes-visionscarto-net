@@ -26,7 +26,7 @@
 	|sinon{#GET{captionspip}}
 )]})]
 
-[(#SET{caption,[<div class="title">(#TITLE)</div>][(#GET{caption})][<div class="credits">(#CREDIT|sinon{#CREDITS})<div>]})]
+[(#SET{caption,[<div class="title">(#TITLE)</div>][<div class="caption">(#GET{caption})</div>][<div class="credits">(#CREDIT|sinon{#CREDITS})<div>]})]
 
 [(#REM) on encapsule un coup pour pouvoir "position:absolute;bottom:0;"]
 [(#SET{caption,[<div>(#GET{caption})</div>]})]
