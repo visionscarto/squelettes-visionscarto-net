@@ -1,3 +1,10 @@
+<div style="max-width: 100%;">
+<div style="max-width: 520px;">
+<style>
+.formulaire_contact_libre label {display:block}
+.formulaire_contact_libre textarea {max-width:90%}
+</style>
+
 <div class="formulaire_spip formulaire_contact_libre ajax" id="formulaire_contact_libre#ENV{id}">
 <br class='bugajaxie' />
 [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
@@ -9,7 +16,7 @@
 	[(#REM) Previsualisation... ]
 	[(#ENV*{erreurs}|table_valeur{previsu}|oui)
 	<fieldset class="previsu">
-		<legend><:previsualisation:></legend>
+		<legend>Relire votre message avant de l'envoyer</legend>
 		<ul>
 			<li><strong>#ENV{sujet_message}</strong> - <em>#ENV{email_message}</em></li>
 			<li>[(#ENV{texte_message}|nl2br)]</li>
@@ -18,6 +25,10 @@
 	</fieldset>
 	]
 	[(#REM) Sinon, formulaire normal ]
+
+	[(#VAL{'{{{Pour nous &eacute;crire}}}
+	 Vous pouvez nous envoyer un email &agrave; l&#8217;adresse '}|concat{#ENV{email_message}}|concat{', ou bien utiliser le formulaire ci-dessous.'}|propre)]
+
 	<fieldset>
 		<legend><:envoyer_message:></legend>
 		<ul>
@@ -46,4 +57,7 @@
 	<p class="boutons"><input type="submit" class="submit" name="valide" value="<:form_prop_envoyer:>" /></p>
 </form>
 ]
+</div>
+
+</div>
 </div>
