@@ -27,7 +27,7 @@
 	[(#REM) Sinon, formulaire normal ]
 
 	[(#VAL{'{{{Pour nous &eacute;crire}}}
-	 Vous pouvez nous envoyer un email &agrave; l&#8217;adresse '}|concat{#ENV{email_message}}|concat{', ou bien utiliser le formulaire ci-dessous.'}|propre)]
+	 Vous pouvez nous envoyer un email &agrave; l&#8217;adresse '}|concat{#ENV{_pipelines/formulaire_fond/args/0}}|concat{', ou bien utiliser le formulaire ci-dessous.'}|propre)]
 
 	<fieldset>
 		<legend><:envoyer_message:></legend>
