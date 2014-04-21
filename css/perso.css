@@ -163,7 +163,11 @@ blockquote { border: 0 }
 
 .notes { font-size: 0.85em; color: #666; }
 
-
+#appel>div {
+width: 42em;
+padding-left: 3em;
+padding-right: 3em;
+}
 
 /* fixes tinytypo for SPIP */
 .formulaire_spip ul,
