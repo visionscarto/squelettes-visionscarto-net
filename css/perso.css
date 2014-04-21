@@ -153,7 +153,7 @@ font-family: "Gill Sans", "Lucida Grande", "Verdana", sans-serif;
 }
 
 /* interactions parfois difficiles avec semantic-ui */
-.box { padding: 0.6rem 0.6rem 0.6rem 0.6rem;}
+.box { padding: 0.6rem 3em;}
 .box p { margin-bottom: 0 }
 blockquote { border: 0 }
 .center { margin-left: auto!important; margin-right: auto!important}
