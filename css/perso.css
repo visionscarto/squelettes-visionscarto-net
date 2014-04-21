@@ -449,3 +449,12 @@ a.spip_out:after {
   position: relative;
   bottom: 0.4em;
 }
+
+/* la reponse au formulaire de contact */
+.reponse_formulaire {
+border: solid gray 1px;
+padding: 1em;
+}
+.reponse_formulaire_ok {
+border: solid green 1px;
+}
