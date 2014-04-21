@@ -55,3 +55,25 @@ function urlencode_1738_plus($url) {
 	return quote_amp($uri);
 }
 
+
+
+function formulaires_contact_libre_traiter($adresse, $url='', $sujet=''){
+	
+	$adres = _request('email_message');
+	$sujet = _request('sujet_message');
+	$texte = _request('texte_message');
+	
+	$texte .= "\n\n-- "._T('envoi_via_le_site')." ".supprimer_tags(extraire_multi($GLOBALS['meta']['nom_site']))." (".$GLOBALS['meta']['adresse_site']."/) --\n";
+	if($url)
+		$texte .= "\n\n-- Depuis la page : ".supprimer_tags($url)." --\n";
+	$envoyer_mail = charger_fonction('envoyer_mail','inc');
+	if ($envoyer_mail($adresse, $sujet, $texte, $adres,
+	"X-Originating-IP: ".$GLOBALS['ip']))
+		return array('message_ok' =>
+			_L("Merci, votre message a bien été envoyé.") //_T('form_prop_message_envoye')
+			. "<br /><br />"
+			. _L("Nous vous répondrons très vite.")
+		);
+	else
+		return array('message_erreur' => _T('pass_erreur_probleme_technique'));
+}
