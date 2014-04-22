@@ -462,3 +462,11 @@ padding: 1em;
 .reponse_formulaire_ok {
 border: solid green 1px;
 }
+
+/* tables de la collection cartographique */
+table.spip {margin-bottom: 1em; font-family: nitti-grotesk; }
+table.spip>thead { font-size: 1.3em; }
+table.spip>tr {}
+table.spip th:first-child, table.spip td:first-child {min-width: 9rem; }
+table.spip tr > * {vertical-align: top; line-height: 1.3em; text-align: left; padding-left: 0.3rem; padding-right: 1rem; padding-bottom: 0.4rem;}
+table.spip tr.row_even td,table.spip tr.row_even th{background:none}

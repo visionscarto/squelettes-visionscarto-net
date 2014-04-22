@@ -9,8 +9,12 @@
 
 ]
 [(#SET{bando,[(#SURTITRE*|propre|PtoBR|sinon{#LOGO_ARTICLE})]})]
+[(#SET{grotitre,[<h1 class="#EDIT{titre}">(#TITRE)</h1>]})]
 
-
+<BOUCLE_r(RUBRIQUES){id_rubrique}{si (#ID_RUBRIQUE|=={7})}>
+[(#SET{bando,[(#TEXTE|PtoBR|sinon{#LOGO_ARTICLE})]})]
+[(#SET{grotitre,[<h1 class="#EDIT{titre}">(#TITRE)</h1>]})]
+</BOUCLE_r>
 
 [(#REM) ---------------------------------------------------
 
@@ -63,7 +67,7 @@ padding-bottom: 0.2em;
 	<header class="cartouche fullwidth surtitre #EDIT{surtitre}
 	[
 	(#GET{bando}|extraire_balise{span}|extraire_attribut{class}|replace{adapt-img-wrapper })]">
-	<h1 class="#EDIT{titre}">#TITRE</h1>
+	#GET{grotitre}
 	[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE|pretty_hashtags)</p>]
 	[<p class="info-publi">(#DATE_REDAC|sinon{#DATE}|sinon{#DATE_MODIF}|affdate)</p>]
 	<span class="clear">&nbsp;</span>
