@@ -74,9 +74,9 @@ padding-bottom: 0.2em;
 
 	</header>
 
-	[<section class="#EDIT{chapo} chapo surlignable">(#CHAPO)</section>]
+	[<section class="#EDIT{chapo} chapo surlignable">(#CHAPO|pretty_hashtags)</section>]
 
-	[<section class="#EDIT{texte} texte surlignable">(#TEXTE|adaptive_images{2048})</section>]
+	[<section class="#EDIT{texte} texte surlignable">(#TEXTE|pretty_hashtags|adaptive_images{2048})</section>]
 	[<section class="#EDIT{hyperlien} hyperlien"><p><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p></section>]
 
 	[(#REM) Gestion du portfolio et des documents ]
@@ -87,13 +87,11 @@ padding-bottom: 0.2em;
 		#MODELE{article_traductions}
 		[<aside class="notes"><h2><:info_notes:></h2>(#NOTES)</aside>]
 
-		[<section class="#EDIT{ps} ps surlignable">(#PS)</section>]
-
-		<aside id="appel" class="#EDIT{appel}" ></aside>
+		<aside id="appel" class="fullwidth #EDIT{appel}" ></aside>
 		<script type='text/javascript'>
 		$('#appel')
 		.html(
-			[(#VAL{[<div class="ui inverted segment">(#APPEL*|propre)</div>]}|json_encode)]
+			[(#VAL{[<div class="ui inverted segment">(#PS)</div>]}|json_encode)]
 		);
 		</script>
 		
