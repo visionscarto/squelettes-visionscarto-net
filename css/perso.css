@@ -470,3 +470,8 @@ table.spip>tr {}
 table.spip th:first-child, table.spip td:first-child {min-width: 9rem; }
 table.spip tr > * {vertical-align: top; line-height: 1.3em; text-align: left; padding-left: 0.3rem; padding-right: 1rem; padding-bottom: 0.4rem;}
 table.spip tr.row_even td,table.spip tr.row_even th{background:none}
+
+.lien_hash { color: #666; }
+
+/* plan du site */
+.page_plan h3 {display:none}
