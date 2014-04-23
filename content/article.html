@@ -69,7 +69,7 @@ padding-bottom: 0.2em;
 	(#GET{bando}|extraire_balise{span}|extraire_attribut{class}|replace{adapt-img-wrapper })]">
 	#GET{grotitre}
 	[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE|pretty_hashtags)</p>]
-	[<p class="info-publi">(#DATE_REDAC|sinon{#DATE}|sinon{#DATE_MODIF}|affdate)</p>]
+	[<p class="info-publi">(#ID_RUBRIQUE|=={1}|?{' '}|sinon{#DATE_REDAC}|sinon{#DATE}|sinon{#DATE_MODIF}|affdate)</p>]
 	<span class="clear">&nbsp;</span>
 
 	</header>
