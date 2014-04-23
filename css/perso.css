@@ -26,8 +26,6 @@ img { max-width: 100% }
 
 #header, #nav, #hierarchie {display:none}
 
-#footer { display: none; } /* TODO */
-
 .surtitre figure { margin-top: 0 }
 html {
 background-color: #ddd;
@@ -311,7 +309,7 @@ figcaption > div > div {
 	}
 }
 
-/* ecran etroit : les docs ne flottent plus */
+/* ecran etroit : les docs ne flottent plus ; les titres sont un peu moins gros */
 @media (max-width: 959px) {
 	.spip_documents_right, .spip_documents_left {
 		float: none !important;
@@ -326,6 +324,10 @@ figcaption > div > div {
 		text-align:left;
 		margin-left: 0;
 		
+	}
+
+	h1,.h1 {
+		font-size:2.5em!important;
 	}
 }
 
@@ -475,3 +477,17 @@ table.spip tr.row_even td,table.spip tr.row_even th{background:none}
 
 /* plan du site */
 .page_plan h3 {display:none}
+
+
+/* pied de page ! */
+#footer {
+NOdisplay: none;
+background: black;
+color: white;
+padding-top: 2em;
+padding-bottom: 5em;
+padding-left: 1em;
+padding-right: 1em;
+}
+/* necessaire pour que le pied touche bien par terre */
+section.page:after { content:none }

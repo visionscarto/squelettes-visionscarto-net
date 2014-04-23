@@ -1,7 +1,7 @@
+<BOUCLE_a(ARTICLES){!par popularite}{0,10}{id_rubrique!=1}{doublons populaires} />
+<BOUCLE_b(ARTICLES){!doublons populaires}{exclus}{par hasard}{0,1}>
+<div><p>À découvrir ensuite sur Visionscarto&nbsp;:
+<h1><a href="#URL_ARTICLE">#TITRE</a></h1>
+<p class='text-center'>[<:par_auteur:>(#LESAUTEURS|supprimer_tags), ][(#DATE_REDAC|sinon{#DATE}|affdate_court)]</p>
+</BOUCLE_b>
 
-<a href="http://www.spip.net/" title="<:site_realise_avec_spip:>">[(#CHEMIN{spip.png}|balise_img{SPIP})]</a>[<span class="sep">
-(#SESSION{id_auteur}|oui)| </span><a href="#URL_LOGOUT" rel="nofollow"><:icone_deconnecter:></a>][<span class="sep">
-(#SESSION{id_auteur}|non)| </span><a href="[(#URL_PAGE{login}|parametre_url{url,#SELF|parametre_url{url,''}})]" rel="nofollow" class='login_modal'><:lien_connecter:></a>][<span class="sep">
-(#AUTORISER{ecrire})| </span><a href="#EVAL{_DIR_RESTREINT_ABS}"><:espace_prive:></a>]<span class="sep"> |
-</span><a rel="contents" href="#URL_PAGE{plan}"><:plan_site:></a><span class="sep"> |
-</span><a href="#URL_PAGE{backend}" rel="alternate" title="<:syndiquer_site:>">[(#CHEMIN{feed.png}|balise_img{<:icone_suivi_activite:>})]&nbsp;RSS&nbsp;2.0</a>
