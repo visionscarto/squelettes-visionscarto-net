@@ -1,0 +1,54 @@
+[(#REM) Fil d'Ariane ]
+<nav id="hierarchie"><a href="#URL_SITE_SPIP/"><:accueil_site:></a>[<span class="sep"> &gt; </span><strong class="on">(#TAG|couper{80})</strong>]</nav>
+
+<article class="content-principal">
+
+	<header>
+	<h1>#NOM_SITE_SPIP &gt; [(#VAL{#}|concat{#TAG}|pretty_hashtags)]</h1>
+	</header>
+
+	<section>
+	<B_a>
+	<ul>
+	<BOUCLE_a(ARTICLES){recherche ##TAG}{!par date}>
+	<li><a href="#URL_ARTICLE">#TITRE</a></li>
+	</BOUCLE_a>
+	</ul>
+	</B_a>
+
+		<h2>Aucun résultat pour ce tag</h2>
+		<B_b>
+		<div>mais le moteur de recherche donne les résultats suivants :</div>
+		<ul>
+		<BOUCLE_b(ARTICLES){recherche (#TAG|replace{_,' '})}{!par points}{0,10}>
+		<li><a href="#URL_ARTICLE">#TITRE</a></li>
+		</BOUCLE_b>
+		</ul>
+		</B_b>
+
+	<div>et le moteur de recherche ne donne rien…</div>
+	<//B_b>
+	<//B_a>
+	</section>
+
+
+	<footer>
+		[(#REM) Inclure le modele des liens de traductions ]
+		#MODELE{article_traductions}
+		[<aside class="notes"><h2><:info_notes:></h2>(#NOTES)</aside>]
+
+		<aside id="appel" class="fullwidth #EDIT{appel}" ></aside>
+		<script type='text/javascript'>
+		$('#appel')
+		.html(
+			[(#VAL{[<div class="ui inverted segment">(#PS)</div>]}|json_encode)]
+		);
+		</script>
+		
+  
+		[(#REM) inclure de partage RS ]
+		[(#REM) bloc precedent/suivant en guise de <nav></nav> ]
+	</footer>
+</article>
+
+#FILTRE{liens_ouvrants}
