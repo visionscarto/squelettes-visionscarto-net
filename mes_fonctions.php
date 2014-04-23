@@ -11,18 +11,18 @@
  */
 // a passer dans apres-typo
 define (_REG_CHARS, "a-z0-9\pN\pL\pM\'‘’°\&\+–\_");
-define (_REG_HASH, "(\#["._REG_CHARS."\@\.\/-]*["._REG_CHARS."])");
+define (_REG_HASH, "(^|[ >])(\#["._REG_CHARS."\@\.\/-]*["._REG_CHARS."])");
 function pretty_hashtags($texte) {
 	return preg_replace_callback("/"._REG_HASH."/ui", "_traiter_hash", $texte);
 }
 
 function _traiter_hash ($regs) {
-	$tag = substr($regs[0],1); // supprimer le '#'
+	$tag = substr($regs[2],1); // supprimer le '#'
 
 	$url = 'tag/'.mb_strtolower($tag,'UTF-8');
 	$url = urlencode_1738_plus($url);
 	$tag2 = str_replace('_', '<span style="color:transparent">_</span>', $tag);
-	return $le_hash = "<span class='lien_tag'>#<a href=\"$url\">$tag2</a></span>";
+	return $le_hash = $regs[1]."<span class='lien_tag'><span class='lien_hash'>#</span><a href=\"$url\">$tag2</a></span>";
 	$GLOBALS["num_hash"] ++;
 	$GLOBALS["les_hashs"][$GLOBALS["num_hash"]] = $le_hash;
 	return "XXXHASH".$GLOBALS["num_hash"]."HASHXXX";
@@ -54,6 +54,5 @@ function urlencode_1738_plus($url) {
 	}
 	return quote_amp($uri);
 }
-
 
 
