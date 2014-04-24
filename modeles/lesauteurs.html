@@ -1,0 +1,8 @@
+[(#REM)
+	Affiche la liste des auteurs d'un article
+][(#REM)
+	Modele pour la balise #LESAUTEURS, dans le cas des auteurs d'un article
+	(pour un article syndique, la balise affiche directement la valeur du champ)
+]
+<BOUCLE_auteurs(AUTEURS) {id_article} {nom !== '^@'}{par nom}>[(#NOM|prenom_nom|typo)][(#COMPTEUR_BOUCLE|plus{1}|=={#TOTAL_BOUCLE}|?{' et '})][(#COMPTEUR_BOUCLE|plus{1}|<{#TOTAL_BOUCLE}|?{', '})]
+</BOUCLE_auteurs>
