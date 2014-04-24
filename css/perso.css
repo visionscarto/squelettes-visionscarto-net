@@ -380,7 +380,7 @@ div#spip-admin.spip-admin-float {
 position: absolute !important;
 font-size: 0.8rem;
 }
-#icone_travaux { position: absolute !important; opacity: 0.2; }
+#icone_travaux { display:none; position: absolute !important; opacity: 0.2; }
 
 
 body {position: absolute;
@@ -482,8 +482,8 @@ table.spip tr.row_even td,table.spip tr.row_even th{background:none}
 /* pied de page ! */
 #footer {
 NOdisplay: none;
-background: black;
-color: white;
+background: none repeat scroll 0% 0% rgba(255, 245, 228, 1);
+color: rgba(57, 56, 56, 1);
 padding-top: 2em;
 padding-bottom: 5em;
 padding-left: 1em;
@@ -491,3 +491,5 @@ padding-right: 1em;
 }
 /* necessaire pour que le pied touche bien par terre */
 section.page:after { content:none }
+
+

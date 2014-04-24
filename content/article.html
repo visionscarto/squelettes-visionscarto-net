@@ -39,7 +39,7 @@ background-size: cover;
 
 /* en attente de chargement du background-image */
 header.cartouche {
-background-color: [#(#GET{bandeau}|image_reduire{10}|couleur_extraire{5,6}|couleur_luminance{0.8})];
+background-color: #777; /* [#(#GET{bandeau}|image_reduire{10}|couleur_extraire{5,6}|couleur_luminance{0.8})]; */
 }
 header.cartouche * {
 color: white;
@@ -59,6 +59,14 @@ padding-bottom: 0.2em;
 }
 
 </style>]
+[(#GET{bando}|non)
+<style>
+header.NONcartouche {
+  background: none repeat scroll 0% 0% rgba(255, 245, 228, 1);
+  color: rgba(57, 56, 56, 1);
+}
+</style>
+]
 
 
 
