@@ -42,8 +42,12 @@ header.cartouche {
 background-color: #777; /* [#(#GET{bandeau}|image_reduire{10}|couleur_extraire{5,6}|couleur_luminance{0.8})]; */
 }
 header.cartouche * {
-color: white;
-text-shadow: 0.2rem 0.15rem 3px #444;
+[(#ID_RUBRIQUE|=={1}|?{
+	color: #222;
+,
+	color: white;
+	text-shadow: 0.2rem 0.15rem 3px #444;
+})]
 }
 
 }
@@ -95,7 +99,7 @@ header.NONcartouche {
 		#MODELE{article_traductions}
 		[<aside class="notes"><h2><:info_notes:></h2>(#NOTES)</aside>]
 
-		<aside id="appel" class="fullwidth #EDIT{appel}" ></aside>
+		<aside id="appel" class="fullwidth #EDIT{ps}" ></aside>
 		<script type='text/javascript'>
 		$('#appel')
 		.html(
