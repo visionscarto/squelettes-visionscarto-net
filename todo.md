@@ -1,3 +1,38 @@
+[x] page contact
+
+[x] tags
+
+[x] moteur de recherche
+
+[x] urls propres
+
+[x] pas de dates sur les articles des @pages
+
+[x] plan de site (sans les @pages ?)
+   [ ] url du plan: sitemap (.xml pour google)
+
+[ ] formulaire de contact: Noelle préconise de virer les filets
+
+[ ] couleur du bloc #appel ? bleu ?
+
+[ ] Guide de style
+http://visionscarto.net/Style-Guide?var_mode=preview
+=> avec les différents raccourcis des images
+
+[ ] Charte typo (à recopier de romy)
+
+[ ] affiner raccourci leaflet
+   scrollWheelZoom: false etc voir le chapo de http://visionscarto.net/Un-essai-leaflet
+
+[ ] les pages de service sans bandeau sont un peu vides… que faire ?
+    ex: http://visionscarto.net/contact
+
+[ ] aligner à droite le bouton du formulaire de contact http://visionscarto.net/contact
+
+[ ] passage d'un article au suivant (#footer)
+
+[ ] css de print (virer le footer et les aplats…)
+
 # Squelette visionscarto
 
 ## types de pages
@@ -29,10 +64,12 @@
 # TODO
 
 ## intégrer leaflet
-[ ] le script pour une carte donnée (voir avec bb ?)
-[ ] tileserver (génération automatique des tuiles à partir d’une image, service d’un mbtiles)
+[x] le script pour une carte donnée (voir avec bb ?)
+[x] tileserver (génération automatique des tuiles à partir d’une image, service d’un mbtiles)
+[ ] affiner
 
 ## player de sons
+[ ]
 
 ## intégrer fluidbox
 pas évident avec le responsive ; il faut recoder toute la détection
@@ -40,7 +77,7 @@ mais surtout : sur quelles images ?
 voir l’album sur al-araqib
 
 ## on héberge les photos  sur flickr ?
-voir l’article « un modèle flickr »
+[x] voir l’article « un modèle flickr »
 
 ## rester en plein écran d’une page à la suivante
 il faut loader la page en js ?
@@ -134,4 +171,7 @@ fitvis.js (responsive)
 [ ] en PDF à vendre sur gumroad
 
 ## recherches en cours
+
+
+
 
