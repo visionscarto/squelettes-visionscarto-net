@@ -14,11 +14,12 @@
   </div>
 
    <div class="ui item">
-    <i class="open folder outline icon"></i> <!-- <a href="?page=plan"> -->Projets
+    <i class="open folder outline icon"></i> <a href="sitemap">Tous les articles</a>
 
     <div class="menu vertical">
-    <BOUCLE_t(ARTICLES){!par date}{id_secteur!=1}{0,3}>
-    <a class="item" href="#URL_ARTICLE"> <i class="tag no-icon"></i> #TITRE </a>
+
+    <BOUCLE_t(RUBRIQUES){!par date}{id_secteur!=1}>
+    <a class="item" href="#URL_RUBRIQUE"> <i class="tag no-icon"></i> #TITRE </a>
     </BOUCLE_t>
 
 <!--
@@ -39,24 +40,20 @@
 
   </div>
 
+<!--
    <div class="ui item disabled">
-    <i class="tags icon"></i> <!-- <a href="?page=plan"> -->Archives
+    <i class="tags icon"></i> <a href="?page=plan"> Archives</a>
   </div>
-
+-->
    <form class="item" action="./" method="get">
    <input type="hidden" name="page" value="recherche" />
    <div class="ui input"><input name="recherche" placeholder="Rechercher…" type="text"></div>
    <button class="ui grey button offscreen">ok</button>
    </form>
 
-   <div class="ui item disabled">
-    <i class="github no-icon"></i> <a>Ressources libres</a>
-    <div class="ui teal label">Todo</div>
-
-  </div>
   <a class="item disabled">
       Espace de vente
-      <div class="ui teal label">Todo</div>
+      <!-- <div class="ui teal label">Todo</div> -->
    </a>
 
   <a class="item fullscreen disabled" onclick="$('.ui.sidebar').sidebar('hide');toggleFullScreen();">
