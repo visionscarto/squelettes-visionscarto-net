@@ -3,7 +3,7 @@
 article > *:not(.fullwidth) > *:not(.fullwidth) {
 	margin-left: 3rem;
 	max-width: 42rem;
-	padding-right: 2em;
+	padding-right: 2rem;
 }
 article > section.texte p:not(.fullwidth) {
 	max-width: 35rem;
