@@ -56,3 +56,25 @@ function urlencode_1738_plus($url) {
 }
 
 
+function doublons_auteurs($name) {
+	static $vu = array();
+	static $last = '';
+
+	# deux fois de suite, c'est une de trop
+	if ($name == $last) return '';
+	$last = $name;
+
+	# les suspects repetitifs
+	if ($vu[$name]++) {
+		switch($name) {
+			case 'Philippe Rekacewicz':
+				return 'Reka';
+			case 'Philippe Rivière':
+				return 'Fil';
+			case 'Agnès Stienne':
+				return 'Odilon';
+		}
+	}
+
+	return $name;
+}
