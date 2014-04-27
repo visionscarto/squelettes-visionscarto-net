@@ -20,8 +20,26 @@
 
    Reglage du bandeau  image
 
-][(#SET{bandeau,[(#GET{bando}|extraire_balise{img}|extraire_attribut{src})]})]
-[<style>(#GET{bandeau}|oui)
+  couleur du titre :
+   - par defaut, noir pour les pages service, blanc pour les articles
+   - mais modifiable par mot-cle
+
+]
+[(#SET{bandeau,[(#GET{bando}|extraire_balise{img}|extraire_attribut{src})]})]
+
+[(#SET{couleurtitre,[(#ID_RUBRIQUE|=={1}|?{noir,blanc})]})]
+<BOUCLE_t(MOTS){id_article}{titre IN 'titre blanc','titre noir'}>
+[(#SET{couleurtitre,[(#TITRE|replace{'titre '})]})]
+</BOUCLE_t>
+
+[(#REM) ---------------------------------------------------
+   Contenu sans-serif ?
+]
+<BOUCLE_t2(MOTS){id_article}{titre IN 'texte sans-serif'}>
+#SET{article_nitti,' nitti'}
+</BOUCLE_t2>
+
+[<style type='text/css'>(#GET{bandeau}|oui)
 
 @media screen and (max-width:767px) {
  header.cartouche { background-image:none !important;
@@ -39,10 +57,11 @@ background-size: cover;
 
 /* en attente de chargement du background-image */
 header.cartouche {
-background-color: #777; /* [#(#GET{bandeau}|image_reduire{10}|couleur_extraire{5,6}|couleur_luminance{0.8})]; */
+background-color: #777;
 }
+
 header.cartouche * {
-[(#ID_RUBRIQUE|=={1}|?{
+[(#GET{couleurtitre}|=={noir}|?{
 	color: #222;
 ,
 	color: white;
@@ -75,7 +94,7 @@ header.NONcartouche {
 
 
 
-<article class="content-principal">
+<article class="content-principal#GET{article_nitti}">
 	<header class="cartouche fullwidth surtitre #EDIT{surtitre}
 	[
 	(#GET{bando}|extraire_balise{span}|extraire_attribut{class}|replace{adapt-img-wrapper })]">
