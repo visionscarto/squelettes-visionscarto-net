@@ -1,1 +1,118 @@
-<INCLURE{fond=content/article,id_article=31}>
+﻿<BOUCLE_content(ARTICLES){titre== '^404 '}{statut==.*}{0,1}>
+[(#REM) Fil d'Ariane ]
+<nav id="hierarchie"><a href="#URL_SITE_SPIP/"><:accueil_site:></a><BOUCLE_ariane(HIERARCHIE){id_article}><span class="sep"> &gt; </span><a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[<span class="sep"> &gt; </span><strong class="on">(#TITRE|couper{80})</strong>]</nav>
+
+
+[(#REM) ---------------------------------------------------
+
+   Calculs du contenu
+
+]
+[(#SET{bando,[(#SURTITRE*|propre|PtoBR|sinon{#LOGO_ARTICLE})]})]
+[(#SET{grotitre,[<h1 class="#EDIT{titre}">(#TITRE)</h1>]})]
+
+<BOUCLE_r(RUBRIQUES){id_rubrique}{si (#ID_RUBRIQUE|=={7})}>
+[(#SET{bando,[(#TEXTE|PtoBR|sinon{#LOGO_ARTICLE})]})]
+[(#SET{grotitre,[<h1 class="#EDIT{titre}">(#TITRE)</h1>]})]
+</BOUCLE_r>
+
+[(#REM) ---------------------------------------------------
+
+   Reglage du bandeau  image
+
+][(#SET{bandeau,[(#GET{bando}|extraire_balise{img}|extraire_attribut{src})]})]
+[<style>(#GET{bandeau}|oui)
+
+@media screen and (max-width:767px) {
+ header.cartouche { background-image:none !important;
+ padding-left: 1rem;
+ padding-right: 1.5rem;
+}
+}
+@media screen and (min-width:768px) {
+header.cartouche {
+width:100%;
+min-height: 14rem;
+background-image: url([(#GET{bandeau})]);
+background-size: cover;
+}
+
+/* en attente de chargement du background-image */
+header.cartouche {
+background-color: #777; /* [#(#GET{bandeau}|image_reduire{10}|couleur_extraire{5,6}|couleur_luminance{0.8})]; */
+}
+header.cartouche * {
+[(#ID_RUBRIQUE|=={1}|?{
+	color: #222;
+,
+	color: white;
+	text-shadow: 0.2rem 0.15rem 3px #444;
+})]
+}
+
+}
+
+header.cartouche {
+	margin-bottom: 1.5em;
+}
+
+header.cartouche h1 {
+margin-top: 0;
+padding-top: 2.5rem;
+padding-bottom: 0.2em;
+}
+
+</style>]
+[(#GET{bando}|non)
+<style>
+header.NONcartouche {
+  background: none repeat scroll 0% 0% rgba(255, 245, 228, 1);
+  color: rgba(57, 56, 56, 1);
+}
+</style>
+]
+
+
+
+
+<article class="content-principal">
+	<header class="cartouche fullwidth surtitre #EDIT{surtitre}
+	[
+	(#GET{bando}|extraire_balise{span}|extraire_attribut{class}|replace{adapt-img-wrapper })]">
+	#GET{grotitre}
+	[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE|pretty_hashtags)</p>]
+	[<p class="info-publi">(#ID_RUBRIQUE|=={1}|?{' '}|sinon{#DATE_REDAC}|sinon{#DATE}|sinon{#DATE_MODIF}|affdate)</p>]
+	<span class="clear">&nbsp;</span>
+
+	</header>
+
+	[<section class="#EDIT{chapo} chapo surlignable">(#CHAPO|pretty_hashtags)</section>]
+
+	[<section class="#EDIT{texte} texte surlignable">(#TEXTE|pretty_hashtags|adaptive_images{2048})</section>]
+	[<section class="#EDIT{hyperlien} hyperlien"><p><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p></section>]
+
+	[(#REM) Gestion du portfolio et des documents ]
+	[(#INCLURE{fond=inclure/documents,id_article})]
+
+	<footer>
+		[(#REM) Inclure le modele des liens de traductions ]
+		#MODELE{article_traductions}
+		[<aside class="notes"><h2><:info_notes:></h2>(#NOTES)</aside>]
+
+		<aside id="appel" class="fullwidth #EDIT{ps}" ></aside>
+		<script type='text/javascript'>
+		$('#appel')
+		.html(
+			[(#VAL{[<div class="ui inverted segment">(#PS)</div>]}|json_encode)]
+		);
+		</script>
+		
+  
+		[(#REM) inclure de partage RS ]
+		[(#REM) bloc precedent/suivant en guise de <nav></nav> ]
+	</footer>
+</article>
+
+
+</BOUCLE_content>
+#FILTRE{liens_ouvrants}
