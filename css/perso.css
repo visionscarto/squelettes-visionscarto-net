@@ -151,9 +151,10 @@ font-family: "Gill Sans", "Lucida Grande", "Verdana", sans-serif;
 }
 
 /* interactions parfois difficiles avec semantic-ui */
+p + .box {  margin-top: 3em; }
 .box { padding: 0.6rem 3em;}
 .box p { margin-bottom: 0 }
-blockquote { border: 0 }
+blockquote { border: 0; }
 .center { margin-left: auto!important; margin-right: auto!important}
 
 .texte { margin-top:1.3em; }
@@ -414,7 +415,7 @@ body {position: absolute;
 blockquote.spip {
     background-color: #ECECE4;
     border: 0px none;
-    padding: 20px 15px 10px;
+    padding: 0.6rem 3em;
     margin: 2em 0px;
 }
 blockquote.spip:before {
@@ -439,11 +440,11 @@ ul.spip li {
 }
 
 /* les liens ! */
-.content a {
+.content a:not(.aimg) {
 text-decoration: none;
 border-bottom: 1px #a11 inset;
 }
-.content a:hover {
+.content a:not(.aimg):hover {
 border-bottom: 3px #a11 inset
 }
 a:link {
