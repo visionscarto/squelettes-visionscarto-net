@@ -26,13 +26,13 @@
 	|sinon{#GET{captionspip}}
 )]})]
 
-[(#SET{caption,[<div class="title">(#TITLE)</div>][<div class="caption">(#GET{caption})</div>][<div class="credits">(#CREDIT|sinon{#CREDITS})<div>]})]
+[(#SET{caption,[<div class="title">(#TITLE|typo)</div>][<div class="caption">(#GET{caption})</div>][<div class="credits">(#CREDIT|sinon{#CREDITS}|typo)<div>]})]
 
 [(#REM) on encapsule un coup pour pouvoir "position:absolute;bottom:0;"]
-[(#SET{caption,[<div>(#GET{caption})</div>]})]
+[(#SET{caption,[<div>(#GET{caption}|typo)</div>]})]
 
 <div class="#ENV{class}"><figure class='[spip_document_(#ID_DOCUMENT) ]spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})] spip_lien_ok'>
-[<span class="(#IMGCLASS)">][<a href="(#GET{NONfichier})"[ class="(#ENV{lien_class}|concat{" display_box"})"][ (#ENV{lien}|?{'',type="image/jpeg"})]>]<img src='#GET{fichier}' width='#GET{width}' height='#GET{height}'[
+[<span class="(#IMGCLASS)">][<a href="(#GET{url})"[ class="(#ENV{lien_class}|concat{" display_box"})"][ (#ENV{lien}|?{'',type="image/jpeg"})]>]<img src='#GET{fichier}' width='#GET{width}' height='#GET{height}'[
 alt='(#ENV{alt,#TYPE_DOCUMENT[ - (#TAILLE|taille_en_octets)]}|texte_backend)']
 style="max-width:100%;height:auto;"[ title='(#TITLE|texte_backend)'] />[(#GET{url}|?{</a>})][(#IMGCLASS|?{</span>})][
 <figcaption[ style="max-width:(#GET{width}|max{300})px"]>(#GET{caption})</figcaption>]
