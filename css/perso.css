@@ -485,6 +485,7 @@ table.spip tr.row_even td,table.spip tr.row_even th{background:none}
 
 /* plan du site */
 .page_plan h3 {display:none}
+.page_rubrique h2 {display:none}
 
 
 /* pied de page ! */

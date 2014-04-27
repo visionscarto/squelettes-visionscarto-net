@@ -14,8 +14,8 @@
 	<B_articles_racine>
 	<h3 class="h3"><:articles:></h3>
 	<ul class="plan">
-		<BOUCLE_articles_racine(ARTICLES) {id_rubrique} {par titre}>
-		<li><a href="#URL_ARTICLE">#TITRE</a></li>
+		<BOUCLE_articles_racine(ARTICLES) {id_rubrique} {!par date}>
+		<li><a href="#URL_ARTICLE">#TITRE</a>[, <:par_auteur:>(#LESAUTEURS)][, (#DATE|affdate_court)]</li>
 		</BOUCLE_articles_racine>
 	</ul>
 	</B_articles_racine>
