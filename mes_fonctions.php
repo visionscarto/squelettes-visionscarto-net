@@ -11,7 +11,7 @@
  */
 // a passer dans apres-typo
 define (_REG_CHARS, "a-z0-9\pN\pL\pM\'‘’°\&\+–\_");
-define (_REG_HASH, "(^|[ >])(\#["._REG_CHARS."\@\.\/-]*["._REG_CHARS."])");
+define (_REG_HASH, "(^|[\s>])(\#["._REG_CHARS."\@\.\/-]*["._REG_CHARS."])");
 function pretty_hashtags($texte) {
 	return preg_replace_callback("/"._REG_HASH."/ui", "_traiter_hash", $texte);
 }
