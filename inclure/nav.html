@@ -18,7 +18,7 @@
 
     <div class="menu vertical">
 
-    <BOUCLE_t(RUBRIQUES){!par date}{id_secteur!=1}>
+    <BOUCLE_t(RUBRIQUES){racine}{par id_secteur} {titre!==^@}>
     <a class="item" href="#URL_RUBRIQUE"> <i class="tag no-icon"></i> #TITRE </a>
     </BOUCLE_t>
 
