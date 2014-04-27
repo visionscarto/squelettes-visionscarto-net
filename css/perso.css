@@ -141,8 +141,8 @@ border:0;
   max-width: 42em !important;
 }
 
-h2, .h2, h3, .h3  {margin-top: 0.7em; margin-bottom: 0.3em;}
-h4, .h4, h5, .h5  {margin-top: 0.5em; margin-bottom: 0.2em;}
+h2, .h2, h3, .h3  {margin-top: 1.5em; margin-bottom: 0.3em;}
+h4, .h4, h5, .h5  {margin-top: 0.7em; margin-bottom: 0.2em;}
 h6, .h6  {margin-top: 0.4em; margin-bottom: 0.1em;}
 
 
@@ -499,4 +499,9 @@ padding-right: 1em;
 /* necessaire pour que le pied touche bien par terre */
 section.page:after { content:none }
 
-
+/* raccourci ---- */
+hr.spip {
+ color: #999;
+ width: 25%;
+ margin-bottom: 1em;
+}
