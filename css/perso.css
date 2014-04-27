@@ -479,6 +479,7 @@ table.spip tr.row_even td,table.spip tr.row_even th{background:none}
 .spip_code,.spip_cadre{
  font-family:'andale mono','lucida console',monospace;
  font-size:0.8em;
+ font-variant: normal;
 }
 
 /* plan du site */
