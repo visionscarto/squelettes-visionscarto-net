@@ -1,5 +1,7 @@
 <?php
 
+define('_PREVIEW_TOKEN', true);
+
 function urls_propres($i, $entite, $args='', $ancre='') {
 	$a = func_get_args();
 	if (is_string($a[0])
@@ -19,6 +21,7 @@ function urls_propres($i, $entite, $args='', $ancre='') {
 	// probleme pour lier un article depuis une page tag
 	if (is_string($b)
 	AND $GLOBALS['profondeur_url'] == 1
+	AND !_DIR_RACINE
 	AND substr($b,0,3) == '../')
 		$b = substr($b,3);
 
