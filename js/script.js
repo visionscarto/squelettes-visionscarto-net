@@ -4,4 +4,8 @@ $(function() {
     function() { $('#footer').css({height: $(window).height()+'px'}); }
   );
   
+  $(function(){$('.ui.accordion')
+    .accordion()
+  ;});
+
 });
