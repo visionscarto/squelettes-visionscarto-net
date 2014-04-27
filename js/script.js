@@ -4,8 +4,7 @@ $(function() {
     function() { $('#footer').css({height: $(window).height()+'px'}); }
   );
   
-  $(function(){$('.ui.accordion')
-    .accordion()
-  ;});
+  $('.ui.accordion').accordion();
 
+  $('.content a').filter(function() { return $('img', this).size(); }).addClass('aimg');
 });
