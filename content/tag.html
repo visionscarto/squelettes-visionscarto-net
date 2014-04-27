@@ -11,7 +11,7 @@
 	<B_a>
 	<ul>
 	<BOUCLE_a(ARTICLES){recherche ##TAG}{!par date}>
-	<li><a href="#URL_ARTICLE">#TITRE</a>[, <:par_auteur:>(#LESAUTEURS)][, (#DATE|affdate_court)]</li>
+	<li><a href="#URL_ARTICLE">#TITRE</a>[, <:par_auteur:>(#LESAUTEURS|doublons_auteurs)][, (#DATE|affdate_court)]</li>
 	</BOUCLE_a>
 	</ul>
 	</B_a>
@@ -31,6 +31,15 @@
 	<//B_a>
 	</section>
 
+	<section id="seenthis" class="small">
+	<h2>Et sur <a href="http://seenthis.net/tag/[(#TAG|urlencode_1738_plus)]">seenthis</a>.</h2>
+	</section>
+	<script type='text/javascript'>
+	$(function() {
+		$('#seenthis')
+		.load('?page=seenthis&tag=[(#TAG|urlencode_1738_plus)]');
+	});
+	</script>
 
 	<footer>
 		[(#REM) Inclure le modele des liens de traductions ]

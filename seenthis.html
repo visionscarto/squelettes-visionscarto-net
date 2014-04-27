@@ -1,0 +1,10 @@
+<B_seenthis>
+<h2>Et sur <a href="http://seenthis.net/tag/#TAG">seenthis</a>&nbsp;:</h2>
+<ul>
+<BOUCLE_seenthis(DATA){source rss, http://seenthis.net/tag/#TAG$/feed}{0,12}>
+<li>
+<a href="#VALEUR{url}" class="spip_out">[(#VALEUR{titre}|replace{'_|\*'}|typo)]</a> [
+  &mdash;&nbsp;(#VAL{Y-m-d}|date{#VALEUR{date}}|affdate_court|replace{' ','&nbsp;'}|mb_strtolower)]</li>
+</BOUCLE_seenthis>
+</ul>
+</B_seenthis>

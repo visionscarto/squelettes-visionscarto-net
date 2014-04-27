@@ -16,7 +16,7 @@ href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[<span class="sep"
 
 	<ul class="plan">
 	<BOUCLE_articles(ARTICLES){id_rubrique}{!par date}>
-		<li><a href="#URL_ARTICLE">#TITRE</a>[, <:par_auteur:>(#LESAUTEURS)][, (#DATE|affdate_court)]</li>
+		<li><a href="#URL_ARTICLE">#TITRE</a>[, <:par_auteur:>(#LESAUTEURS|doublons_auteurs)][, (#DATE|affdate_court)]</li>
 	</BOUCLE_articles>
 	</ul>
 
