@@ -110,10 +110,17 @@ header.NONcartouche {
 	[<section class="#EDIT{texte} texte surlignable">(#TEXTE|pretty_hashtags|adaptive_images{2048})</section>]
 	[<section class="#EDIT{hyperlien} hyperlien"><p><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p></section>]
 
+	[(#REM) Si on est sur la home, il faut indiquer le permalien de ce contenu ]
+	[<section class="home"><p>(#HOME|?{
+		<strong>Adresse permanente pour cet article&nbsp;:</strong>
+		<a href="#URL_ARTICLE"><kbd>[(#URL_ARTICLE|url_absolue)]</kbd></a>.</p>
+	})</section>]
+
 	[(#REM) Gestion du portfolio et des documents ]
 	[(#INCLURE{fond=inclure/documents,id_article})]
 
 	<footer>
+
 		[(#REM) Inclure le modele des liens de traductions ]
 		#MODELE{article_traductions}
 		[<aside class="notes"><h2><:info_notes:></h2>(#NOTES)</aside>]
