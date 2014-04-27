@@ -21,7 +21,7 @@
 		<div>mais le moteur de recherche donne les résultats suivants :</div>
 		<ul>
 		<BOUCLE_b(ARTICLES){recherche (#TAG|replace{_,' '})}{!par points}{0,10}>
-		<li><a href="#URL_ARTICLE">#TITRE</a>[, <:par_auteur:>(#LESAUTEURS)][, (#DATE|affdate_court)]</li>
+		<li><a href="#URL_ARTICLE">#TITRE</a>[, <:par_auteur:>(#LESAUTEURS)][, (#ID_RUBRIQUE|>{1}|?{#DATE}|affdate_court)]</li>
 		</BOUCLE_b>
 		</ul>
 		</B_b>
