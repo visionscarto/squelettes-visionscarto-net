@@ -15,7 +15,7 @@
 [(#REM)
 	Le bloc qui suit diffuse les mots-cles a la mode RSS
 
-]<BOUCLE_mots_rss(MOTS){id_article}>
+]<BOUCLE_mots_rss(MOTS){id_article}{id_groupe>1}>
 		[<dc:subject>(#TITRE|texte_backend)</dc:subject>]</BOUCLE_mots_rss>
 
 		<description>[(#INTRODUCTION|texte_backend)]
@@ -27,7 +27,7 @@
 ]<BOUCLE_rubrique_mf(RUBRIQUES){id_rubrique}{statut?}>-
 [&lt;a href="[(#URL_RUBRIQUE|url_absolue)]" rel="directory"&gt;(#TITRE|supprimer_tags|texte_backend)&lt;/a&gt;]
 </BOUCLE_rubrique_mf><B_mots_mf>
-/ <BOUCLE_mots_mf(MOTS){id_article}{", "}>
+/ <BOUCLE_mots_mf(MOTS){id_article}{", "}{id_groupe>1}>
 [&lt;a href="[(#URL_MOT|url_absolue)]" rel="tag"&gt;(#TITRE|texte_backend)&lt;/a&gt;]</BOUCLE_mots_mf>
 
 		</description>
