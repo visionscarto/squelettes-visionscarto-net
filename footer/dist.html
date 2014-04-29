@@ -1,7 +1,0 @@
-<BOUCLE_a(ARTICLES){!par popularite}{0,10}{id_rubrique!=1}{doublons populaires} />
-<BOUCLE_b(ARTICLES){!doublons populaires}{exclus}{par hasard}{0,1}>
-<div><p>À découvrir ensuite sur Visionscarto<BOUCLE_r(RUBRIQUES){id_rubrique}> / #TITRE</BOUCLE_r>&nbsp;:
-<h1><a href="#URL_ARTICLE">#TITRE</a></h1>
-<p class='text-center' style='margin-top:2.5em;'>[<:par_auteur:>(#LESAUTEURS|supprimer_tags), ][(#DATE_REDAC|sinon{#DATE}|affdate_court)]</p>
-</BOUCLE_b>
-
