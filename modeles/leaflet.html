@@ -27,7 +27,7 @@ src="#GET{tileserver}/12345/[(#HREF|base64_encode)]/" style="border:0; border-bo
 <figcaption[ style="max-width:(#GET{width}|max{600})px"]>(#GET{caption})</figcaption>]
 </figure></div>
 <script type='text/javascript'>
-  $(window).on('scroll resize',
+  $(window).on('scroll resize touchmove',
     function() {
       var off = $('##GET{id}').offset().top;
       var scroll = $(window).scrollTop();
