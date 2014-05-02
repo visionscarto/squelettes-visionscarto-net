@@ -510,3 +510,9 @@ hr.spip {
  width: 25%;
  margin-bottom: 1em;
 }
+
+
+@media print {
+ html { font-size:80% !important; }
+ #footer, #container a.logo, nav { display: none; }
+}
