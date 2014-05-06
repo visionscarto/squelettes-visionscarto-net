@@ -10,9 +10,12 @@
  *
  */
 // a passer dans apres-typo
+// avant le passage des CAPS auto
 define (_REG_CHARS, "a-z0-9\pN\pL\pM\'‘’°\&\+–\_");
 define (_REG_HASH, "(^|[\s>])(\#["._REG_CHARS."\@\.\/-]*["._REG_CHARS."])");
 function pretty_hashtags($texte) {
+	// annuler les span class=caps sur #PNUD
+	$texte = preg_replace(',\#<span class="caps">([A-Z]+)</span>,S', '#\1', $texte);
 	return preg_replace_callback("/"._REG_HASH."/ui", "_traiter_hash", $texte);
 }
 
