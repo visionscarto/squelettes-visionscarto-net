@@ -1,26 +1,13 @@
-﻿
-   <div class="item">
+﻿   <div class="ui item">
     <i class="globe icon"></i> <a href="#URL_SITE_SPIP/">Visionscarto</a>
-    <div class="menu">
-      <a class="item" href="#URL_ARTICLE{1}"><i class="question no-icon"></i> À propos</a>
-
-      <a class="item" href="#URL_ARTICLE{6}"><i class="mail no-icon"></i> Contact</a>
-
-      <a class="item" href="#URL_ARTICLE{3}"><i class="mail no-icon"></i> Contribuer</a>
-
-      <a class="item" href="#URL_ARTICLE{2}"><i class="rss no-icon"></i> Pour nous suivre</a>
-
-    </div>
-  </div>
-
-   <div class="ui item">
-    <i class="open folder outline icon"></i> <a href="sitemap">Tous les articles</a>
 
     <div class="menu vertical">
 
-    <BOUCLE_t(RUBRIQUES){racine}{par id_secteur} {titre!==^@}>
+    <BOUCLE_t(RUBRIQUES){racine}{par id_secteur} {titre!==^@} {0,4}>
     <a class="item" href="#URL_RUBRIQUE"> <i class="tag no-icon"></i> #TITRE </a>
     </BOUCLE_t>
+
+     <a class="item" href="sitemap">Plan du site</a>
 
 <!--
       <div class="item">
@@ -52,9 +39,24 @@
    </form>
 
   <a class="item disabled">
-      Espace de vente
+      Espace de vente (à venir)
       <!-- <div class="ui teal label">Todo</div> -->
    </a>
+
+
+   <div class="item">
+    <div class="menu">
+      <a class="item" href="#URL_ARTICLE{1}"><i class="question no-icon"></i> À propos</a>
+
+      <a class="item" href="#URL_ARTICLE{6}"><i class="mail no-icon"></i> Contact</a>
+
+      <a class="item" href="#URL_ARTICLE{3}"><i class="mail no-icon"></i> Contribuer</a>
+
+      <a class="item" href="#URL_ARTICLE{2}"><i class="rss no-icon"></i> Pour nous suivre</a>
+
+    </div>
+  </div>
+
 
   <a class="item fullscreen disabled" onclick="$('.ui.sidebar').sidebar('hide');toggleFullScreen();">
       <i class="fullscreen outline icon"></i>
