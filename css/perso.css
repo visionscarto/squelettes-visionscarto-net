@@ -38,9 +38,7 @@ body {margin: 0; width: 100%; max-width: 3000px; background-color: white; }
 /* base font size */
 html { font-size: 145.1%; }
 
-html { line-height: 1.3em; }
-
-.content p { line-height: 1.43em; }
+body { line-height: 1.43 }
 
 h1,.h1 {
 	font-size: 3.6em !important;
@@ -66,7 +64,7 @@ h1,.h1 {
 		margin-left: 1rem;
 		padding-right: 1rem;
 	}
-	.content p { line-height: 1.3em; }
+	body { line-height: 1.3; }
 }
 @media screen and (max-width: 599px) {
 	html { font-size: 110.1%; }
