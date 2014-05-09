@@ -310,8 +310,28 @@ figcaption > div > div {
 	}
 }
 
-/* ecran etroit : les docs ne flottent plus ; les titres sont un peu moins gros */
+/* ecran etroit : les docs ne flottent plus (sauf les spip_document_narrow qui font moins de 300px de large) ; les titres sont un peu moins gros */
 @media (max-width: 959px) {
+	.spip_documents_right:not(.spip_document_narrow), .spip_documents_left:not(.spip_document_narrow) {
+		float: none !important;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	figure.spip_documents:not(.spip_document_narrow), figure.spip_documents_right:not(.spip_document_narrow), figure.spip_documents_left:not(.spip_document_narrow) {
+		text-align: left;
+		margin-left: 0;
+	}
+	figure.spip_documents_right:not(.spip_document_narrow) figcaption, figure.spip_documents_left:not(.spip_document_narrow) figcaption {
+		text-align:left;
+		margin-left: 0;
+	}
+
+	h1,.h1 {
+		font-size:2.5em!important;
+	}
+}
+/* en tres etroit plus personne ne flotte */
+@media (max-width: 549px) {
 	.spip_documents_right, .spip_documents_left {
 		float: none !important;
 		margin-left: auto;
@@ -324,14 +344,8 @@ figcaption > div > div {
 	figure.spip_documents_right figcaption, figure.spip_documents_left figcaption {
 		text-align:left;
 		margin-left: 0;
-		
-	}
-
-	h1,.h1 {
-		font-size:2.5em!important;
 	}
 }
-
 /* la bio de l'auteur·e */
 .chapo h5 {
 	font-size: 0.8em;
