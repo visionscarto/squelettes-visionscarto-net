@@ -261,7 +261,6 @@ div>figure { margin-top: 0; }
 
 figcaption {}
 figcaption > div > div {
-	display: inline-block;
 	margin-right: 1em;
 }
 
