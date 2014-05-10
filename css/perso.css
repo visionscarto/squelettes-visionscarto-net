@@ -436,6 +436,12 @@ blockquote.spip:before {
 blockquote {
 	max-width: 32em !important;
 }
+blockquote:before {
+left: -22px;
+top: 7px;
+content: "«";
+font-size: 6em;
+}
 
 /* aside class=box (fourni par tinytypo) */
 
