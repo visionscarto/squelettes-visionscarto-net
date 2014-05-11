@@ -5,11 +5,13 @@
 
 $a = array([(#DOUBLONS{articlesnext}|join{','})]);
 
-$next = $a[0];
 foreach ($a as $k => $i) {
 	if ($i == $GLOBALS['id_article'])
 		$next = $a[$k+1];
 }
+if (!isset($next))
+	$next = array_shift($a);
+
 
 echo recuperer_fond('footer/next_article_affiche', array('id_article' => $next));
 ?>
