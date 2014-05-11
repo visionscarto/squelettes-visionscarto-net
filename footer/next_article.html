@@ -1,0 +1,15 @@
+<?php
+
+<BOUCLE_selection(ARTICLES pb_selection){par pb_selection.ordre} {doublons next} />
+<BOUCLE_pop(ARTICLES){!par popularite}{doublons next}{id_rubrique!=1} />
+
+$a = array([(#DOUBLONS{articlesnext}|join{','})]);
+
+$next = $a[0];
+foreach ($a as $k => $i) {
+	if ($i == $GLOBALS['id_article'])
+		$next = $a[$k+1];
+}
+
+echo recuperer_fond('footer/next_article_affiche', array('id_article' => $next));
+?>

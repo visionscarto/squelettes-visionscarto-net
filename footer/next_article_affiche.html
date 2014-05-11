@@ -1,0 +1,5 @@
+﻿<BOUCLE_go(ARTICLES){id_article}>
+<div><p>À découvrir ensuite sur Visionscarto<BOUCLE_r(RUBRIQUES){id_rubrique}>[ / (#TITRE|replace{^@.*$})]</BOUCLE_r>&nbsp;:
+<h1><a href="#URL_ARTICLE">#TITRE</a></h1>
+<p class='text-center' style='margin-top:2.5em;'>[<:par_auteur:>(#LESAUTEURS|supprimer_tags), ][(#DATE_REDAC|sinon{#DATE}|affdate_court)]</p>
+</BOUCLE_go>

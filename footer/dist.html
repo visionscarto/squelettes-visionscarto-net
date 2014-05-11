@@ -1,19 +1,3 @@
-﻿#CACHE{360}
-<BOUCLE_a(ARTICLES){!par popularite}{0,10}{id_rubrique!=1}{doublons populaires} />
-<BOUCLE_b(ARTICLES){id_article=1}{doublons populaires} />
-<BOUCLE_c(ARTICLES){id_article}>
-#SET{pop,#CHAMP_SQL{popularite}}
-</BOUCLE_c>
-
-<BOUCLE_d(ARTICLES){!doublons populaires}{exclus}{popularite<=#GET{pop}}{!par popularite}{0,1}>
-#SET{a,#ID_ARTICLE}
-</BOUCLE_d>
-<BOUCLE_e(ARTICLES){!doublons populaires}{exclus}{!par popularite}{0,1}>
-#SET{a,#ID_ARTICLE}</BOUCLE_e>
-<//B_d>
-
-<BOUCLE_go(ARTICLES){id_article=#GET{a}}>
-<div><p>À découvrir ensuite sur Visionscarto<BOUCLE_r(RUBRIQUES){id_rubrique}>[ / (#TITRE|replace{^@.*$})]</BOUCLE_r>&nbsp;:
-<h1><a href="#URL_ARTICLE">#TITRE</a></h1>
-<p class='text-center' style='margin-top:2.5em;'>[<:par_auteur:>(#LESAUTEURS|supprimer_tags), ][(#DATE_REDAC|sinon{#DATE}|affdate_court)]</p>
-</BOUCLE_go>
+﻿[(#REM) Affichage de l'article suivant : on partage un seul squelette ce qui permet d'etre tout le temps synchro ]
+<?php $GLOBALS['id_article'] = '#ID_ARTICLE'; ?>
+<INCLUDE{fond=footer/next_article} />
