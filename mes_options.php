@@ -2,6 +2,10 @@
 
 define('_PREVIEW_TOKEN', true);
 
+// selection d'articles uniquement sur la page racine
+define('_PB_SELECTION_RUBRIQUES_EXEC', 'rubriques');
+
+ 
 function urls_propres($i, $entite, $args='', $ancre='') {
 	$a = func_get_args();
 	if (is_string($a[0])
