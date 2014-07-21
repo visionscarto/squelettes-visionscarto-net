@@ -145,7 +145,7 @@ h6, .h6  {margin-top: 0.4em; margin-bottom: 0.1em;}
 
 
 .ui.menu .item, .ui.input input {
-font-family: "Gill Sans", "Lucida Grande", "Verdana", sans-serif;
+font-family: nitti-grotesk, "Gill Sans", "Lucida Grande", "Verdana", sans-serif;
 }
 
 /* interactions parfois difficiles avec semantic-ui */
