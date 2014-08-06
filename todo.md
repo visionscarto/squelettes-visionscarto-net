@@ -9,27 +9,27 @@
 [x] pas de dates sur les articles des @pages
 
 [x] plan de site (sans les @pages ?)
-   [ ] url du plan: sitemap (.xml pour google)
+   [x] url du plan: sitemap (.xml pour google)
 
 [ ] formulaire de contact: Noelle préconise de virer les filets
 
 [ ] couleur du bloc #appel ? bleu ?
 
-[ ] Guide de style
+[x] Guide de style
 http://visionscarto.net/Style-Guide?var_mode=preview
 => avec les différents raccourcis des images
 
-[ ] Charte typo (à recopier de romy)
+[x] Charte typo (à recopier de romy)
 
 [ ] affiner raccourci leaflet
    scrollWheelZoom: false etc voir le chapo de http://visionscarto.net/Un-essai-leaflet
 
-[ ] les pages de service sans bandeau sont un peu vides… que faire ?
+[x] les pages de service sans bandeau sont un peu vides… que faire ?
     ex: http://visionscarto.net/contact
 
 [ ] aligner à droite le bouton du formulaire de contact http://visionscarto.net/contact
 
-[ ] passage d'un article au suivant (#footer)
+[x] passage d'un article au suivant (#footer)
 
 [ ] css de print (virer le footer et les aplats…)
 
