@@ -26,7 +26,12 @@
 	|sinon{#GET{captionspip}}
 )]})]
 
-<figure class='[spip_document_(#ID_DOCUMENT) ]spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})] spip_lien_ok'>
+[(#SET{caption,[<div class="title">(#TITLE|propre|PtoBR)</div>][<div class="caption">(#GET{caption})</div>][<div class="credits">(#CREDIT|sinon{#CREDITS}|typo)<div>]})]
+
+[(#REM) on encapsule un coup pour pouvoir "position:absolute;bottom:0;"]
+[(#SET{caption,[<div>(#GET{caption}|typo)</div>]})]
+
+<div[ class="(#ENV{class})"]><figure class='[spip_document_(#ID_DOCUMENT) ]spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})][ (#WIDTH|<{300}|?{spip_document_narrow})] spip_lien_ok'>
 [<span class="(#IMGCLASS)">][(#ENV*{embed})][(#IMGCLASS|?{</span>})][
-<figcaption>(#GET{caption})</figcaption>]
-</figure>
+<figcaption[ style="max-width:(#GET{width}|max{300})px"]>(#GET{caption})</figcaption>]
+</figure></div>
