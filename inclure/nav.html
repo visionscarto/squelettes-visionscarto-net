@@ -1,13 +1,13 @@
 ﻿   <div class="ui item">
-    <i class="globe icon"></i> <a href="#URL_SITE_SPIP/">Visionscarto</a>
+    <i class="globe icon"></i> <a href="#URL_SITE_SPIP/sitemap">Visionscarto</a>
 
     <div class="menu vertical">
 
     <BOUCLE_t(RUBRIQUES){racine}{par id_secteur} {titre!==^@} {0,4}>
-    <a class="item" href="#URL_RUBRIQUE"> <i class="tag no-icon"></i> #TITRE </a>
+    <a class="item" href="sitemap[#(#URL_RUBRIQUE|trim{-})]"> <i class="tag no-icon"></i> #TITRE </a>
     </BOUCLE_t>
 
-     <a class="item" href="sitemap">Plan du site</a>
+<!--     <a class="item" href="sitemap">Plan du site</a>  -->
 
 <!--
       <div class="item">

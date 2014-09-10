@@ -3,13 +3,20 @@
 
 <article class="content-principal">
 	<header class="cartouche">
-		<h1 class="h1"><:plan_site:></h1>
+		<h1 class="h1">#NOM_SITE_SPIP</h1>
+		<B_miniplan>
+		<p><:plan_site:><br />
+		<BOUCLE_miniplan(RUBRIQUES){racine}{par id_secteur} {!par
+		date} {titre!==^@}{" | "}
+		><a href="#[(#URL_RUBRIQUE|trim{-})]">#TITRE</a></BOUCLE_miniplan>
+		</p></B_miniplan>
 	</header>
 
-<BOUCLE_secteurs(RUBRIQUES) {racine} {par id_secteur} {!par date} {titre!==^@}>
-<section>
 
-	<h2 class="h2"><a href="#URL_RUBRIQUE">#TITRE</a></h2>
+<BOUCLE_secteurs(RUBRIQUES) {racine} {par id_secteur} {!par date} {titre!==^@}>
+<section id="[(#URL_RUBRIQUE|trim{-})]">
+
+	<h2 class="h2">#TITRE</h2>
 
 	[(#REM) Articles et sous-rubriques ]
 	<B_articles_racine>
