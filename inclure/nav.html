@@ -88,6 +88,11 @@ $(function() {
 //  $('#menu').sidebar('toggle');
   // activate dropdowns etc.
   $('.ui.dropdown').dropdown();
-  $('.ui.accordion').accordion()
-;});
+  $('.ui.accordion').accordion();
+  $('#menu a').on('click', function() {
+    setTimeout( function(){
+      $('#menu').sidebar('toggle');
+    }, 20);
+  });
+});
 </script>

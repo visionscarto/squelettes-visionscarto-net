@@ -14,9 +14,9 @@
 
 
 <BOUCLE_secteurs(RUBRIQUES) {racine} {par id_secteur} {!par date} {titre!==^@}>
-<section id="[(#URL_RUBRIQUE|trim{-})]">
+<section>
 
-	<h2 class="h2">#TITRE</h2>
+	<h2 class="h2" id="[(#URL_RUBRIQUE|trim{-})]">#TITRE</h2>
 
 	[(#REM) Articles et sous-rubriques ]
 	<B_articles_racine>
