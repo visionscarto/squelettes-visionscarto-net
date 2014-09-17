@@ -265,7 +265,7 @@ figcaption > div > div {
 @media (min-width: 960px) {
 	/* par defaut on est aligne à gauche, la legende ne doit pas deborder */
 	figure.spip_documents {
-		display: table;
+		// display: table;
 		margin-left: 0;
 		max-width: 100%
 	}
