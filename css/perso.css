@@ -215,8 +215,9 @@ figcaption {
 	font-size: 0.8em;
 	line-height: 1.3em;
 	margin-top: 0.4em;
-	margin-left: 1rem;
-	margin-right: 1rem;
+	margin: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 .fullwidth figcaption {
 	padding-right: 1rem;
