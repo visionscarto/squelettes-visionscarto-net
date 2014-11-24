@@ -1,4 +1,4 @@
-[(#REM) Fil d'Ariane ]
+Ôªø[(#REM) Fil d'Ariane ]
 <nav id="hierarchie"><a href="#URL_SITE_SPIP/"><:accueil_site:></a><span class="sep"> &gt; </span><strong class="on"><:plan_site:></strong></nav>
 
 <article class="content-principal">
@@ -247,7 +247,7 @@ function update(nodes,links) {
       .linkStrength(function(link){return 1 - 1/(1+link.score);})
       .start();
 
-  // Update the links…
+  // Update the links‚Ä¶
   link = link.data(links, function(d) { return d.source.id + "-" + d.target.id; });
 
   // Exit any old links.
@@ -261,7 +261,7 @@ function update(nodes,links) {
       .attr("x2", function(d) { return d.target.x; })
       .attr("y2", function(d) { return d.target.y; });
 
-  // Update the nodes…
+  // Update the nodes‚Ä¶
   node = node.data(nodes, function(d) { return d.id; })
   .style("fill", color);
 
@@ -287,7 +287,7 @@ function update(nodes,links) {
             tooltip.transition()
                 .duration(200)
                 .style("opacity", .9);      
-            tooltip .html('' + d.title +"<br><small>" + d.authors.join(', ') + ' — ' + d.affdate + "<\/small>")
+            tooltip .html('' + d.title +"<br><small>" + d.authors.join(', ') + ' ‚Äî ' + d.affdate + "<\/small>")
                 .style("left", (d3.event.pageX + 2) + "px")     
                 .style("top", (d3.event.pageY - 50) + "px");    
             })                  
