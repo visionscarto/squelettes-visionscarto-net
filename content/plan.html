@@ -44,11 +44,12 @@ padding-right: 2em;
 
 #tags strong {
     margin-left: -17px;
-    margin-top: 0.4em;
+    margin-top: 0.6em;
     display: inline-block;
     background: #999;
     color: #FFF;
     padding: 3px 8px;
+    text-transform: uppercase;
 }
 
 #viz circle.high {
@@ -201,7 +202,8 @@ d3.json("./?page=plan.json", function(json) {
         vu[init] = true;
         d3.selectAll('#tags').append('li').html('<strong>'+init+'<\/strong>');
       }
-      var ul = d3.selectAll('#tags').append('li').html('<a href="tag/'+ v[tag].replace(/ /, '_') +'">'+v[tag]+'<\/a>');
+      var count = ( tagIndex[v[tag]] > 1 ) ? ' ('+ tagIndex[v[tag]]+')' : '';
+      var ul = d3.selectAll('#tags').append('li').html('<a href="tag/'+ v[tag].replace(/ /, '_') +'">'+v[tag]+count+'<\/a>');
     }
   }
 
