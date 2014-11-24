@@ -13,6 +13,80 @@
 	</header>
 
 
+<style>
+
+.node {
+  cursor: pointer;
+  stroke: #3182bd;
+  stroke-width: 1.5px;
+}
+
+.link {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 1.5px;
+}
+
+#tags {
+}
+
+#tags li {
+//display: inline-block;
+//float: left;
+padding-right: 2em;
+}
+
+#tags {
+  max-height: 400px;
+  overflow: auto;
+  list-style: none;
+}
+
+#tags strong {
+    margin-left: -17px;
+    margin-top: 0.4em;
+    display: inline-block;
+    background: #999;
+    color: #FFF;
+    padding: 3px 8px;
+}
+
+#viz circle.high {
+  fill: gold !important;
+}
+
+div.tooltip {   
+  position: absolute;
+  text-align: center;
+  padding: 3px 9px;
+  font-size: 0.8em;
+  background: #fff19b;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+  font-family: nitti-grotesk,Verdana,sans-serif;
+}
+
+#viz {
+  margin: auto;
+}
+
+</style>
+<script src="[(#CHEMIN{js/d3.v3.min.js}|sinon{http://d3js.org/d3.v3.min.js})]"></script>
+<div class="two column doubling ui grid fullwidth">
+ <div id="viz" class="column">
+ </div>
+ <div class="column basic segment">
+ <div class="ui icon message">
+  <h2>Tags</h2>
+  <ul id="tags"></ul>
+ </div>
+ </div>
+</div>
+
+
+
+
 <BOUCLE_secteurs(RUBRIQUES) {racine} {par id_secteur} {!par date} {titre!==^@}>
 <section>
 
@@ -60,5 +134,186 @@
 	</ul>
 </section>
 	</BOUCLE_services>
+
+
+<script>
+
+var width = 400,
+    height = 400,
+    root;
+
+var force = d3.layout.force()
+    .size([width, height])
+    .linkStrength(function(link) {
+       return 1/Math.sqrt(Math.max(link.source.weight, link.target.weight));
+    })
+    .on("tick", tick);
+
+var svg = d3.select("#viz").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var link = svg.selectAll(".link"),
+    node = svg.selectAll(".node");
+
+d3.json("./?page=plan.json", function(json) {
+  tagIndex={}, rIndex={};
+  var links = [];
+
+  json.forEach(function(e,i) {
+    e.r = [];
+    e.tags.forEach(function(tag){
+      e.r.push(tag);
+      tagIndex[tag] = ~~tagIndex[tag] + 1;
+    });
+    if (e.rub == 1) e.r.push('pages');
+    e.authors.forEach(function(author) {
+      e.r.push(author);
+    });
+  });
+  json.forEach(function(e) {
+    e.r.forEach(function(tag){
+      rIndex[tag] = ~~rIndex[tag] + 1;
+    });
+  });
+  json.forEach(function(e,i) {
+    json.forEach(function(f,j) {
+      if (j<=i) return;
+      var score = 0;
+      e.r.forEach(function(tag) {
+        if (f.r.indexOf(tag)>-1) {
+          score += 1/rIndex[tag];
+        }
+      });
+      
+      if (score > 0.12) {
+        
+        links.push({ source: e, target: f, score: score});
+      }
+    });
+  });
+
+  var v = Object.keys(tagIndex).sort(), vu={};
+  for (tag in v) {
+    if (tagIndex[v[tag]] >= 1 && !v[tag].match(/^[0-9]/)) {
+      var init = v[tag][0];
+      if (!vu[init]) {
+        vu[init] = true;
+        d3.selectAll('#tags').append('li').html('<strong>'+init+'<\/strong>');
+      }
+      var ul = d3.selectAll('#tags').append('li').html('<a href="tag/'+ v[tag].replace(/ /, '_') +'">'+v[tag]+'<\/a>');
+    }
+  }
+
+  // tooltip
+  tooltip = d3.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);
+
+
+  create1(json,links);
+});
+
+function create1(json, links) {
+  update(json,links);
+}
+
+function create2(json, links) {
+  update(json,links);
+  setInterval(function() { force.resume(); }, 2000);
+}
+
+function create3(json, links) {
+  json.forEach(function(e,i) {
+    setTimeout(function() {
+       nodes = json.slice(0,i+1);
+       d3.selectAll('#tags').insert('li').html(json[i].title);
+       lkx = links.filter(function(d) {
+         return nodes.indexOf(d.target) > -1
+       });
+       // console.log(i,nodes);
+       update(nodes,lkx);
+    }, i*200);
+  });
+}
+
+function update(nodes,links) {
+
+  // Restart the force layout.
+  force
+      .nodes(nodes)
+      .links(links)
+      .linkDistance(function(link){return 70/Math.exp(1+link.score,1.5);})
+      .linkStrength(function(link){return 1 - 1/(1+link.score);})
+      .start();
+
+  // Update the links…
+  link = link.data(links, function(d) { return d.source.id + "-" + d.target.id; });
+
+  // Exit any old links.
+  link.exit().remove();
+
+  // Enter any new links.
+  link.enter().insert("line", ".node")
+      .attr("class", "link")
+      .attr("x1", function(d) { return d.source.x; })
+      .attr("y1", function(d) { return d.source.y; })
+      .attr("x2", function(d) { return d.target.x; })
+      .attr("y2", function(d) { return d.target.y; });
+
+  // Update the nodes…
+  node = node.data(nodes, function(d) { return d.id; })
+  .style("fill", color);
+
+  // Exit any old nodes.
+  node.exit().remove();
+
+  // Enter any new nodes.
+  node.enter().append("circle")
+      .attr("class", "node")
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; })
+      .attr("r", function(d) { return d.rub == 3 ? 5 : 3 ; return 5+Math.sqrt(d.pop)/2; })
+      .style("fill", color)
+      .call(force.drag);
+
+  node
+  .on('click', function(d) {
+    document.location = d.url;
+  });
+
+  node
+      .on("mouseover", function(d) {
+            tooltip.transition()
+                .duration(200)
+                .style("opacity", .9);      
+            tooltip .html('' + d.title +"<br><small>" + d.authors.join(', ') + ' — ' + d.affdate + "<\/small>")
+                .style("left", (d3.event.pageX + 2) + "px")     
+                .style("top", (d3.event.pageY - 50) + "px");    
+            })                  
+        .on("mouseout", function(d) {
+            tooltip.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
+}
+
+function tick() {
+  link.attr("x1", function(d) { return d.source.x; })
+      .attr("y1", function(d) { return d.source.y; })
+      .attr("x2", function(d) { return d.target.x; })
+      .attr("y2", function(d) { return d.target.y; });
+
+  node.attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+}
+
+// Color leaf nodes orange, and packages white or blue.
+function color(d) {
+  return d.rub == 7 ? "#c6dbef" : d.rub == 3 ? "#fd8d3c" : "#3182bd";
+}
+
+</script>
+
 
 </article>
