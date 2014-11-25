@@ -248,6 +248,7 @@ function update(nodes,links) {
   // Restart the force layout.
   force
       .nodes(nodes)
+      .gravity(0.05)
       .links(links)
       .linkDistance(function(link){return 70/Math.exp(1+link.score,1.5);})
       .linkStrength(function(link){return 1 - 1/(1+link.score);})
@@ -295,8 +296,9 @@ function update(nodes,links) {
                 .style("opacity", .9);      
             tooltip .html('' + d.title +"<br><small>" + d.authors.join(', ') + ' — ' + d.affdate + "<\/small>")
                 .style("left", (d3.event.pageX + 2) + "px")     
-                .style("top", (d3.event.pageY - 50) + "px");    
-            })                  
+                .style("top", (d3.event.pageY - 50) + "px");
+            force.resume();
+        })
         .on("mouseout", function(d) {
             tooltip.transition()
                 .duration(500)
