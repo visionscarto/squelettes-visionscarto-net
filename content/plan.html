@@ -203,7 +203,7 @@ d3.json("./?page=plan.json", function(json) {
         d3.selectAll('#tags').append('li').html('<strong>'+init+'<\/strong>');
       }
       var count = ( tagIndex[v[tag]] > 1 ) ? ' ('+ tagIndex[v[tag]]+')' : '';
-      var ul = d3.selectAll('#tags').append('li').html('<a href="tag/'+ v[tag].replace(/ /, '_') +'">'+v[tag]+count+'<\/a>');
+      var ul = d3.selectAll('#tags').append('li').html('<a href="tag/'+ v[tag].replace(/ /g, '_') +'">'+v[tag]+count+'<\/a>');
     }
   }
 
