@@ -168,6 +168,7 @@ d3.json("./?page=plan.json", function(json) {
       tagIndex[tag] = ~~tagIndex[tag] + 1;
     });
     if (e.rub == 1) e.r.push('pages');
+    if (e.trad) e.r.push('trad'+e.trad);
     e.authors.forEach(function(author) {
       e.r.push(author);
     });
