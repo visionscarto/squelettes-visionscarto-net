@@ -187,11 +187,11 @@ d3.json("./?page=plan.json", function(json) {
       var score = 0;
       e.r.forEach(function(tag) {
         if (f.r.indexOf(tag)>-1) {
-          score += 1/rIndex[tag];
+          score += 1/rIndex[tag]/Math.sqrt((1+e.r.length)*(1+f.r.length));
         }
       });
       
-      if (score > 0.12) {
+      if (score > 0.02) {
         
         links.push({ source: e, target: f, score: score});
       }
@@ -226,7 +226,7 @@ function create1(json, links) {
 
 function create2(json, links) {
   update(json,links);
-  setInterval(function() { force.resume(); }, 2000);
+  setInterval(function() { force.alpha(1); }, 2000);
 }
 
 function create3(json, links) {
@@ -249,9 +249,11 @@ function update(nodes,links) {
   force
       .nodes(nodes)
       .gravity(0.05)
+      .friction(0.95) // almost no friction
+      .alpha(0.4) // start very agitated
       .links(links)
-      .linkDistance(function(link){return 70/Math.exp(1+link.score,1.5);})
-      .linkStrength(function(link){return 1 - 1/(1+link.score);})
+      .linkDistance(function(link){return 70/Math.exp(1+10*link.score,1.5);})
+      .linkStrength(function(link){return 1 - 1/(1+10*link.score);})
       .start();
 
   // Update the links…
@@ -295,7 +297,7 @@ function update(nodes,links) {
                 .duration(200)
                 .style("opacity", .9);      
             tooltip .html('' + d.title +"<br><small>" + d.authors.join(', ') + ' — ' + d.affdate + "<\/small>")
-                .style("left", (d3.event.pageX + 2) + "px")     
+                .style("left", (d3.event.pageX + 15) + "px")
                 .style("top", (d3.event.pageY - 50) + "px");
             force.resume();
         })
