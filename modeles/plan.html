@@ -1,17 +1,4 @@
-﻿[(#REM) Fil d'Ariane ]
-<nav id="hierarchie"><a href="#URL_SITE_SPIP/"><:accueil_site:></a><span class="sep"> &gt; </span><strong class="on"><:plan_site:></strong></nav>
-
-<article class="content-principal">
-	<header class="cartouche">
-		<h1 class="h1">#NOM_SITE_SPIP</h1>
-		<B_miniplan>
-		<p><:plan_site:><br />
-		<BOUCLE_miniplan(RUBRIQUES){racine}{par id_secteur} {!par
-		date} {titre!==^@}{" | "}
-		><a href="#[(#URL_RUBRIQUE|trim{-})]">#TITRE</a></BOUCLE_miniplan>
-		</p></B_miniplan>
-	</header>
-
+﻿
 
 <style>
 
@@ -330,4 +317,3 @@ function color(d) {
 </script>
 
 
-</article>
