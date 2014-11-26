@@ -4,8 +4,7 @@
 
 .node {
   cursor: pointer;
-  stroke: #3182bd;
-  stroke-width: 1.5px;
+  stroke-width: 0;
 }
 
 .link {
@@ -41,9 +40,6 @@ padding-right: 2em;
 
 #viz {
   text-align: center;
-}
-#viz circle.high {
-  fill: gold !important;
 }
 
 div.tooltip {   
@@ -88,7 +84,7 @@ div.tooltip {
 	<h3 class="h3"><:articles:></h3>
 	<ul class="plan">
 		<BOUCLE_articles_racine(ARTICLES) {id_rubrique} {!par date}>
-		<li><a href="#URL_ARTICLE">#TITRE</a>[, <:par_auteur:>(#LESAUTEURS|doublons_auteurs)][, (#DATE|affdate_court)]</li>
+		<li><a href="#URL_ARTICLE">#TITRE</a>[, <:par_auteur:>(#LESAUTEURS|doublons_auteurs)][, (#DATE|affdate_court|replace{' ','&nbsp;'})]</li>
 		</BOUCLE_articles_racine>
 	</ul>
 	</B_articles_racine>
@@ -305,15 +301,21 @@ function tick() {
       .attr("cy", function(d) { return d.y; });
 }
 
-// Color leaf nodes orange, and packages white or blue.
+// Color nodes
 function color(d) {
+  // recent = jaune
   var t = new Date();
   if (t.getTime() - Date.parse(d.date) < 1000 * 3600 * 24 * 14) {
-    return 'gold';
+    return 'rgb(255,163,0)';
   }
-  return d.rub == 7 ? "#c6dbef" : d.rub == 3 ? "#fd8d3c" : "#3182bd";
+  
+  return d.rub == 7
+    ? 'rgb(223,0,88)' // collection = rose
+    : d.rub == 3
+    ? 'rgb(0,132,139)' // billets = bleu
+    : 'rgb(156,154,154)' // service = gris
+    ;
 }
-
 </script>
 
 
