@@ -5,10 +5,11 @@
 	"id": #ID_ARTICLE,
 	"title": [(#TITRE|supprimer_tags|json_encode)],
 	"url": [(#URL_ARTICLE|json_encode)],
-	"date": [(#DATE|json_encode)],
+	"date": [(#DATE|date_iso|json_encode)],
 	"rub": [(#ID_RUBRIQUE|json_encode)],
 	["trad": (#ID_TRAD|?{#ID_TRAD}),
 	]"pop": [(#POPULARITE|json_encode)],
+	"views": [(#VISITES|json_encode)],
 	"authors": [<BOUCLE_auteurs(AUTEURS){id_article}{nom!==^@}{", "}>[(#NOM|json_encode)]</BOUCLE_auteurs>],
 	"affdate": [(#DATE|affdate|json_encode)],
 	"tags": [(#TITRE*|concat{' '}|concat{#SOUSTITRE* #CHAPO* #TEXTE* }|get_tags|json_encode)]

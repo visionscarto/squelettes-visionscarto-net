@@ -320,6 +320,10 @@ function tick() {
 
 // Color leaf nodes orange, and packages white or blue.
 function color(d) {
+  var t = new Date();
+  if (t.getTime() - Date.parse(d.date) < 1000 * 3600 * 24 * 14) {
+    return 'gold';
+  }
   return d.rub == 7 ? "#c6dbef" : d.rub == 3 ? "#fd8d3c" : "#3182bd";
 }
 
