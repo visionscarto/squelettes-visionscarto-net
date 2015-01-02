@@ -2,4 +2,7 @@
 <title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
 [<meta name="description" content="(#INTRODUCTION{150}|attribut_html)" />]
 [<link rel="canonical" href="(#URL_ARTICLE|url_absolue)" />]
-</BOUCLE_article_head>
+
+[(#SET{ogimage,[(#LOGO_ARTICLE|extraire_attribut{src}|sinon{[(#TEXTE*|concat{#SURTITRE*}|match{'<http\S+(jpg|png)\b'}|replace{'<'})]})]})]
+[<meta property="og:image" content="(#GET{ogimage}|image_reduire{1280,}|extraire_attribut{src}|url_absolue)">
+]</BOUCLE_article_head>
