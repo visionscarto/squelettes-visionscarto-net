@@ -460,10 +460,13 @@ ul.spip li {
 /* les liens ! */
 .content a:not(.aimg) {
 text-decoration: none;
-border-bottom: 1px #a11 inset;
+border-bottom: 1px solid #e5b7b7;
+box-shadow: 0px -1px 0px #e5b7b7 inset;
+transition: box-shadow 0.1s;
 }
-.content a:not(.aimg):hover {
-border-bottom: 3px #a11 inset
+.content a:not(.aimg):hover, .content a:not(.aimg):focus {
+border-bottom: 2px solid #e5b7b7;
+box-shadow: 0px -4px 0px #e5b7b7 inset;
 }
 a:link {
 transition: all 0s; /* contre tinytypo */
