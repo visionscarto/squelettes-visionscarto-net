@@ -9,7 +9,7 @@
 
 ]
 [(#SET{bando,[(#SURTITRE*|propre|PtoBR|sinon{#LOGO_ARTICLE})]})]
-[(#SET{grotitre,[<h1 class="#EDIT{titre}">(#TITRE)</h1>]})]
+[(#SET{grotitre,[<h1 class="#EDIT{titre}">(#TITRE|replace{^Index du site$,#NOM_SITE_SPIP})</h1>]})]
 
 <BOUCLE_r(RUBRIQUES){id_rubrique}{si (#ID_RUBRIQUE|=={7})}>
 [(#SET{bando,[(#DESCRIPTIF|PtoBR|sinon{#LOGO_ARTICLE})]})]
