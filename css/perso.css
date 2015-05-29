@@ -160,6 +160,7 @@ blockquote { border: 0; }
 
 .notes { font-size: 0.85em; color: #666; }
 
+
 #appel>div {
 max-width: 33em;
 padding-left: 3em;
@@ -413,6 +414,9 @@ body {position: absolute;
 }
 
 /* appel a collaboration */
+#appel {
+margin-left: 0;
+}
 #appel > div.inverted {
 	background-color: #92100E !important; /* rouge sombre */
 }
