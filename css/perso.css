@@ -550,3 +550,7 @@ hr.spip {
    bottom: 0em;
  }
 }
+
+.oembed-source-youtube, .oembed-source-vimeo {
+   max-width: 600px;
+}
