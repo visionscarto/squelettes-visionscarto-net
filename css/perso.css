@@ -362,6 +362,7 @@ figcaption > div > div {
 	padding: 0.25rem 1rem;
 	text-align: left;
 }
+#cboxTitle:empty { display: none !important }
 #cboxPrevious, #cboxNext {
 background: none;
 border: none;
