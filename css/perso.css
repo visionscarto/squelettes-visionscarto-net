@@ -554,5 +554,6 @@ hr.spip {
 }
 
 .oembed-source-youtube, .oembed-source-vimeo {
+   width: 100%;
    max-width: 600px;
 }
