@@ -11,7 +11,22 @@
 [(#SET{width,[(#GET{logo}||extraire_attribut{width})]})]
 [(#SET{height,[(#GET{logo}||extraire_attribut{height})]})]
 
-#SET{url,#LINK}
+
+[(#REM) preparer l'image pour photoswipe ]
+[(#EXTENSION|match{jpg|gif|png}|oui)
+	[(#SET{data-photo-w,#GET{width}})]
+	[(#SET{data-photo-h,#GET{height}})]
+	[(#SET{data-photo,[(#GET{fichier}|replace{\.,__.__})]})]
+]
+[(#SET{link,[(#LINK|=={link}|?{#HREF,#LINK})]})]
+[(#GET{link}|match{jpg|gif|png}|?{
+	[(#SET{data-photo-w,[(#GET{link}|largeur)]})]
+	[(#SET{data-photo-h,[(#GET{link}|hauteur)]})]
+	[(#SET{data-photo,[(#GET{link}|replace{\.(jpg|gif|png)$,__.__\1})]})]
+,
+	#SET{url,#LINK}
+})]
+
 
 [(#SET{captionspip,[
 	<div class='#EDIT_TITRE spip_doc_titre'[ style='width:(#GET{width}|min{350}|max{120})px;']><strong>(#TITRE|sinon{[(#DESCRIPTIF*|oui)]})</strong></div>[
@@ -35,10 +50,10 @@
 <div[ class="(#ENV{class})"]><figure class='[spip_document_(#ID_DOCUMENT) ]spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})][ (#WIDTH|<{300}|?{spip_document_narrow})] spip_lien_ok'>
 [<span class="(#IMGCLASS)">][<a href="(#GET{url})"[ class="(#ENV{lien_class}|concat{" display_box"})"][ (#GET{url}|match{(jpe?g|gif|png)$}|?{type="image/jpeg"})]>]<img src='#GET{fichier}' width='#GET{width}' height='#GET{height}'[
 alt="(#ENV{alt,#TYPE_DOCUMENT[ - (#TAILLE|taille_en_octets)]}|texte_backend)"]
-[(#EXTENSION|match{jpg|gif|png}|oui)
-data-photo="[(#GET{fichier}|replace{\.,__.__})]"
-data-photo-w="#GET{width}"
-data-photo-h="#GET{height}"]
+[
+data-photo="(#GET{data-photo})"
+data-photo-w="#GET{data-photo-w}"
+data-photo-h="#GET{data-photo-h}"]
 style="max-width:100%;height:auto;"[ title="(#TITLE|texte_backend)"] />[(#GET{url}|?{</a>})][(#IMGCLASS|?{</span>})][
 <figcaption[ style="max-width:(#GET{width}|max{300})px"]>(#GET{caption})</figcaption>]
 </figure></div>
