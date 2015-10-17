@@ -174,7 +174,7 @@ d3.json("./?page=plan.json", function(json) {
         }
       });
       
-      if (score > 0.04) {
+      if (score > 0.03) {
         
         links.push({ source: e, target: f, score: score});
       }
@@ -237,7 +237,7 @@ function update(nodes,links) {
       .links(links)
       .linkDistance(function(link){return 70/Math.exp(1+10*link.score,1.5);})
       .linkStrength(function(link){return 1 - 1/(1+10*link.score);})
-      .start();
+      .start()
 
   // Update the links…
   link = link.data(links, function(d) { return d.source.id + "-" + d.target.id; });
@@ -282,7 +282,7 @@ function update(nodes,links) {
             tooltip .html('' + d.title +"<br><small>" + d.authors.join(', ') + ' — ' + d.affdate + "<\/small>")
                 .style("left", (d3.event.pageX + 15) + "px")
                 .style("top", (d3.event.pageY - 50) + "px");
-            force.resume();
+            //force.resume();
         })
         .on("mouseout", function(d) {
             tooltip.transition()
