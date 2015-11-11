@@ -174,7 +174,7 @@ d3.json("./?page=plan.json", function(json) {
         }
       });
       
-      if (score > 0.02) {
+      if (score > 0.03) {
         
         links.push({ source: e, target: f, score: score});
       }
@@ -231,13 +231,13 @@ function update(nodes,links) {
   // Restart the force layout.
   force
       .nodes(nodes)
-      .gravity(0.05)
+      .gravity(0.1)
       .friction(0.95) // almost no friction
       .alpha(0.4) // start very agitated
       .links(links)
       .linkDistance(function(link){return 70/Math.exp(1+10*link.score,1.5);})
       .linkStrength(function(link){return 1 - 1/(1+10*link.score);})
-      .start();
+      .start()
 
   // Update the links…
   link = link.data(links, function(d) { return d.source.id + "-" + d.target.id; });
@@ -282,7 +282,7 @@ function update(nodes,links) {
             tooltip .html('' + d.title +"<br><small>" + d.authors.join(', ') + ' — ' + d.affdate + "<\/small>")
                 .style("left", (d3.event.pageX + 15) + "px")
                 .style("top", (d3.event.pageY - 50) + "px");
-            force.resume();
+            //force.resume();
         })
         .on("mouseout", function(d) {
             tooltip.transition()
@@ -292,13 +292,23 @@ function update(nodes,links) {
 }
 
 function tick() {
+  node
+      .each(function(d){
+          var strength = 10, radius = 6;
+          if (d.x < strength) d.x += Math.min(5, Math.exp((radius-d.x)/strength));
+          if (d.x > width - strength) d.x -= Math.min(5, Math.exp((radius-width+d.x)/strength));
+          if (d.y < strength) d.y += Math.min(5, Math.exp((radius-d.y)/strength));
+          if (d.y > height - strength) d.y -= Math.min(5, Math.exp((radius-height+d.y)/strength));
+      })
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+
   link.attr("x1", function(d) { return d.source.x; })
       .attr("y1", function(d) { return d.source.y; })
       .attr("x2", function(d) { return d.target.x; })
       .attr("y2", function(d) { return d.target.y; });
 
-  node.attr("cx", function(d) { return d.x; })
-      .attr("cy", function(d) { return d.y; });
+
 }
 
 // Color nodes

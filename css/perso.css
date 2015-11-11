@@ -21,6 +21,7 @@ article .notes p:not(.fullwidth) {
 }
 
 img { max-width: 100% }
+.pswp img { max-width: none !important; } /* photoswipe gere sa propre largeur */
 
 /* effacer les blocs qui nous embetent et tout caler en haut */
 
@@ -361,6 +362,7 @@ figcaption > div > div {
 	padding: 0.25rem 1rem;
 	text-align: left;
 }
+#cboxTitle:empty { display: none !important }
 #cboxPrevious, #cboxNext {
 background: none;
 border: none;
@@ -549,4 +551,9 @@ hr.spip {
    position: relative;
    bottom: 0em;
  }
+}
+
+.oembed-source-youtube, .oembed-source-vimeo {
+   width: 100%;
+   max-width: 600px;
 }

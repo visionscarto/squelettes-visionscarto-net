@@ -11,7 +11,7 @@ define('_PROTEGE_BLOCS', ',<(html|code|cadre|frame|script|math|style)(\s[^>]*)?>
 function urls_propres($i, $entite, $args='', $ancre='') {
 	$a = func_get_args();
 	if (is_string($a[0])
-	AND preg_match(',^.*?/tag/(.*),', $a[0], $r)) {
+	AND preg_match(',^.*?/tag/(.*),', '/'.$a[0], $r)) {
 		$is_qs = false;
 		$url_redirect = false;
 		$contexte = array('tag' => urldecode($r[1]));
