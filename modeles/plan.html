@@ -74,14 +74,13 @@ div.tooltip {
 
 
 
-<BOUCLE_secteurs(RUBRIQUES) {racine} {par id_secteur} {!par date} {titre!==^@}>
+<BOUCLE_secteurs(RUBRIQUES) {racine} {par id_secteur} {!par date} {titre!==^@pages} {doublons}>
 <section>
 
-	<h2 class="h2" id="[(#URL_RUBRIQUE|trim{-})]">#TITRE</h2>
+	<h2 class="h2" id="[(#URL_RUBRIQUE|trim{-})]">[(#TITRE|replace{^@})]</h2>
 
 	[(#REM) Articles et sous-rubriques ]
 	<B_articles_racine>
-	<h3 class="h3"><:articles:></h3>
 	<ul class="plan">
 		<BOUCLE_articles_racine(ARTICLES) {id_rubrique} {!par date}>
 		<li><a href="#URL_ARTICLE">#TITRE</a>[, <:par_auteur:>(#LESAUTEURS|doublons_auteurs)][, (#DATE|affdate_court|replace{' ','&nbsp;'})]</li>
@@ -111,11 +110,11 @@ div.tooltip {
 </section>
 </BOUCLE_secteurs>
 
-	<BOUCLE_services(RUBRIQUES){titre==^@}>
+	<BOUCLE_services(RUBRIQUES){doublons}>
 <section>
 	[<h2 class="h2">(#TITRE|replace{^@})</h2>]
 	<ul class="list-inline list-inline-sep">
-		<BOUCLE_articles_service(ARTICLES) {id_rubrique=1} {!par date}>
+		<BOUCLE_articles_service(ARTICLES) {id_secteur} {!par date}>
 		<li><a href="#URL_ARTICLE">#TITRE</a></li>
 		</BOUCLE_articles_service>
 	</ul>
