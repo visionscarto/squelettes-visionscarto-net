@@ -557,3 +557,7 @@ hr.spip {
    width: 100%;
    max-width: 600px;
 }
+
+.oembed-container audio {
+	max-width: 400px;
+}
