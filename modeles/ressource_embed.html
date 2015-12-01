@@ -12,6 +12,10 @@
 [(#SET{height,#ENV*{height}})]
 #SET{url,#ENV{lien,#HREF}}
 
+[(#EXTENSION|match{mp3}|oui)  #SET{width,450} ]
+
+[(#SET{class,[(#ENV{class}|concat{' figure-'}|concat{#EXTENSION}|trim)]})]
+
 [(#SET{captionspip,[
 	<div class='#EDIT_TITRE spip_doc_titre'[ style='width:(#GET{width}|min{350}|max{120})px;']><strong>(#TITRE|sinon{[(#DESCRIPTIF*|oui)]})</strong></div>[
 	<div class='#EDIT_DESCRIPTIF spip_doc_descriptif quiet'[ style='width:(#GET{width}|min{350}|max{120})px;']>(#DESCRIPTIF|PtoBR)[(#NOTES|PtoBR)]</div>
@@ -31,7 +35,7 @@
 [(#REM) on encapsule un coup pour pouvoir "position:absolute;bottom:0;"]
 [(#SET{caption,[<div>(#GET{caption}|typo)</div>]})]
 
-<div[ class="(#ENV{class})"]><figure class='[spip_document_(#ID_DOCUMENT) ]spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})][ (#WIDTH|<{300}|?{spip_document_narrow})] spip_lien_ok'>
+<div[ class="(#GET{class})"]><figure class='[spip_document_(#ID_DOCUMENT) ]spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})][ (#GET{width}|<{300}|?{spip_document_narrow})] spip_lien_ok'>
 [<span class="(#IMGCLASS)">][(#ENV*{embed})][(#IMGCLASS|?{</span>})][
 <figcaption[ style="max-width:(#GET{width}|max{300})px"]>(#GET{caption})</figcaption>]
 </figure></div>
