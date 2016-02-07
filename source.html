@@ -1,0 +1,38 @@
+#HTTP_HEADER{Content-Type: text/plain; charset=#CHARSET}
+<BOUCLE_a(ARTICLES){id_article}>
+[--------------------------
+
+TITRE:
+(#TITRE*)]
+
+<B_aut>--------------------------
+
+AUTEUR: <BOUCLE_aut(AUTEURS){id_article}>
+- [(#NOM*)]</BOUCLE_aut>
+
+[--------------------------
+
+CHAPO:
+(#CHAPO*)
+]
+
+[--------------------------
+TEXTE:
+
+(#TEXTE*)
+]
+
+[--------------------------
+
+PS: (#PS*)
+]
+
+<B_mots>--------------------------
+
+MOTS-CLÉS: <BOUCLE_mots(MOTS){id_article}>
+- [(#TITRE*)]</BOUCLE_mots>
+</B_mots>
+
+--------------------------
+#NOM_SITE_SPIP - version du [(#DATE_MODIF|affdate)] [(#DATE_MODIF|affdate{H:i})]
+</BOUCLE_a>
