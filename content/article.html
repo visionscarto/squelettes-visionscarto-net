@@ -1,4 +1,4 @@
-﻿<BOUCLE_content(ARTICLES){id_article}>
+<BOUCLE_content(ARTICLES){id_article}>
 [(#REM) Fil d'Ariane ]
 <nav id="hierarchie"><a href="#URL_SITE_SPIP/"><:accueil_site:></a><BOUCLE_ariane(HIERARCHIE){id_article}><span class="sep"> &gt; </span><a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[<span class="sep"> &gt; </span><strong class="on">(#TITRE|couper{80})</strong>]</nav>
 
@@ -9,11 +9,12 @@
 
 ]
 [(#SET{bando,[(#SURTITRE*|propre|PtoBR|sinon{#LOGO_ARTICLE})]})]
-[(#SET{grotitre,[<h1 class="#EDIT{titre}">(#TITRE|replace{^Index du site$,#NOM_SITE_SPIP})</h1>]})]
+[(#SET{grotitre,[<h1 class="#EDIT{titre}">(#TITRE|replace{^@}|replace{^Index du site$,#NOM_SITE_SPIP}|trim)</h1>]})]
 
-<BOUCLE_r(RUBRIQUES){id_rubrique}{si (#ID_RUBRIQUE|=={7})}>
+<BOUCLE_r(RUBRIQUES){id_rubrique}{si (#ID_RUBRIQUE|match{^(7|9)$})}>
 [(#SET{bando,[(#DESCRIPTIF|PtoBR|sinon{#LOGO_ARTICLE})]})]
-[(#SET{grotitre,[<h1 class="#EDIT{titre}">(#TITRE)</h1>]})]
+[(#SET{grotitre,[<h1 class="#EDIT{titre}">(#TITRE|replace{^@}|trim)</h1>]})]
+
 </BOUCLE_r>
 
 [(#REM) ---------------------------------------------------
