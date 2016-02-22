@@ -505,6 +505,7 @@ table.spip tr > * {vertical-align: top; line-height: 1.3em; text-align: left; pa
 table.spip tr.row_even td,table.spip tr.row_even th{background:none}
 
 .lien_hash { color: #666; }
+.inverted .lien_hash { color: #ddd; }
 
 /* code informatique */
 code, .code, .spip_code,.spip_cadre{
