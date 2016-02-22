@@ -103,7 +103,7 @@ header.NONcartouche {
 		<script type='text/javascript'>
 		$('#appel')
 		.html(
-			[(#VAL{[<div class="ui inverted segment">(#PS)</div>]}|json_encode)]
+			[(#VAL{[<div class="ui inverted segment">(#PS|pretty_hashtags)</div>]}|json_encode)]
 		);
 		</script>
 		

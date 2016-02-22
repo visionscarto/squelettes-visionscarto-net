@@ -12,6 +12,6 @@
 	"views": [(#VISITES|json_encode)],
 	"authors": [<BOUCLE_auteurs(AUTEURS){id_article}{nom!==^@}{", "}>[(#NOM|json_encode)]</BOUCLE_auteurs>],
 	"affdate": [(#DATE|affdate|json_encode)],
-	"tags": [(#TITRE*|concat{' '}|concat{#SOUSTITRE* #CHAPO* #TEXTE* }|get_tags|json_encode)]
+	"tags": [(#TITRE*|concat{' '}|concat{#SOUSTITRE* #CHAPO* #TEXTE* #PS* }|get_tags|json_encode)]
 }</BOUCLE_a>
 ]
