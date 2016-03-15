@@ -1,0 +1,33 @@
+[(#REM) sécurité basique :
+   on autorise seulement un répertoire précis et ses sous-répertoires
+]
+#SET{rep,#ENV{rep}|replace{\W,-}}
+
+<B_fichiers>
+[(#ENV{debut_fichiers}|oui)[<p class="pagination">(#PAGINATION{prive})</p>]]
+<div class="two column doubling ui grid">
+<BOUCLE_fichiers(DATA){source glob, #ENV{dir_racine}public/#GET{rep}/*.{png}}
+{par valeur}{pagination 20}>
+<div class="column">
+<div class="ui teal segment">
+<h3>[(#VALEUR|basename{.png}|replace{visionscarto-}|majuscules)]</h3>
+[(#SET{presentable,[(#VALEUR|timestamp|image_reduire{800}|image_aplatir{gif,f0f0f0}|extraire_attribut{src})]})]
+[(#GET{presentable}|image_reduire{400}
+|inserer_attribut{data-photo,#GET{presentable}}
+|inserer_attribut{data-photo-w,[(#GET{presentable}|largeur)]}
+|inserer_attribut{data-photo-h,[(#GET{presentable}|hauteur)]}
+|inserer_attribut{class,photoshow}
+)]
+#SET{svg,#VALEUR|replace{png$,svg}}
+
+<p>Télécharger au format[ (#GET{svg}|file_exists|non) <a href="#VALEUR" download="[(#VALEUR|basename)]" title="télécharger [(#VALEUR|replace{-}) ] [((#VALEUR|filesize|taille_en_octets))]">PNG</a>][ (#GET{svg}|file_exists|oui)
+<a href="#GET{svg}" download="[(#GET{svg}|basename)]" title="télécharger [(#GET{svg}|replace{-}) ] [((#GET{svg}|filesize|taille_en_octets))]">SVG</a>].</p>
+
+</div>
+</div>
+</BOUCLE_fichiers>
+</div>
+[<p class="pagination">(#PAGINATION{prive})</p>]
+</B_fichiers>
+<p>(dossier vide)</p>
+<//B_fichiers>
