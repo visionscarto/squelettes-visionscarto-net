@@ -64,8 +64,9 @@ function formulaires_contact_libre_verifier_dist($adresse, $url='', $sujet=''){
 		}
 	}
 
-	if (!_request('confirmer') AND !count($erreurs))
-		$erreurs['previsu']=' ';
+#	if (!_request('confirmer') AND !count($erreurs))
+#		$erreurs['previsu']='';
+#var_dump($erreurs);
 	return $erreurs;
 }
 
