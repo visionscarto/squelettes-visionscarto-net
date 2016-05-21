@@ -32,11 +32,15 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 
 <BOUCLE_secteurs(RUBRIQUES){racine}{titre ==^@}{doublons ok} />
 
-<BOUCLE_10recents(ARTICLES) {lang ?}{branche ?}{id_mot ?}{id_auteur ?} {par date}{inverse}{0,10}{unique}{id_secteur !IN #DOUBLONS{rubriquesok}}>
+[(#SET{datelimite,[(#VAL{Y-m-d H:i:s}|date{[(#VAL{-2 hours}|strtotime)]})]"})]
+
+<BOUCLE_10recents(ARTICLES) {lang ?}{branche ?}{id_mot ?}{id_auteur ?} {par date}{inverse}{0,10}{unique}{id_secteur !IN #DOUBLONS{rubriquesok}}
+{date<#GET{datelimite}}>
 <INCLURE{fond=inclure/rss-item,id_article} />
 </BOUCLE_10recents>
 
-<BOUCLE_tres_recents(ARTICLES){lang ?}{branche ?}{id_mot ?}{id_auteur ?} {par date}{inverse}{age<3}{unique}{id_secteur !IN #DOUBLONS{rubriquesok}}>
+<BOUCLE_tres_recents(ARTICLES){lang ?}{branche ?}{id_mot ?}{id_auteur ?} {par date}{inverse}{age<3}{unique}{id_secteur !IN #DOUBLONS{rubriquesok}}
+{date < #GET{datelimite}}>
 <INCLURE{fond=inclure/rss-item,id_article} />
 </BOUCLE_tres_recents>
 
