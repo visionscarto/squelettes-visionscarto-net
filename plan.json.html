@@ -1,6 +1,6 @@
 #HTTP_HEADER{Content-Type: application/json; charset=#CHARSET}
 [
-<BOUCLE_a(ARTICLES){", "} {par date}>
+<BOUCLE_a(ARTICLES){", "} {!par visites}{0,200}>
 {
 	"id": #ID_ARTICLE,
 	"title": [(#TITRE|supprimer_tags|json_encode)],
