@@ -5,7 +5,8 @@
 	<ul>
 	<BOUCLE_tags(ARTICLES){recherche ##RECHERCHE*}{!par date}{doublons}
 	{si (#RECHERCHE|match{' '}|non)}>
-	<li><a href="#URL_ARTICLE">#TITRE</a>[, <:par_auteur:>(#LESAUTEURS|doublons_auteurs)][, (#DATE|affdate_court)]</li>
+	<li><a href="#URL_ARTICLE">#TITRE</a><small>[, <:par_auteur:>(#LESAUTEURS|doublons_auteurs)][,
+	(#DATE|affdate_court)]</small></li>
 	</BOUCLE_tags>
 	</ul>
 </section>
@@ -13,19 +14,19 @@
 
 <B_articles>
 <section class="liste resultats articles">
-
-	#ANCRE_PAGINATION
-	<h2 class="h2"><:articles:> (#GRAND_TOTAL)</h2>
+	[<h2 class="h2">&#171;&nbsp;(#RECHERCHE)&nbsp;&#187;</h2>]
 	<ul class="liste-items">
-		<BOUCLE_articles(ARTICLES) {recherche} {par points}{inverse} {pagination 100}{doublons}>
-		<li class="item"><a href="#URL_ARTICLE">#TITRE</a></li>
+		<BOUCLE_articles(ARTICLES) {recherche} {par points}{inverse}
+		{pagination 30}{doublons}>
+		<li class="item"><a href="#URL_ARTICLE">#TITRE</a><small>[, <:par_auteur:>(#LESAUTEURS|doublons_auteurs)][,
+	(#DATE|affdate_court)]</small></li>
 		</BOUCLE_articles>
 	</ul>
-	[<nav class="pagination">(#PAGINATION)</nav>]
 </section>
 </B_articles>
 
 
 [(#_tags:TOTAL_BOUCLE|sinon{#_articles:TOTAL_BOUCLE}|non)
+	[<h2 class="h2">&#171;&nbsp;(#RECHERCHE)&nbsp;&#187;</h2>]
 	<p>Aucun résultat.</p>
 ]
