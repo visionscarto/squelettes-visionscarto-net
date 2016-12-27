@@ -565,3 +565,9 @@ hr.spip {
 .oembed-container audio {
 	max-width: 400px;
 }
+
+
+.pagination { text-align: left; }
+.pagination .label { display: none; }
+.pagination .disabled { display: none; }
+.pagination .all { display: none; }
