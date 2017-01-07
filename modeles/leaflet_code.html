@@ -20,6 +20,13 @@
 	<script src="[(#CHEMIN{javascript/jquery.js}|url_absolue)]" type="text/javascript"></script>
 	<script src="#TILESERVER/template/leaflet.js?v=0.7.2" type="text/javascript"></script>
 </head>
+<!--
+   w=#ENV{w},
+   h=#ENV{h},
+   initial=#ENV{initial},
+   minzoom=#ENV{minzoom},
+   maxzoom=#ENV{maxzoom},
+ -->
 <body>
 	<div id="map"></div>
 
@@ -48,7 +55,7 @@
 
 	var tileSize = 256;
 
-	var image = { w:2500, h:3219 };
+	var image = { w: [(#ENV{w}intval|sinon{2048})], h: [(#ENV{w}intval|sinon{1600})] };
 
 	// langue du visiteur, soit dans l'url ?lang=fr
 	// soit dans la config navigateur
@@ -60,7 +67,7 @@
 
 	var maxz = Math.ceil(Math.log(Math.max(image.w, image.h)/tileSize)/Math.log(2));
 
-	var zoomInitial = 2;
+	var zoomInitial = [(#ENV{initial}|match{\d+}|sinon{2})];
 	// retina = false;
 	debug=false;
 	testoffline = false;
@@ -74,11 +81,14 @@
 		scrollWheelZoom: false
 	});
 
-	var center = [0.77/zoomInitial,1.0/zoomInitial];
-	if (!window.location.hash
-	|| (window.location.hash == "#1/1/1")  // zoom 1
-	|| (window.location.hash == "#2/0.4/0.5")  // zoom 2
-	) map.setView(center,zoomInitial);
+	var center = [
+		[(#ENV{initial}|explode{/}|table_valeur{1}|floatval|sinon{0.5})] / zoomInitial,
+		[(#ENV{initial}|explode{/}|table_valeur{2}|floatval|sinon{0.5})] / zoomInitial
+	];
+
+console.log("center", center,"zoomInitial", zoomInitial);
+
+	if (!window.location.hash) map.setView(center,zoomInitial);
 
 	map.on('zoomend', function() {
 		$('a.leaflet-control-zoom-in').css({

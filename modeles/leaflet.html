@@ -22,7 +22,7 @@
 
 <div class="fullwidth #ENV{class}"><figure id="#GET{id}" class='[spip_document_(#ID_DOCUMENT) ]spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})] spip_lien_ok'>
 <iframe class="fullwidth" style="width:100%; height:800px; border:0; border-bottom: 1px solid gray;"
-src="data:text/html;base64,[(#INCLURE*{fond=modeles/leaflet_code,tileserver=#GET{tileserver},hre=#ENV{href}f,w=#ENV{w},h=#ENV{h},initial=#ENV{initial},minzoom=#ENV{minzoom},maxzoom=#ENV{maxzoom}}|base64_encode)]"></iframe>
+src="data:text/html;base64,[(#INCLURE*{fond=modeles/leaflet_code,tileserver=#GET{tileserver},href,w=#ENV{w},h=#ENV{h},initial=#ENV{initial},minzoom=#ENV{minzoom},maxzoom=#ENV{maxzoom}}|base64_encode)]"></iframe>
 [
 <figcaption[ style="max-width:(#GET{width}|max{600})px"]>(#GET{caption})</figcaption>]
 </figure></div>
