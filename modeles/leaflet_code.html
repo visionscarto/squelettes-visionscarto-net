@@ -16,9 +16,19 @@
 			-ms-user-select: none;
 			user-select: none;
 		}
-    </style>
+		
+		.leaflet-touch .leaflet-bar a, .leaflet-bar a, .leaflet-bar a:hover {
+			width: 35px;
+			height: 35px;
+			line-height: 35px;
+		}
+		.leaflet-control-zoom-in, .leaflet-control-zoom-out {
+			font: bold 22px 'Lucida Console', Monaco, monospace;
+		}
+	</style>
 	<script src="[(#CHEMIN{javascript/jquery.js}|url_absolue)]" type="text/javascript"></script>
 	<script src="#TILESERVER/template/leaflet.js?v=0.7.2" type="text/javascript"></script>
+	<script src="#TILESERVER/template/Control.FullScreen.js" type="text/javascript"></script>
 </head>
 <!--
    w=#ENV{w},
@@ -86,8 +96,6 @@
 		[(#ENV{initial}|explode{/}|table_valeur{2}|floatval|sinon{0.5})] / zoomInitial
 	];
 
-console.log("center", center,"zoomInitial", zoomInitial);
-
 	if (!window.location.hash) map.setView(center,zoomInitial);
 
 	map.on('zoomend', function() {
@@ -151,9 +159,11 @@ console.log("center", center,"zoomInitial", zoomInitial);
 	// afficher les boutons a cliquer quand la souris bouge
 	// au premier mouvement, toujours montrer ; ensuite, seulement
 	// dans la zone active (clientX)
+	
+	// rq: on passe de 150px à 1500px pour que tout soit "actif"
 	var moved = false;
 	$('body').mousemove(function(e) {
-		if (e.clientX > 150 && moved) return;
+		if (e.clientX > 1500 && moved) return;
 		moved = true;
 		if (!$('.leaflet-control-container').is(':visible')) {
 			// console.log('action');
