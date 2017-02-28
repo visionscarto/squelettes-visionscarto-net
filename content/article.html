@@ -8,11 +8,10 @@
    Calculs du contenu
 
 ]
-[(#SET{bando,[(#SURTITRE*|propre|PtoBR|sinon{#LOGO_ARTICLE})]})]
+[(#SET{bandeau,#LOGO_ARTICLE_RUBRIQUE|extraire_attribut{src}})]
 [(#SET{grotitre,[<h1 class="#EDIT{titre}">(#TITRE|replace{^@}|replace{^Index du site$,#NOM_SITE_SPIP}|trim)</h1>]})]
 
 <BOUCLE_r(RUBRIQUES){id_rubrique}{si (#ID_RUBRIQUE|match{^(7|9)$})}>
-[(#SET{bando,[(#DESCRIPTIF|PtoBR|sinon{#LOGO_ARTICLE})]})]
 [(#SET{grotitre,[<h1 class="#EDIT{titre}">(#TITRE|replace{^@}|trim)</h1>]})]
 
 </BOUCLE_r>
@@ -26,7 +25,6 @@
    - mais modifiable par mot-cle
 
 ]
-[(#SET{bandeau,[(#GET{bando}|extraire_balise{img}|extraire_attribut{src})]})]
 
 [(#SET{couleurtitre,[(#ID_RUBRIQUE|=={1}|?{noir,blanc})]})]
 <BOUCLE_t(MOTS){id_article}{titre IN 'titre blanc','titre noir'}>
@@ -83,7 +81,7 @@ padding-bottom: 0.2em;
 }
 
 </style>]
-[(#GET{bando}|non)
+[(#GET{bandeau}|non)
 <style>
 header.NONcartouche {
   background: none repeat scroll 0% 0% rgba(255, 245, 228, 1);
@@ -97,8 +95,7 @@ header.NONcartouche {
 
 <article class="content-principal#GET{article_nitti}">
 	<header class="cartouche fullwidth surtitre #EDIT{surtitre}
-	[
-	(#GET{bando}|extraire_balise{span}|extraire_attribut{class}|replace{adapt-img-wrapper })]">
+	[(#GET{bandeau}|oui)adapt-img-wrapper]">
 	#GET{grotitre}
 	[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE|pretty_hashtags)</p>]
 	[<p class="info-publi">(#ID_RUBRIQUE|=={1}|?{' '}|sinon{#DATE_REDAC}|sinon{#DATE}|sinon{#DATE_MODIF}|affdate)</p>]

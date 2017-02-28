@@ -132,9 +132,20 @@ border:0;
 
 /* chapo */
 .chapo {
+  font-size: 1.2em;
   font-weight: 900;
   color: #444;
   }
+@media (min-width: 760px) {
+	.chapo {
+		font-size: 1.4em;
+	}
+}
+@media (min-width: 10240px) {
+	.chapo {
+		font-size: 1.6em;
+	}
+}
 .inverted .chapo {
   color: #fff;
 }

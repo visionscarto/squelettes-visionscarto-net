@@ -1,0 +1,15 @@
+#CACHE{0}
+<BOUCLE_articles(ARTICLES){0,10}{surtitre!=""}>
+<li>
+	<a href="#URL_ARTICLE">#TITRE</a> 
+		[(#SURTITRE*|propre|extraire_balise{img}|extraire_attribut{src}|creer_logo_article{#ID_ARTICLE})]
+</li>
+</BOUCLE_articles>
+
+<BOUCLE_rubriques(RUBRIQUES){descriptif!=""}>
+<li><strong>
+	<a href="#URL_RUBRIQUE">#TITRE</a>
+	[(#DESCRIPTIF*|propre|extraire_balise{img}|extraire_attribut{src}|creer_logo_rubrique{#ID_RUBRIQUE})]
+</strong>
+</li>
+</BOUCLE_rubriques>
