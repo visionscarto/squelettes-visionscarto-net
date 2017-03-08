@@ -42,7 +42,7 @@ html { font-size: 145.1%; }
 body { line-height: 1.43 }
 
 h1,.h1 {
-	font-size: 3.6em !important;
+	font-size: 3.0em;
 	line-height: 0.9em !important;
 	margin: 0.5em 3rem 0.3em;
 }
@@ -92,11 +92,33 @@ h1,.h1 {
 
 /* header */
 header.cartouche {
+	font-family: nitti-grotesk, Verdana, sans-serif;
 	padding-left: 3rem;
 	padding-right: 2rem;
 }
 .info-publi {
+	text-transform: uppercase;
 	text-align:right;
+}
+
+header.cartouche h1 > span {
+	display: inline;
+	line-height: 120%;
+	text-shadow: none;
+	padding: 0px 20px  4px 20px;
+	-webkit-box-decoration-break: clone;
+}
+@media screen and (max-width: 599px) {
+	header.cartouche h1 > span {
+		font-size: 80%;
+	}
+}
+@media screen {
+	header.cartouche h1 > span,
+	{
+		background-color: black;
+		color: white;
+	}
 }
 
 
@@ -366,6 +388,29 @@ figcaption > div > div {
 	font-weight: normal;
 }
 
+h3.spip {
+	display: inline-block;
+	padding: 4px 3rem !important;
+	line-height: 120%;
+	-webkit-box-decoration-break: clone;
+	font-size: 1.5em;
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	margin-left: 0px !important;
+}
+
+@media screen {
+	h3.spip {
+		background-color: black;
+		color: white;
+	}
+}
+
+@media (max-width: 959px) {
+	h3.spip {
+		padding: 4px 1rem !important;
+	}
+}
 
 /* la legende de la colorbox */
 #cboxTitle {
