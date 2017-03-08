@@ -114,7 +114,7 @@ header.cartouche h1 > span {
 	}
 }
 @media screen {
-	header.cartouche h1 > span,
+	header.cartouche h1 > span
 	{
 		background-color: black;
 		color: white;
@@ -198,11 +198,6 @@ blockquote { border: 0; }
 .notes { font-size: 0.85em; color: #666; }
 
 
-#appel>div {
-max-width: 33em;
-padding-left: 3em;
-padding-right: 3em;
-}
 
 /* fixes tinytypo for SPIP */
 .formulaire_spip ul,
@@ -274,6 +269,7 @@ figcaption .credits { color: #aaa; }
 	text-align: left;
 }
 section:after {
+	position: absolute;
 	content: " ";
 	clear: both;
 }
@@ -476,10 +472,17 @@ body {position: absolute;
 
 /* appel a collaboration */
 #appel {
-margin-left: 0;
+margin:0;
+padding: 0;
+max-width: 100%;
 }
+#appel>div {
+padding: 1em 3em;
+}
+
 #appel > div.inverted {
 	background-color: #92100E !important; /* rouge sombre */
+	color: white;
 }
 
 /* annuler les coins arrondis de semantic-ui */
