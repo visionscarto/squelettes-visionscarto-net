@@ -1,0 +1,38 @@
+#activer_menu {
+	display: none;
+}
+
+#menu {
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 280px;
+	height: 100%;
+	z-index: 1000;
+	
+	background-color: #fff5e4;
+	border-left: 1px solid black;
+	
+	-webkit-transform: translate(280px, 0);
+	transform: translate(280px, 0);
+	
+	transition: 0.3s transform;
+}
+
+#activer_menu:checked + #menu {
+	-webkit-transform: translate(0, 0);
+	transform: translate(0, 0);
+	
+}
+
+#menu > .item {
+	padding: 20px;
+	display: block;
+}
+
+#menu > .item + .item {
+	border-top: 1px solid black;
+}
+#menu .menu .item {
+	display: block;
+}

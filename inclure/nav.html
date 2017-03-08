@@ -1,4 +1,6 @@
-﻿   <div class="ui item">
+﻿
+
+   <div class="ui item">
     <i class="globe icon"></i> <a href="#URL_SITE_SPIP/sitemap">Visionscarto</a>
 
     <div class="menu vertical">
@@ -53,16 +55,17 @@
     </div>
   </div>
 
-
+[(#REM)
   <a class="item fullscreen disabled" onclick="$('.ui.sidebar').sidebar('hide');toggleFullScreen();">
       <i class="fullscreen outline icon"></i>
       Plein écran
    </a>
+]
 
-  <a class="item close"><i class="close icon"></i> Fermer</a>
+  <a class="item close"><label for="activer_menu"><i class="close icon"></i> Fermer</label></a>
 
 <!-- /sidebar -->
-
+[(#REM)
 <script type="text/javascript">
 var doc = window.document,
  docEl = doc.documentElement,
@@ -92,3 +95,4 @@ $(function() {
   });
 });
 </script>
+]

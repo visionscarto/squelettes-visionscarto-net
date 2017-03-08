@@ -1,20 +1,18 @@
 ﻿<body>
 	<section class="page">
 		<header id="header"><INCLURE{fond=header/#ENV{type-page},env} /></header>
-		<section class="container" id="container" role="main"
-		onclick="if($('body').is('.pushed')) {$('.ui.sidebar').sidebar('toggle');}"
-		>
+		<section class="container" id="container" role="main"	>
 
-		<a class="logo" href="./?page=plan" rel="start home"
-		onclick="setTimeout(function(){$('#menu').sidebar('toggle');},20);return false;"
-		>[(#LOGO_SITE_SPIP|image_reduire{120,*}
-			|inserer_attribut{class,thumb})]</a>
+		<a class="logo" href="./?page=plan" rel="start home"><label for="activer_menu">
+			[(#LOGO_SITE_SPIP|image_reduire{120,*}|inserer_attribut{class,thumb})]
+		</label></a>
 
 			<section class="content" id="content"><INCLURE{fond=content/#ENV{type-page},env} />
 			</section>
 
 		</section>
-
+		
+		<input type="checkbox" id="activer_menu">
 		<nav class="ui vertical sidebar wide right menu hornav" id="menu">
 		<INCLURE{fond=inclure/nav} />
 		</nav>
