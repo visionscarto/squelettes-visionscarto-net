@@ -393,7 +393,7 @@ h3.spip {
 	line-height: 120%;
 	-webkit-box-decoration-break: clone;
 	box-decoration-break: clone;
-	font-size: 1.5em;
+	font-size: 1.8em;
 	margin-top: 1.5em;
 	margin-bottom: 1.5em;
 	margin-left: 0px !important;
@@ -488,6 +488,10 @@ padding: 1em 3em;
 	background-color: #92100E !important; /* rouge sombre */
 	color: white;
 }
+#appel > div.inverted  > * {
+	max-width: 33rem;
+}
+
 
 /* annuler les coins arrondis de semantic-ui */
 .ui.segment {
@@ -507,7 +511,7 @@ blockquote.spip:before {
 }
 /* blockquote (natif HTML) */
 blockquote {
-	max-width: 32em !important;
+	max-width: 33em !important;
 }
 blockquote:before {
 left: -22px;
