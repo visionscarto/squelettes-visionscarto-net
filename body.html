@@ -3,8 +3,9 @@
 		<header id="header"><INCLURE{fond=header/#ENV{type-page},env} /></header>
 		<section class="container" id="container" role="main"	>
 
-		<a class="logo" href="./?page=plan" rel="start home"><label for="activer_menu">
-			[(#LOGO_SITE_SPIP|image_reduire{120,*}|inserer_attribut{class,thumb})]
+		<a class="logo_menu" href="./?page=plan" rel="start home"><label for="activer_menu">
+			[(#CHEMIN{svg/hamburger.svg}|file_get_contents)]
+			MENU
 		</label></a>
 
 			<section class="content" id="content"><INCLURE{fond=content/#ENV{type-page},env} />
