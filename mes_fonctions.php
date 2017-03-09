@@ -83,3 +83,43 @@ function doublons_auteurs($name) {
 
 	return $name;
 }
+
+
+
+function filtrer_rediriger_css($reg) {
+	$lien = $reg[1];
+	$lien = supprimer_timestamp($lien);
+	
+	$css = file_get_contents($lien);
+	//return "<link rel='stylesheet' href='$lien'>" ;
+	
+	return "<style>$css</style>";
+}
+
+
+
+function mini_html($texte) {
+	$texte = str_replace("application/mp4", "video/mp4", $texte);
+
+	$texte = preg_replace(",\ +,", " ", $texte);
+	$texte = preg_replace(",\n[\t|\ ]*,", "\n", $texte);
+	$texte = preg_replace(",\n+,", "\n", $texte);
+
+	$texte = preg_replace(",style='width:[0-9]+px;',", "", $texte);
+	
+	$texte = str_replace("<script type='text/javascript' src=''></script>", "", $texte);
+	$texte = str_replace("<script type='text/javascript' src='", "<script async  type='text/javascript' src='", $texte);
+	
+	
+	//$texte = preg_replace(",(png|jpg|css|gif|js)\?[0-9]*,", "$1", $texte);
+	$texte = str_replace("max-width: 100%; height: auto;", "width: 100%; height: auto;", $texte);
+	
+	$texte = str_replace("<p><br class='manualbr' /></p>\n<ul", "\n<div style='display: none;'></div><ul", $texte);
+
+
+	$texte = preg_replace_callback(",<link rel=\'stylesheet\' href=[\"\']([^\"\']*)[\"\'] type=\'text\/css\' \/>,", "filtrer_rediriger_css", $texte );
+
+	
+	return trim($texte);
+}
+

@@ -33,6 +33,10 @@
 #menu > .item + .item {
 	border-top: 1px solid black;
 }
+#menu form.item {
+	background-color: black;
+}
+
 #menu .menu .item {
 	display: block;
 }
