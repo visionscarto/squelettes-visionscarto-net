@@ -123,3 +123,16 @@ function mini_html($texte) {
 	return trim($texte);
 }
 
+
+
+function include_svg($file) {
+	if (file_exists($file)) {
+		$texte = file_get_contents($file);
+		
+		if (preg_match(",<svg(.*)\/svg>,s", $texte, $m)) {
+			$texte  = "<svg".$m[1]."/svg>";
+		}
+		
+		return $texte;
+	}
+}
