@@ -1,5 +1,5 @@
 <BOUCLE_principale(ARTICLES){id_article}>
-	<BOUCLE_liste(ARTICLES){par popularite}{inverse}{0,5}{id_rubrique!=1}{popularite<#POPULARITE}{exclus}>
+	<BOUCLE_liste(ARTICLES){par date}{inverse}{0,5}{id_rubrique!=1}{date<#DATE*}{exclus}{lang}>
 		<INCLURE{fond=liste/lien_article}{id_article}>
 	</BOUCLE_liste>
 </BOUCLE_principale>
