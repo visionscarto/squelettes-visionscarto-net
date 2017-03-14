@@ -498,6 +498,16 @@ body {position: absolute;
 	border: 1px dashed #ccc !important;
 }
 
+
+p.traductions {
+	font-family: nitti-grotesk;
+	font-size: 85%;
+	max-width: 100% !important;
+}
+p.traductions .on {
+	font-weight: bold;
+}
+
 /* appel a collaboration */
 #appel {
 margin:0;
