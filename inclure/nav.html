@@ -63,36 +63,3 @@
 ]
 
 <label for="activer_menu" class="logo_menu">[(#CHEMIN{svg/croix.svg}|include_svg)] <multi>Fermer[en]Close[es]Cerrar</multi></label>
-
-<!-- /sidebar -->
-[(#REM)
-<script type="text/javascript">
-var doc = window.document,
- docEl = doc.documentElement,
- requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen,
- cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen;
-$(function() {
-  if (typeof requestFullScreen == 'function') $('.fullscreen').removeClass('disabled');
-});
-function toggleFullScreen() {
-  if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement) {
-    requestFullScreen.call(docEl);
-  }
-  else {
-    cancelFullScreen.call(doc);
-  }
-}
-
-$(function() {
-//  $('#menu').sidebar('toggle');
-  // activate dropdowns etc.
-  $('.ui.dropdown').dropdown();
-  $('.ui.accordion').accordion();
-  $('#menu a').on('click', function() {
-    setTimeout( function(){
-      $('#menu').sidebar('toggle');
-    }, 20);
-  });
-});
-</script>
-]

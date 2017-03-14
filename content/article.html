@@ -126,13 +126,7 @@ header.NONcartouche {
 		#MODELE{article_traductions}
 		[<aside class="notes"><h2><:info_notes:></h2>(#NOTES)</aside>]
 
-		<aside id="appel" class="#EDIT{ps}" ></aside>
-		<script type='text/javascript'>
-		$('#appel')
-		.html(
-			[(#VAL{[<div class="ui inverted segment">(#PS|pretty_hashtags)</div>]}|json_encode)]
-		);
-		</script>
+		[<aside id="appel" class="#EDIT{ps}" ><div class="ui inverted segment">(#PS)</div></aside>]
 		
   
 		[(#REM) inclure de partage RS ]
