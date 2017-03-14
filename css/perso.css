@@ -591,14 +591,15 @@ code, .code, .spip_code,.spip_cadre{
 
 /* pied de page ! */
 #footer {
+/*
 background: none repeat scroll 0% 0% rgba(255, 245, 228, 1);
 color: rgba(57, 56, 56, 1);
-/*
 padding-top: 2em;
 padding-bottom: 5em;
 padding-left: 1em;
 padding-right: 1em;
 */
+background-color: #333;
 }
 /* necessaire pour que le pied touche bien par terre */
 section.page:after { content:none }
