@@ -1,4 +1,15 @@
 <BOUCLE_content(ARTICLES){id_article}>
+[<style>
+#header a  {
+	background-color: #(#LOGO_ARTICLE_RUBRIQUE|couleur_extraire{3,1}|couleur_foncer_si_claire);
+}
+[.logo_menu svg g, .logo_menu {
+	fill: #(#LOGO_ARTICLE_RUBRIQUE|couleur_extraire{3,1}|couleur_foncer_si_claire);
+	[color: #(#LOGO_ARTICLE_RUBRIQUE|couleur_extraire{3,1}|couleur_foncer_si_claire) !important;]
+
+}]
+</style>]
+
 [(#REM) Fil d'Ariane ]
 <nav id="hierarchie"><a href="#URL_SITE_SPIP/"><:accueil_site:></a><BOUCLE_ariane(HIERARCHIE){id_article}><span class="sep"> &gt; </span><a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[<span class="sep"> &gt; </span><strong class="on">(#TITRE|couper{80})</strong>]</nav>
 

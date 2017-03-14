@@ -97,8 +97,7 @@ h1,.h1 {
 /* header */
 header.cartouche {
 	font-family: nitti-grotesk, Verdana, sans-serif;
-	padding-left: 3rem;
-	padding-right: 2rem;
+	padding: 2rem 4rem 1.5rem 3rem;
 }
 .info-publi {
 	text-transform: uppercase;
@@ -149,7 +148,7 @@ p.in:first-line, h2 + p:not(.off):first-line { font-variant:small-caps }
 
 .logo {
 position: fixed;
-bottom: 10px;
+top: 10px;
 right: 10px;
 z-index: 500;
 padding:0;
@@ -176,7 +175,7 @@ border:0;
   color: #fff;
 }
 .chapo p {
-  max-width: 42em !important;
+  max-width: 100%!important;
 }
 
 h2, .h2, h3, .h3  {margin-top: 1.5em; margin-bottom: 0.3em;}
@@ -382,8 +381,33 @@ figcaption > div > div {
 	}
 }
 /* la bio de l'auteur·e */
+.chapo {
+	margin-bottom: 1.5em;
+}
+@media (min-width: 768px) {
+	.chapo {
+		padding-right: 3rem;
+	}
+}
+.chapo p {
+	margin: 0;
+}
+.chapo p + p {
+	margin-top: 0.5em;
+}
+.chapo h4 {
+	padding-right: 0;
+	max-width: 100%!important;
+	margin: 0;
+	margin-top: 0.3em;
+}
 .chapo h5 {
-	font-size: 0.8em;
+	padding-right: 0;
+	max-width: 100%!important;
+	margin: 0;
+	margin-top: 0.3em;
+	font-size: 0.6em;
+	line-height: 120%;
 	font-weight: normal;
 }
 
@@ -688,4 +712,34 @@ hr.spip {
 	color: white;
 	text-transform: uppercase;
 	text-shadow: 1px 1px 1px black;
+}
+
+#page {
+	position: relative;
+}
+#header {
+	padding: 1rem 3em;
+	display: block;
+	top: 0;
+}
+@media (max-width: 767px) {
+	#header {
+		padding: 1rem;
+	}
+}
+
+#header a {
+	display: inline-block;
+	text-transform: lowercase;
+	text-decoration: none;
+	padding: 0px 15px  4px 15px;
+	background-color: #92100e;
+	color: white;
+	font-size: 1.6em;
+	line-height: 1em;
+	font-family: nitti-grotesk, Verdana, sans-serif;
+}
+
+#header a:hover, #header a:focus {
+	background-color: black;
 }
