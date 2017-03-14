@@ -537,8 +537,20 @@ padding: 1em 3em;
 blockquote.spip {
     background-color: #ECECE4;
     border: 0px none;
-    padding: 0.6rem 3em;
+    padding: 1rem 2rem;
     margin: 2em 0px;
+}
+
+blockquote.spip h3 {
+	padding: 1rem 2rem !important;
+	margin-top: -1rem;
+	margin-right: -2rem;
+	margin-left: -2rem !important;
+	margin-bottom: 0.3em;
+}	
+
+blockquote.spip * + h3 {
+	margin-top: 1.5em;
 }
 blockquote.spip:before {
 	content: ''; /* annuler le << de tinytypo */
