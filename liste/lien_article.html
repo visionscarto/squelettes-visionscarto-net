@@ -1,0 +1,23 @@
+<BOUCLE_principale(ARTICLES){id_article}>
+
+<style>
+#lien_article_big_#ID_ARTICLE {
+	background-image: url([(#LOGO_ARTICLE_RUBRIQUE|extraire_attribut{src})]);
+}
+</style>
+
+<a class="lien_article_big" id="lien_article_big_#ID_ARTICLE" href="#URL_ARTICLE">
+
+	[<span class="auteur"><:par_auteur:>(#LESAUTEURS|supprimer_tags)</span><br>]
+	<span class="titre">#TITRE</span>
+	[<span class='hashtags'">(#SOUSTITRE)</span>]
+
+	[<span class="date">(#DATE_REDAC|sinon{#DATE}|affdate)</span>]
+	
+</a>
+
+	
+
+</BOUCLE_principale>
+
+#FILTRE{mini_html}

@@ -1,5 +1,12 @@
-<?php
+<BOUCLE_liste(ARTICLES){par date}{inverse}{0,5}>
+	<INCLURE{fond=liste/lien_article}{id_article}>
+</BOUCLE_liste>
 
+
+
+
+<?php
+/*
 <BOUCLE_pop(ARTICLES){!par popularite}{doublons next}{id_rubrique!=1} />
 
 $a = array([(#DOUBLONS{articlesnext}|join{','})]);
@@ -13,4 +20,6 @@ if (!isset($next))
 
 
 echo recuperer_fond('footer/next_article_affiche', array('id_article' => $next));
+
+*/
 ?>
