@@ -1,25 +1,8 @@
-<BOUCLE_liste(ARTICLES){par date}{inverse}{0,5}>
-	<INCLURE{fond=liste/lien_article}{id_article}>
-</BOUCLE_liste>
+<BOUCLE_principale(ARTICLES){id_article}>
+	<BOUCLE_liste(ARTICLES){par popularite}{inverse}{0,5}{id_rubrique!=1}{popularite<#POPULARITE}{exclus}>
+		<INCLURE{fond=liste/lien_article}{id_article}>
+	</BOUCLE_liste>
+</BOUCLE_principale>
 
 
-
-
-<?php
-/*
-<BOUCLE_pop(ARTICLES){!par popularite}{doublons next}{id_rubrique!=1} />
-
-$a = array([(#DOUBLONS{articlesnext}|join{','})]);
-
-foreach ($a as $k => $i) {
-	if ($i == $GLOBALS['id_article'])
-		$next = $a[$k+1];
-}
-if (!isset($next))
-	$next = array_shift($a);
-
-
-echo recuperer_fond('footer/next_article_affiche', array('id_article' => $next));
-
-*/
-?>
+#FILTRE{mini_html}
