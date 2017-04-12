@@ -136,3 +136,17 @@ function include_svg($file) {
 		return $texte;
 	}
 }
+
+// filtre couleur_rgba converti une mention de couleur hexadecimale
+// en couleur semi_transparente rgba
+// [(#COULEUR_HEX|couleur_rgba{0.5})]
+	function couleur_rgba($couleur, $alpha) {
+		include_spip("inc/filtres_images_lib_mini");
+		$couleurs = _couleur_hex_to_dec($couleur);
+
+		$red = $couleurs["red"];
+		$green = $couleurs["green"];
+		$blue = $couleurs["blue"];
+		
+		return "rgba($red, $green, $blue, $alpha)";
+	}
