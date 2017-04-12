@@ -61,14 +61,11 @@
 header.cartouche {
 width:100%;
 min-height: 14rem;
+[background-color: #(#LOGO_ARTICLE_RUBRIQUE|couleur_extraire);]
 background-image: url([(#GET{bandeau})]);
 background-size: cover;
 }
 
-/* en attente de chargement du background-image */
-header.cartouche {
-background-color: #777;
-}
 
 header.cartouche * {
 [(#GET{couleurtitre}|=={noir}|?{

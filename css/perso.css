@@ -104,7 +104,7 @@ header.cartouche {
 	text-align:right;
 }
 
-header.cartouche h1 > span {
+header.cartouche h1 > span, header.cartouche h1 a > span {
 	display: inline;
 	line-height: 120%;
 	text-shadow: none;
@@ -113,12 +113,12 @@ header.cartouche h1 > span {
 	box-decoration-break: clone;
 }
 @media screen and (max-width: 599px) {
-	header.cartouche h1 > span {
+	header.cartouche h1 > span, header.cartouche h1 a > span {
 		font-size: 80%;
 	}
 }
 @media screen {
-	header.cartouche h1 > span
+	header.cartouche h1 > span, header.cartouche h1 a > span
 	{
 		background-color: black;
 		color: white;
@@ -764,4 +764,43 @@ hr.spip {
 
 #header a:hover, #header a:focus {
 	background-color: black;
+}
+
+
+a.lien_article_une {
+	display: block;
+	margin:  0 4rem 0 3rem;
+	padding: 1rem 0;
+	text-decoration: none;
+}
+@media screen and (max-width:767px) {
+	a.lien_article_une {
+		margin-left: 1rem;
+		margin-right: 1.5rem;
+		padding: 0.7rem 0;
+	}
+}
+
+a.lien_article_une + a.lien_article_une {
+	border-top: 1px solid #ccc;
+}
+a.lien_article_une .titre {
+	display: inline;
+	text-decoration: none;
+	font-size: 1.6em;
+	line-height: 1em;
+	font-family: nitti-grotesk, Verdana, sans-serif;
+	line-height: 100%;
+}
+a.lien_article_une_3 .titre {
+	padding: 2px 15px;
+	background-color: black;
+	color: white;
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+	line-height: 130%;
+}
+a.lien_article_une .date {
+	font-family: nitti-grotesk, Verdana, sans-serif;
+	display: block;
 }

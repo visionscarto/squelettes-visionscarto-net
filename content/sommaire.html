@@ -1,0 +1,81 @@
+
+
+
+<BOUCLE_enum(DATA){enum 1,5}>
+	<BOUCLE_un_article_principal(ARTICLES){0,1}{par date}{inverse}{doublons}{id_rubrique=3}>
+		[(#_enum:COMPTEUR_BOUCLE|=={1}|oui)
+		[<style>
+			#header a  {
+				background-color: #(#LOGO_ARTICLE_RUBRIQUE|couleur_extraire{3,1}|couleur_foncer_si_claire);
+			}
+			[.logo_menu svg g, .logo_menu {
+				fill: #(#LOGO_ARTICLE_RUBRIQUE|couleur_extraire{3,1}|couleur_foncer_si_claire);
+				[color: #(#LOGO_ARTICLE_RUBRIQUE|couleur_extraire{3,1}|couleur_foncer_si_claire) !important;]
+			
+			}]
+		</style>]
+		]
+		[(#SET{bandeau,#LOGO_ARTICLE_RUBRIQUE|extraire_attribut{src}})]
+		
+		[<style type='text/css'>(#GET{bandeau}|oui)
+
+		header.cartouche#ID_ARTICLE {
+				[background-color: #(#LOGO_ARTICLE_RUBRIQUE|couleur_extraire);]
+		}
+		header.cartouche#ID_ARTICLE * {
+				color: white;
+				text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.85);
+		}
+		
+		@media screen and (max-width:767px) {
+			header.cartouche#ID_ARTICLE { background-image:none !important;
+				padding-left: 1rem;
+				padding-right: 1.5rem;
+			}
+		}
+		@media screen and (min-width:768px) {
+			header.cartouche#ID_ARTICLE {
+				width:100%;
+				min-height: 14rem;
+				background-image: url([(#GET{bandeau})]);
+				background-size: cover;
+			}
+
+		}
+		
+		</style>]
+
+
+	
+		[(#SET{grotitre,[<h1><a href="#URL_ARTICLE"><span class="#EDIT{titre}">(#TITRE|replace{^@}|replace{^Index du site$,#NOM_SITE_SPIP}|trim)</span></a></h1>]})]
+		
+		<BOUCLE_r_big(RUBRIQUES){id_rubrique}{si (#ID_RUBRIQUE|match{^(7|9)$})}>
+		[(#SET{grotitre,[<h1><a href="#URL_ARTICLE"><span class="#EDIT{titre}">(#TITRE|replace{^@}|trim)</span></a></h1>]})]
+		
+		</BOUCLE_r_big>
+	
+		<header class="cartouche cartouche#ID_ARTICLE fullwidth surtitre #EDIT{surtitre}
+		[(#GET{bandeau}|oui)adapt-img-wrapper]">
+		#GET{grotitre}
+		[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE|pretty_hashtags)</p>]
+		[<p class="info-publi">(#ID_RUBRIQUE|=={1}|?{' '}|sinon{#DATE_REDAC}|sinon{#DATE}|sinon{#DATE_MODIF}|affdate)</p>]
+		<span class="clear">&nbsp;</span>
+	
+		</header>
+
+
+	</BOUCLE_un_article_principal>
+	
+		<BOUCLE_articles_secondaires(ARTICLES){0,4}{par date}{inverse}{doublons}>
+		<a href="#URL_ARTICLE" class="lien_article_une aimg lien_article_une_#ID_RUBRIQUE">
+			<span class="titre">#TITRE</span>
+			[<span class="date">(#DATE|affdate_court)</span>]
+		</a>
+		</BOUCLE_articles_secondaires>
+	
+</BOUCLE_enum>
+
+
+
+#FILTRE{liens_ouvrants|mini_html}
+
