@@ -781,16 +781,20 @@ a.lien_article_une {
 	}
 }
 
-a.lien_article_une + a.lien_article_une {
+a.lien_article_une + style + a.lien_article_une {
 	border-top: 1px solid #ccc;
 }
 a.lien_article_une .titre {
 	display: inline;
 	text-decoration: none;
-	font-size: 1.6em;
+	font-size: 1.3em;
 	line-height: 1em;
 	font-family: nitti-grotesk, Verdana, sans-serif;
 	line-height: 100%;
+	color: #666;
+}
+a.lien_article_une:hover .titre {
+	color: black;
 }
 a.lien_article_une_3 .titre {
 	padding: 2px 15px;
@@ -798,6 +802,7 @@ a.lien_article_une_3 .titre {
 	color: white;
 	-webkit-box-decoration-break: clone;
 	box-decoration-break: clone;
+	font-size: 1.6em;
 	line-height: 130%;
 }
 a.lien_article_une .date {

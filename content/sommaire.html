@@ -19,38 +19,49 @@
 		
 		[<style type='text/css'>(#GET{bandeau}|oui)
 
-		header.cartouche#ID_ARTICLE {
-				[background-color: #(#LOGO_ARTICLE_RUBRIQUE|couleur_extraire);]
-		}
-		header.cartouche#ID_ARTICLE * {
-				color: white;
-				text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.85);
-		}
-		
-		@media screen and (max-width:767px) {
-			header.cartouche#ID_ARTICLE { background-image:none !important;
-				padding-left: 1rem;
-				padding-right: 1.5rem;
-			}
-		}
-		@media screen and (min-width:768px) {
 			header.cartouche#ID_ARTICLE {
-				width:100%;
-				min-height: 14rem;
-				background-image: url([(#GET{bandeau})]);
-				background-size: cover;
+					[background-color: #(#LOGO_ARTICLE_RUBRIQUE|couleur_extraire);]
 			}
-
-		}
-		
+	
+			header.cartouche#ID_ARTICLE h1 a {
+				text-decoration: none;
+			}
+			header.cartouche#ID_ARTICLE h1 a > span {
+				[background-color: (#LOGO_ARTICLE_RUBRIQUE|couleur_extraire{3,10}|couleur_foncer_si_claire|couleur_rgba{0.6});]
+			}
+			header.cartouche#ID_ARTICLE h1 a:hover > span {
+				[background-color: (#LOGO_ARTICLE_RUBRIQUE|couleur_extraire{3,10}|couleur_foncer_si_claire|couleur_rgba{0.9});]
+			}
+	
+			header.cartouche#ID_ARTICLE * {
+					color: white;
+					text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.85);
+			}
+			
+			@media screen and (max-width:767px) {
+				header.cartouche#ID_ARTICLE { background-image:none !important;
+					padding-left: 1rem;
+					padding-right: 1.5rem;
+				}
+			}
+			@media screen and (min-width:768px) {
+				header.cartouche#ID_ARTICLE {
+					width:100%;
+					min-height: 14rem;
+					background-image: url([(#GET{bandeau})]);
+					background-size: cover;
+				}
+	
+			}
+			
 		</style>]
 
 
 	
-		[(#SET{grotitre,[<h1><a href="#URL_ARTICLE"><span class="#EDIT{titre}">(#TITRE|replace{^@}|replace{^Index du site$,#NOM_SITE_SPIP}|trim)</span></a></h1>]})]
+		[(#SET{grotitre,[<h1><a href="#URL_ARTICLE" class="aimg"><span class="#EDIT{titre}">(#TITRE|replace{^@}|replace{^Index du site$,#NOM_SITE_SPIP}|trim)</span></a></h1>]})]
 		
 		<BOUCLE_r_big(RUBRIQUES){id_rubrique}{si (#ID_RUBRIQUE|match{^(7|9)$})}>
-		[(#SET{grotitre,[<h1><a href="#URL_ARTICLE"><span class="#EDIT{titre}">(#TITRE|replace{^@}|trim)</span></a></h1>]})]
+		[(#SET{grotitre,[<h1><a href="#URL_ARTICLE" class="aimg"><span class="#EDIT{titre}">(#TITRE|replace{^@}|trim)</span></a></h1>]})]
 		
 		</BOUCLE_r_big>
 	
@@ -67,7 +78,16 @@
 	</BOUCLE_un_article_principal>
 	
 		<BOUCLE_articles_secondaires(ARTICLES){0,4}{par date}{inverse}{doublons}>
-		<a href="#URL_ARTICLE" class="lien_article_une aimg lien_article_une_#ID_RUBRIQUE">
+		<style>
+		a.lien_article_une_3.lien_article_une#ID_ARTICLE .titre {
+				[background-color: (#LOGO_ARTICLE_RUBRIQUE|couleur_extraire{3,10}|couleur_foncer_si_claire|couleur_rgba{0.6});]
+		}
+		a.lien_article_une_3.lien_article_une#ID_ARTICLE:hover .titre {
+				[background-color: (#LOGO_ARTICLE_RUBRIQUE|couleur_extraire{3,10}|couleur_foncer_si_claire|couleur_rgba{0.9});]
+				color: white;
+		}
+		</style>
+		<a href="#URL_ARTICLE" class="lien_article_une lien_article_une#ID_ARTICLE aimg lien_article_une_#ID_RUBRIQUE">
 			<span class="titre">#TITRE</span>
 			[<span class="date">(#DATE|affdate_court)</span>]
 		</a>
