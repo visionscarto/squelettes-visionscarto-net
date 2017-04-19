@@ -1,0 +1,23 @@
+<BOUCLE_principale(ARTICLES){id_article}>
+<nav class="lien_une">
+		<style>
+		a.lien_article_une_3.lien_article_une#ID_ARTICLE .titre {
+				[background-color: (#LOGO_ARTICLE_RUBRIQUE|couleur_extraire{3,10}|couleur_foncer_si_claire|couleur_rgba{0.6});]
+		}
+		a.lien_article_une_3.lien_article_une#ID_ARTICLE:hover .titre {
+				[background-color: (#LOGO_ARTICLE_RUBRIQUE|couleur_extraire{3,10}|couleur_foncer_si_claire|couleur_rgba{0.9});]
+				color: white;
+		}
+		</style>
+		
+		<a href="#URL_ARTICLE" class="lien_article_une lien_article_une#ID_ARTICLE aimg lien_article_une_#ID_RUBRIQUE">
+			<span class="titre">#TITRE</span>
+			
+			<span class="infos">
+				[<span class="date">(#DATE|affdate_court)</span>][<span class="auteur">, <:par_auteur:>(#LESAUTEURS|supprimer_tags)</span>]
+			</span>
+		</a>
+</nav>
+</BOUCLE_principale>
+
+#FILTRE{mini_html}
