@@ -77,17 +77,19 @@
 		<header class="cartouche cartouche#ID_ARTICLE fullwidth surtitre
 		[(#GET{bandeau}|oui)adapt-img-wrapper]">
 			<h1>
-				<B_les_auteurs>
-				<span class="auteurs_cartouche_une">
-				<BOUCLE_les_auteurs(AUTEURS){id_article}{", "}{nom!==^@}>#NOM</BOUCLE_les_auteurs>
-				</span><br>
-				</B_les_auteurs>
-		
 			<a href="#URL_ARTICLE" class="aimg">
 				[<span class="titre">(#TITRE|replace{^@}|replace{^Index du site$,#NOM_SITE_SPIP}|trim)</span>]
 			</a></h1>
 		[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE|pretty_hashtags)</p>]
-		[<p class="info-publi">(#ID_RUBRIQUE|=={1}|?{' '}|sinon{#DATE_REDAC}|sinon{#DATE}|sinon{#DATE_MODIF}|affdate)</p>]
+		<p class="info-publi">
+				<B_les_auteurs>
+				<span class="auteurs_cartouche_une">
+				<BOUCLE_les_auteurs(AUTEURS){id_article}{", "}{nom!==^@}>#NOM,</BOUCLE_les_auteurs>
+				</span>
+				</B_les_auteurs>
+		
+			[(#ID_RUBRIQUE|=={1}|?{' '}|sinon{#DATE_REDAC}|sinon{#DATE}|sinon{#DATE_MODIF}|affdate)]
+		</p>
 		<span class="clear">&nbsp;</span>
 	
 		</header>

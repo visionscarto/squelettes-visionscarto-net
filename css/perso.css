@@ -52,7 +52,7 @@ h1,.h1 {
 }
 
 .soustitre {
-	font-size: 0.8em;
+	font-size: 1em;
 	line-height: 105%;
 }
 
@@ -284,11 +284,6 @@ figcaption .credits { color: #aaa; }
 	margin-top: 1em;
 	margin-bottom: 0.7em;
 	text-align: left;
-}
-section:after {
-	position: absolute;
-	content: " ";
-	clear: both;
 }
 
 .fullwidth figcaption {
@@ -861,6 +856,12 @@ section.articles_secondaires {
 	overflow: hidden;
 	box-sizing: border-box;
 
+}
+a.lien_article_une .coll_carto {
+		font-family: nitti-grotesk, Verdana, sans-serif;
+		display: block;
+		font-size: 70%;
+		text-transform: uppercase;
 }
 a.lien_article_une .earth {
 	float: left;

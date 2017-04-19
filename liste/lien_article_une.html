@@ -12,7 +12,8 @@
 		
 		<a href="#URL_ARTICLE" class="lien_article_une lien_article_une#ID_ARTICLE aimg lien_article_une_#ID_RUBRIQUE">
 			[(#ID_RUBRIQUE|=={7}|oui)
-				[<span class="earth">(#CHEMIN{svg/earth.svg}|include_svg)</span>]
+				[(#REM)[<span class="earth">(#CHEMIN{svg/earth.svg}|include_svg)</span>]]
+				<span class="coll_carto">Collection cartographique</span>
 			]
 		
 			<span class="titre">#TITRE</span>
