@@ -861,3 +861,24 @@ section.articles_secondaires {
 	box-sizing: border-box;
 
 }
+a.lien_article_une .earth {
+	float: left;
+	padding-top: 5px;
+}
+a.lien_article_une .earth svg {
+	width: 65px;
+	padding-right: 10px;
+}
+a.lien_article_une .earth svg path {
+	stroke: #666;
+}
+a.lien_article_une:hover .earth svg path {
+	stroke: #333;
+}
+a.lien_article_une .earth svg .terre {
+	fill: none;
+}
+a.lien_article_une:hover .earth svg .terre {
+	fill: #eee;
+}
+
