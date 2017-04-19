@@ -811,10 +811,10 @@ a.lien_article_une {
 		clear: left;
 	}
 	nav.lien_une:nth-child(2n+1) a.lien_article_une {
-		margin-right: 0.5rem;
+		margin-right: 1.5rem;
 	}
 	nav.lien_une:nth-child(2n) a.lien_article_une {
-		margin-left: 0.5rem;
+		margin-left: 0rem;
 		margin-right: 2rem;
 	}
 	
