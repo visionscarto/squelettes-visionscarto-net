@@ -125,6 +125,20 @@ header.cartouche h1 > span, header.cartouche h1 a > span {
 	}
 }
 
+header.cartouche h1 > span.auteurs_cartouche_une {
+	display: inline-block;
+	font-size: 40%;
+	max-width: 100%;
+	width: auto;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background-color: white;
+	color: black;
+	padding: 0px 10px  2px 10px;
+
+}
+
 
 /* paragraphs */
 
@@ -765,6 +779,7 @@ hr.spip {
 #header a:hover, #header a:focus {
 	background-color: black;
 }
+
 
 
 a.lien_article_une {
