@@ -150,3 +150,42 @@ function include_svg($file) {
 		
 		return "rgba($red, $green, $blue, $alpha)";
 	}
+
+function get_tags($txt) {
+ if (!preg_match_all("/"._REG_HASH."/ui", $txt, $r)) {
+   return false;
+ }
+ return array_map('_tag_cleanup',$r[2]);
+}
+
+
+function _tag_cleanup($tag) {
+ return str_replace('_', ' ', translitteration(mb_strtolower(preg_replace(',^#,S', '', $tag), 'UTF-8')));
+}
+
+
+function stocker_tags($liste) {
+	global $liste_tags;	
+	if ($liste) {
+		foreach($liste as $k) {
+			$liste_tags["$k"] ++;
+		}
+	}
+	
+}
+
+function sortir_tags($rien) {
+	global $liste_tags;	
+	
+		$max = max($liste_tags);
+	
+		ksort ($liste_tags);
+		
+		foreach($liste_tags as $k=>$v) {
+			$ponderation = round(4*($v/$max));
+			if ($ponderation > 0) $ret .= "<li><a href='tag/".str_replace(" ", "_", $k)."' class='ponderation$ponderation'>$k ($v)</a></li>\n";
+		}
+		
+		return "<ul id='liste_tags'>$ret</ul>";
+	
+}
