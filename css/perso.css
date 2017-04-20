@@ -856,11 +856,15 @@ a.lien_article_une .infos {
 	display: block;
 }
 section.articles_secondaires {
+	background-color: white;
 	display: block;
 	width: 100%;
 	overflow: hidden;
 	box-sizing: border-box;
 
+}
+section.articles_secondaires_article {
+	background-color: #ddd;
 }
 a.lien_article_une .coll_carto {
 		font-family: nitti-grotesk, Verdana, sans-serif;

@@ -1,7 +1,26 @@
 <BOUCLE_principale(ARTICLES){id_article}>
-	<BOUCLE_liste(ARTICLES){par date}{inverse}{0,5}{id_rubrique!=1}{date<#DATE*}{exclus}{lang}>
-		<INCLURE{fond=liste/lien_article}{id_article}>
+	
+	
+	<BOUCLE_enum(DATA){enum 1,3}>
+
+	<BOUCLE_liste(ARTICLES){par date}{inverse}{0,1}{id_rubrique!=1}{date<#_principale:DATE*}{exclus}{lang}{doublons}>
+		<BOUCLE_si_3(CONDITION){si #_liste:ID_RUBRIQUE|=={3}}>
+			<INCLURE{fond=liste/lien_article}{id_article}>
+		</BOUCLE_si_3>
+			<section class="articles_secondaires articles_secondaires_article">
+			<INCLURE{fond=liste/lien_article_une}{id_article}>
+			<BOUCLE_suivant(ARTICLES){par date}{inverse}{0,1}{id_rubrique!=1}{date<#DATE*}{exclus}{lang}{doublons}>
+				<INCLURE{fond=liste/lien_article_une}{id_article}>
+			</BOUCLE_suivant>
+			</section>
+		<//B_si_3>
+			
+		
 	</BOUCLE_liste>
+
+	
+	</BOUCLE_enum>
+
 </BOUCLE_principale>
 
 
