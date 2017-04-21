@@ -6,7 +6,6 @@ href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[<span class="sep"
 <article class="content-principal">
 
 	<header class="cartouche">
-		[(#LOGO_RUBRIQUE|image_reduire{200,200})]
 		<h1 class="h1 #EDIT{titre}">#TITRE</h1>
 		[<p class="info-publi"><span class="published"><:dernier_ajout:> : (#DATE|affdate_jourcourt).</span></p>]
 	</header>
@@ -14,39 +13,28 @@ href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[<span class="sep"
 	[<section class="#EDIT{texte} chapo">(#TEXTE)</section>]
 </article>
 
-	<ul class="plan">
-	<BOUCLE_articles(ARTICLES){id_rubrique}{!par date}>
-		<li><a href="#URL_ARTICLE">#TITRE</a>[, <:par_auteur:>(#LESAUTEURS|doublons_auteurs)][, (#DATE|affdate_court)]</li>
-	</BOUCLE_articles>
-	</ul>
 
-	[(#REM) Si aucun article, affiche un plan de la rubrique ]
-	<B_sous_rubriques>
-	<nav class="menu rubriques">
-		<h2 class="h2"><:sous_rubriques:></h2>
-		<ul class="menu-items menu-liste">
-			<BOUCLE_sous_rubriques(RUBRIQUES) {id_parent} {par num titre, titre}>
-			<li class="item menu-entree">
-				<a href="#URL_RUBRIQUE">[(#TITRE)]</a>
+<BOUCLE_max_popularite(ARTICLES){branche}{par popularite}{inverse}{0,1}>
+#SET{maxpop, #POPULARITE|mult{0.9}
+</BOUCLE_max_popularite>
 
-				[(#REM) Une boucle recursive pour le mini plan]
-				<B_miniplan>
-				<ul class="menu-items menu-liste">
-					<BOUCLE_miniplan(RUBRIQUES) {id_parent} {par num titre, titre}>
-					<li class="item menu-entree">
-						<a href="#URL_RUBRIQUE">[(#TITRE)]</a>
-						<BOUCLE_m2(BOUCLE_miniplan)></BOUCLE_m2>
-					</li>
-					</BOUCLE_miniplan>
-				</ul>
-				</B_miniplan>
+<BOUCLE_article_suivant(ARTICLES){branche}{par date}{inverse}{0,1}{doublons}>
 
-			</li>
-			</BOUCLE_sous_rubriques>
-		</ul>
-	</nav>
-	</B_sous_rubriques>
-<//B_articles>
+		<BOUCLE_si_pop(CONDITION){si #POPULARITE|>{#GET{maxpop}} }>
+			<INCLURE{fond=liste/lien_article}{id_article}>			
+		</BOUCLE_si_pop>
+			<section class="articles_secondaires">
+			<INCLURE{fond=liste/lien_article_une}{id_article}>
+
+			<BOUCLE_suivant(ARTICLES){par date}{inverse}{0,3}{branche}{doublons}>
+				<INCLURE{fond=liste/lien_article_une}{id_article}>
+			</BOUCLE_suivant>
+			</section>
+
+		<//B_si_pop>
+	<BOUCLE_suiv(BOUCLE_article_suivant)/>
+</BOUCLE_article_suivant>
+
 
 
 </BOUCLE_content>

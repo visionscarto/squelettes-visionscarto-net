@@ -2,6 +2,7 @@
 
 <style>
 #lien_article_big_#ID_ARTICLE {
+	background-color: #[(#LOGO_ARTICLE_RUBRIQUE|couleur_extraire )];
 	background-image: url([(#LOGO_ARTICLE|extraire_attribut{src})]);
 }
 	#lien_article_big_#ID_ARTICLE span.titre {
@@ -13,7 +14,7 @@
 
 </style>
 
-<a class="lien_article_big" id="lien_article_big_#ID_ARTICLE" href="#URL_ARTICLE">
+<a class="lien_article_big aimg" id="lien_article_big_#ID_ARTICLE" href="#URL_ARTICLE">
 
 	[<span class="auteur">(#LESAUTEURS|supprimer_tags)</span><br>]
 	<span class="titre">#TITRE</span>

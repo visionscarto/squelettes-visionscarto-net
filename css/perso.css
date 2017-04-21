@@ -865,6 +865,9 @@ section.articles_secondaires {
 	box-sizing: border-box;
 
 }
+section.articles_secondaires + section.articles_secondaires {
+	border-top: 1px solid #ccc;
+}
 section.articles_secondaires_article {
 	background-color: #ddd;
 }
