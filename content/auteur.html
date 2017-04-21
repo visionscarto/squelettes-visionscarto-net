@@ -1,0 +1,21 @@
+<BOUCLE_auteur(AUTEURS){id_auteur}>
+<h1>#NOM</h1>
+
+
+	<BOUCLE_liste(ARTICLES){par date}{inverse}{0,1}{id_rubrique!=1}{id_auteur=#ENV{id_auteur}}{doublons}>
+		<BOUCLE_si_3(CONDITION){si #_liste:ID_RUBRIQUE|=={3}}>
+			<INCLURE{fond=liste/lien_article}{id_article}>
+		</BOUCLE_si_3>
+			<section class="articles_secondaires articles_secondaires_article">
+			<INCLURE{fond=liste/lien_article_une}{id_article}>
+			<BOUCLE_suivant(ARTICLES){par date}{inverse}{0,1}{id_rubrique!=1}{id_auteur=#ENV{id_auteur}}{doublons}>
+				<INCLURE{fond=liste/lien_article_une}{id_article}>
+			</BOUCLE_suivant>
+			</section>
+		<//B_si_3>
+			
+		<BOUCLE_suiv(BOUCLE_liste)/>
+	</BOUCLE_liste>
+</BOUCLE_auteur>
+
+#FILTRE{mini_html}
