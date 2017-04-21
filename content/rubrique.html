@@ -14,13 +14,13 @@ href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[<span class="sep"
 </article>
 
 
-<BOUCLE_max_popularite(ARTICLES){branche}{par popularite}{inverse}{0,1}>
-#SET{maxpop, #POPULARITE|mult{0.9}
+<BOUCLE_max_popularite(ARTICLES){branche}{par popularite}{inverse}{1/3}>
+#SET{maxpop, #POPULARITE}
 </BOUCLE_max_popularite>
 
 <BOUCLE_article_suivant(ARTICLES){branche}{par date}{inverse}{0,1}{doublons}>
 
-		<BOUCLE_si_pop(CONDITION){si #POPULARITE|>{#GET{maxpop}} }>
+		<BOUCLE_si_pop(CONDITION){si #POPULARITE|>={#GET{maxpop}} }>
 			<INCLURE{fond=liste/lien_article}{id_article}>			
 		</BOUCLE_si_pop>
 			<section class="articles_secondaires">
