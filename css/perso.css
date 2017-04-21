@@ -436,6 +436,8 @@ h3.spip {
 @media screen {
 	h3.spip {
 		background-color: black;
+	}
+	h3.spip, h3.spip * {
 		color: white;
 	}
 }
