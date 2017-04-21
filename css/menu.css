@@ -26,7 +26,7 @@
 }
 
 #menu > .item {
-	padding: 20px;
+	padding: 20px 10px;
 	display: block;
 }
 
@@ -34,11 +34,49 @@
 	border-top: 1px solid black;
 }
 #menu form.item {
-	background-color: black;
+	margin: 0;
+	padding: 0;
+}
+#menu form.item input[name=recherche] {
+	background-color: #e5b7b7;
+	margin: 0;
+	border: 0;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px;
 }
 
 #menu .menu .item {
 	display: block;
+	text-decoration: none;
+	font-size: 0.9em;
+	color: #999;
+}
+#menu .menu a.item:hover {
+	color: black;
+}
+
+#menu .menu .item .principal {
+	text-decoration: none;
+	padding: 0 5px;
+	position: relative;
+	font-size: 1.1em;
+	color: black;
+}
+#menu .menu .item .principal:after{
+	content: " ";
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	background-color: #e5b7b7;
+	transition: width 0.2s;
+}
+#menu .menu .item:hover .principal:after{
+	width: 100%;
 }
 
 .logo_menu {
