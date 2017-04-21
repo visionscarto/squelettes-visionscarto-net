@@ -1,5 +1,6 @@
 <style>
 
+#liste_tags a.ponderation0 { color: #ddd; }
 #liste_tags a.ponderation1 { color: #aaa; }
 #liste_tags a.ponderation2 { color: #555; }
 #liste_tags a.ponderation3 { color: black; font-weight: bold; }
@@ -12,15 +13,16 @@
 	column-gap: 1rem;
 	-webkit-column-gap: 1rem;
 	margin-left: 2rem;
-	margin-right: 2rem;
+	margin-right: 1rem;
 	font-size: 90%;
 	padding-bottom: 3rem;
 }
 #liste_tags li {
 	margin-top: 0.3em;
-	-webkit-column-break-inside: avoid; 
-	page-break-inside: avoid; 
-	break-inside: avoid; 
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-right: 1rem;
 }
 @media (max-width: 400px) {
 	#liste_tags {
@@ -28,18 +30,34 @@
 		font-size: 80%;
 	}
 }
+#liste_tags li.intertitre {
+	clear: left;
+	float: none;
+	display: block;
+	margin-left: -2rem;
+}
+#liste_tags li.intertitre > span {
+	display: inline-block;
+	background-color: #aaa;
+	color: white;
+	margin-top: 15px;
+	padding: 1px;
+	padding-right: 10px;
+	padding-left: 2rem;
+	text-transform: uppercase;
+}
 
 @media(min-width: 320px) {
-	#liste_tags { column-count: 2; -webkit-column-count: 2; }
+	#liste_tags li { width: 50%; float: left; }
 }
 @media(min-width: 560px) {
-	#liste_tags { column-count: 3; -webkit-column-count: 3; }
+	#liste_tags li { width: 33%; }
 }
 @media(min-width: 900px) {
-	#liste_tags { column-count: 4; -webkit-column-count: 4; }
+	#liste_tags li { width: 25%; }
 }
 @media(min-width: 1200px) {
-	#liste_tags { column-count: 5; -webkit-column-count: 5; }
+	#liste_tags li { width: 20%; }
 }
 
 </style>

@@ -180,10 +180,16 @@ function sortir_tags($rien) {
 		$max = max($liste_tags);
 	
 		ksort ($liste_tags);
-		
+		$lettre_precedente = "";
 		foreach($liste_tags as $k=>$v) {
 			$ponderation = round(4*($v/$max));
-			if ($ponderation > 0) $ret .= "<li><a href='tag/".str_replace(" ", "_", $k)."' class='ponderation$ponderation'>$k ($v)</a></li>\n";
+			if ($ponderation > 0) {
+				$lettre = substr($k, 0, 1);
+				
+				if ($lettre != $lettre_precedente) $ret .= "<li class='intertitre'><span>$lettre</span></li>\n";
+				$ret .= "<li><a href='tag/".str_replace(" ", "_", $k)."' class='ponderation$ponderation'>$k ($v)</a></li>\n";
+				$lettre_precedente = $lettre;
+			}
 		}
 		
 		return "<ul id='liste_tags'>$ret</ul>";
