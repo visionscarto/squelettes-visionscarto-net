@@ -1,0 +1,5 @@
+<BOUCLE_tous_articles(ARTICLES)>
+	[(#TITRE*|concat{' '}|concat{#SOUSTITRE* #CHAPO* #TEXTE* #PS* }|get_tags|stocker_tags)]
+</BOUCLE_tous_articles>
+
+[(#REM|sortir_tags)]
