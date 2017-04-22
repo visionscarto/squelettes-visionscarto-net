@@ -7,16 +7,15 @@
 	<a class="item" href="#URL_SITE_SPIP"><span class="principal">Visionscarto</span></a>
     <BOUCLE_t(RUBRIQUES){racine}{id_rubrique IN 3,7,8}>
     <a class="item" href="#URL_RUBRIQUE"> <i class="tag no-icon"></i> <span class="principal">[(#TITRE|replace{@Archives,Archives et explorations})]</span> </a>
-
     </BOUCLE_t>
 
-     <a class="item" href="?page=index_site"><span class="principal">Index du site</span></a>
-     <a class="item" href="?page=auteurs"><span class="principal">Tous les auteurs</span></a>
+     <a class="item" href="./?page=index_site"><span class="principal">Index du site</span></a>
+     <a class="item" href="./?page=auteurs"><span class="principal">Tous les auteurs</span></a>
 
 	<BOUCLE_tous_articles_langues(ARTICLES){lang!=fr}>
 		[(#LANG|stocker_langue)]
 	</BOUCLE_tous_articles_langues>
-	[(#REM|sortir_langues)]
+	[(#REM|sortir_langues_menu)]
 
 
     </div>

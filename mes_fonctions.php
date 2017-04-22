@@ -166,19 +166,16 @@ function _tag_cleanup($tag) {
 
 function stocker_langue($lang) {
 	global $liste_langues;
-	
-	
 	$liste_langues[$lang] ++;
 }
 
-function sortir_langues($rem) {
+function sortir_langues_menu($rem) {
 	global $liste_langues;
 	arsort($liste_langues);
 
 	foreach($liste_langues as $k=>$v) {
 		$lang = traduire_nom_langue($k);
-
-		$ret .= " <a class='item' href='?page=langue&lang=$k'><span class='principal'>$lang ($v)</span></a>";
+		$ret .= " <a class='item' href='./?page=langue&lang=$k'><span class='principal'>$lang ($v)</span></a>";
 	}
 	return $ret;
 }
