@@ -19,7 +19,7 @@
 			<span class="titre">#TITRE</span>
 			
 			<span class="infos">
-				[<span class="date">(#DATE|affdate_court)</span>][<span class="auteur">, <:par_auteur:>(#LESAUTEURS|supprimer_tags)</span>]
+				[<span class="date">(#DATE|affdate_court)</span>]<BOUCLE_auteurs_pluriels(AUTEURS){id_article}{id_auteur != #ENV{exclure_auteur}}{0,1}>[<span class="auteur">, <:par_auteur:>(#LESAUTEURS|supprimer_tags)</span>]</BOUCLE_auteurs_pluriels>
 			</span>
 		</a>
 </nav>
