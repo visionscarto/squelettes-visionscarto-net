@@ -169,13 +169,17 @@ function stocker_langue($lang) {
 	$liste_langues[$lang] ++;
 }
 
+/*
+ * Nécessite une RewriteRule
+ * RewriteRule ^(fr|en|es|it|nb|lv)/?$ spip.php?page=langue&lang=$1 [QSA,L]
+ */
 function sortir_langues_menu($rem) {
 	global $liste_langues;
 	arsort($liste_langues);
 
 	foreach($liste_langues as $k=>$v) {
 		$lang = traduire_nom_langue($k);
-		$ret .= " <a class='item' href='./?page=langue&lang=$k'><span class='principal'>$lang ($v)</span></a>";
+		$ret .= " <a class='item' href='$k'><span class='principal'>$lang ($v)</span></a>";
 	}
 	return $ret;
 }
