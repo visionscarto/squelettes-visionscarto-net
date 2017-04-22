@@ -1,16 +1,6 @@
 
 <h1>Les auteurs</h1>
 
-<ul id="liste_tags">
-<BOUCLE_auteurs(AUTEURS){par nom}{nom!==^@}>
-	<BOUCLE_articles(ARTICLES){id_auteur}></BOUCLE_articles>
-		#SET{total,#TOTAL_BOUCLE}
-	<//B_articles>
-
-	<li>
-		<a class="ponderation[(#GET{total}|mult{0.4}|round|min{4})]" href="#URL_AUTEUR">#NOM ([(#GET{total})])</a>
-	</li>
-</BOUCLE_auteurs>
-</ul>
+<INCLURE{fonds=modeles/auteurs}>
 
 #FILTRE{mini_html}
