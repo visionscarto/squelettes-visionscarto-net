@@ -98,10 +98,10 @@
 	</BOUCLE_un_article_principal>
 	
 	<section class="articles_secondaires">
-		<BOUCLE_articles_secondaires(ARTICLES){0,2}{par date}{inverse}{doublons}>
+		<BOUCLE_articles_secondaires(ARTICLES){0,2}{par date}{inverse}{doublons}{id_secteur!=1}>
 			<INCLURE{fond=liste/lien_article_une}{id_article}>
 		</BOUCLE_articles_secondaires>
-		<BOUCLE_articles_secondaires_populaires(ARTICLES){0,2}{par popularite}{inverse}{doublons}>
+		<BOUCLE_articles_secondaires_populaires(ARTICLES){0,2}{par popularite}{inverse}{doublons}{id_secteur!=1}>
 			<INCLURE{fond=liste/lien_article_une}{id_article}>
 		</BOUCLE_articles_secondaires_populaires>
 	</section>
