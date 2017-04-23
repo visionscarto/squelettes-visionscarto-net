@@ -6,8 +6,16 @@
 		<h1 class="h1"><:resultats_recherche:></h1>
 	</header>
 
-	<INCLURE{fond=liste/articles-recherche,env,ajax} />
+
+
+
+
 
 	<!-- <INCLURE{fond=liste/rubriques-recherche,env,ajax} /> -->
 
 </article>
+			<section class="articles_secondaires">
+			<BOUCLE_recherche(ARTICLES){recherche}{par points}{inverse}>
+				<INCLURE{fond=liste/lien_article_une}{id_article}>
+			</BOUCLE_recherche>
+			</section>
