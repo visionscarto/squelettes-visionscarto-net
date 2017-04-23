@@ -1,11 +1,12 @@
 <ul id="liste_tags">
 <BOUCLE_auteurs(AUTEURS){par nom}{nom!==^@}>
-	<BOUCLE_articles(ARTICLES){id_auteur}></BOUCLE_articles>
+	<BOUCLE_articles(ARTICLES){id_auteur}{id_rubrique!=1}></BOUCLE_articles>
 		#SET{total,#TOTAL_BOUCLE}
 	<//B_articles>
 
 	<li>
-		<a class="ponderation[(#GET{total}|mult{0.4}|round|min{4})]" href="#URL_AUTEUR">#NOM<!-- [ ((#GET{total}|>{1}|?{#GET{total}}))] --></a>
+		<a class="ponderation[(#GET{total}|mult{0.4}|round|min{4})]"[
+		(#GET{total}|?{href="#URL_AUTEUR"})]>#NOM<!-- [ ((#GET{total}|>{1}|?{#GET{total}}))] --></a>
 	</li>
 </BOUCLE_auteurs>
 </ul>
