@@ -6,58 +6,32 @@
 	<header>
 	<h1>#NOM_SITE_SPIP &gt; [(#VAL{#}|concat{#TAG}|pretty_hashtags)]</h1>
 	</header>
-
-	<section>
+</article>
 	<B_a>
-	<ul>
+	<section class="articles_secondaires">
 	<BOUCLE_a(ARTICLES){recherche ##TAG}{!par date}>
-	<li><a href="#URL_ARTICLE">#TITRE</a>[, <:par_auteur:>(#LESAUTEURS|doublons_auteurs)][, (#DATE|affdate_court)]</li>
+	<INCLURE{fond=liste/lien_article_une}{id_article}>
 	</BOUCLE_a>
-	</ul>
+	</section>
 	</B_a>
 
-		<h2>Aucun résultat pour ce tag</h2>
+		<h2 style="padding: 0rem 3rem">Aucun résultat pour ce tag</h2>
 		<B_b>
-		<div>mais le moteur de recherche donne les résultats suivants :</div>
-		<ul>
+		<div style="padding: 0rem 3rem">mais le moteur de recherche donne les résultats suivants :</div>
+		<section class="articles_secondaires">
 		<BOUCLE_b(ARTICLES){recherche (#TAG|replace{_,' '})}{!par points}{0,10}>
-		<li><a href="#URL_ARTICLE">#TITRE</a>[, <:par_auteur:>(#LESAUTEURS)][, (#ID_RUBRIQUE|>{1}|?{#DATE}|affdate_court)]</li>
+		<INCLURE{fond=liste/lien_article_une}{id_article}>
 		</BOUCLE_b>
-		</ul>
+		</section>
 		</B_b>
 
-	<div>et le moteur de recherche ne donne rien…</div>
+	<div style="padding: 0rem 3rem">et le moteur de recherche ne donne rien…</div>
 	<//B_b>
 	<//B_a>
-	</section>
 
-	<section id="seenthis" class="small nitti">
+	<section id="seenthis" class="small nitti" style="padding: 0rem 3rem">
 	<h2>Et sur <a href="http://seenthis.net/tag/[(#TAG|urlencode_1738_plus)]">seenthis</a>&nbsp;?</h2>
 	</section>
-	<script type='text/javascript'>
-	$(function() {
-		$('#seenthis')
-		.load('/seenthis/tag/[(#TAG|urlencode_1738_plus)]');
-	});
-	</script>
 
-	<footer>
-		[(#REM) Inclure le modele des liens de traductions ]
-		#MODELE{article_traductions}
-		[<aside class="notes"><h2><:info_notes:></h2>(#NOTES)</aside>]
-
-		<aside id="appel" class="fullwidth #EDIT{appel}" ></aside>
-		<script type='text/javascript'>
-		$('#appel')
-		.html(
-			[(#VAL{[<div class="ui inverted segment">(#PS)</div>]}|json_encode)]
-		);
-		</script>
-		
-  
-		[(#REM) inclure de partage RS ]
-		[(#REM) bloc precedent/suivant en guise de <nav></nav> ]
-	</footer>
-</article>
 
 #FILTRE{liens_ouvrants}
