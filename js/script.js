@@ -6,6 +6,8 @@ $(function() {
   );
   */
   
+  
+	if (typeof load_seenthis != 'undefined') $('#seenthis').load(load_seenthis);
 
   $('.content a').filter(function() { return $('img', this).size(); }).addClass('aimg');
 

@@ -6,36 +6,33 @@
 	<header>
 	<h1>#NOM_SITE_SPIP &gt; [(#VAL{#}|concat{#TAG}|pretty_hashtags)]</h1>
 	</header>
-
 </article>
-
-	<section class="articles_secondaires articles_secondaires_article">
-	<BOUCLE_a(ARTICLES){recherche ##TAG}{!par date}{doublons}>
-		<INCLURE{fond=liste/lien_article_une}{id_article}>
+	<B_a>
+	<section class="articles_secondaires">
+	<BOUCLE_a(ARTICLES){recherche ##TAG}{!par date}>
+	<INCLURE{fond=liste/lien_article_une}{id_article}>
 	</BOUCLE_a>
+	</section>
+
 	</B_a>
 
-		<h2>Aucun résultat pour ce tag</h2>
+		<h2 style="padding: 0rem 3rem">Aucun résultat pour ce tag</h2>
 		<B_b>
-		<div>mais le moteur de recherche donne les résultats suivants :</div>
-		<ul>
+		<div style="padding: 0rem 3rem">mais le moteur de recherche donne les résultats suivants :</div>
+		<section class="articles_secondaires">
 		<BOUCLE_b(ARTICLES){recherche (#TAG|replace{_,' '})}{!par points}{0,10}>
-		<li><a href="#URL_ARTICLE">#TITRE</a>[, <:par_auteur:>(#LESAUTEURS)][, (#ID_RUBRIQUE|>{1}|?{#DATE}|affdate_court)]</li>
+		<INCLURE{fond=liste/lien_article_une}{id_article}>
 		</BOUCLE_b>
-		</ul>
+		</section>
 		</B_b>
 
-	<div>et le moteur de recherche ne donne rien…</div>
+	<div style="padding: 0rem 3rem">et le moteur de recherche ne donne rien…</div>
 	<//B_b>
 	<//B_a>
-	</section>
 
-<article>
-	<section id="seenthis" class="small nitti">
+	<section id="seenthis" class="small nitti" style="padding: 0rem 3rem">
 	<h2>Et sur <a href="http://seenthis.net/tag/[(#TAG|urlencode_1738_plus)]">seenthis</a>&nbsp;?</h2>
 	</section>
-
-</article>
 
 <script type='text/javascript'>
 $(function() {
