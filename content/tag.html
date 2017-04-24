@@ -8,7 +8,7 @@
 	</header>
 </article>
 	<B_a>
-	<section class="articles_secondaires">
+	<section class="articles_secondaires articles_secondaires_article">
 	<BOUCLE_a(ARTICLES){recherche ##TAG}{!par date}>
 	<INCLURE{fond=liste/lien_article_une}{id_article}>
 	</BOUCLE_a>
@@ -19,7 +19,7 @@
 		<h2 style="padding: 0rem 3rem">Aucun résultat pour ce tag</h2>
 		<B_b>
 		<div style="padding: 0rem 3rem">mais le moteur de recherche donne les résultats suivants :</div>
-		<section class="articles_secondaires">
+		<section class="articles_secondaires articles_secondaires_article">
 		<BOUCLE_b(ARTICLES){recherche (#TAG|replace{_,' '})}{!par points}{0,10}>
 		<INCLURE{fond=liste/lien_article_une}{id_article}>
 		</BOUCLE_b>
