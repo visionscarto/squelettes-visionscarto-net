@@ -108,7 +108,7 @@ function mini_html($texte) {
 	$texte = preg_replace(",style='width:[0-9]+px;',", "", $texte);
 	
 	$texte = str_replace("<script type='text/javascript' src=''></script>", "", $texte);
-	// $texte = str_replace("<script type='text/javascript' src='", "<script async  type='text/javascript' src='", $texte);
+	$texte = str_replace("<script type='text/javascript' src='", "<script async  type='text/javascript' src='", $texte);
 	
 	
 	//$texte = preg_replace(",(png|jpg|css|gif|js)\?[0-9]*,", "$1", $texte);
