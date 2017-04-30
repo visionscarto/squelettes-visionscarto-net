@@ -203,7 +203,7 @@ function sortir_tags($rien) {
 		$lettre_precedente = "";
 		foreach($liste_tags as $k=>$v) {
 			$ponderation = round(4*($v/$max));
-			if ($v >= 4) {
+			if ($v >= 1) {
 				$lettre = substr($k, 0, 1);
 				
 				if ($lettre != $lettre_precedente) $ret .= "<li class='intertitre'><span>$lettre</span></li>\n";
