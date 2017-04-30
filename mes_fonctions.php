@@ -188,7 +188,8 @@ function stocker_tags($liste) {
 	global $liste_tags;	
 	if ($liste) {
 		foreach($liste as $k) {
-			$liste_tags["$k"] ++;
+			if (preg_match('/^a-z/i', $k))
+				$liste_tags["$k"] ++;
 		}
 	}
 	
