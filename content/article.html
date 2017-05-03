@@ -23,7 +23,7 @@
    Calculs du contenu
 
 ]
-[(#SET{bandeau,#LOGO_ARTICLE_RUBRIQUE|extraire_attribut{src}})]
+[(#SET{bandeau,#LOGO_ARTICLE_RUBRIQUE|image_reduire{2048}|extraire_attribut{src}})]
 [(#SET{grotitre,[<h1><span class="#EDIT{titre}">(#TITRE|replace{^@}|replace{^Index du site$,#NOM_SITE_SPIP}|trim)</span></h1>]})]
 
 <BOUCLE_r(RUBRIQUES){id_rubrique}{si (#ID_RUBRIQUE|match{^(7|9)$})}>
