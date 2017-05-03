@@ -10,8 +10,10 @@
 	<B_a>
 	<section class="articles_secondaires articles_secondaires_article">
 	<BOUCLE_a(ARTICLES){recherche ##TAG}{!par date}>
-	<INCLURE{fond=liste/lien_article_une}{id_article}>
-	</BOUCLE_a>
+	[(#TITRE*|concat{' '}|concat{#SOUSTITRE* #CHAPO* #TEXTE* #PS*}|match{##TAG\b}|?{
+		#INCLURE{fond=liste/lien_article_une}{id_article}
+	})]
+    </BOUCLE_a>
 	</section>
 
 	</B_a>
