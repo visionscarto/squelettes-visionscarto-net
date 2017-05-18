@@ -7,16 +7,22 @@
 	<h1>#NOM_SITE_SPIP &gt; [(#VAL{#}|concat{#TAG}|pretty_hashtags)]</h1>
 	</header>
 </article>
-	<B_a>
-	<section class="articles_secondaires articles_secondaires_article">
-	<BOUCLE_a(ARTICLES){recherche ##TAG}{!par date}>
-	[(#TITRE*|concat{' '}|concat{#SOUSTITRE* #CHAPO* #TEXTE* #PS*}|match{##TAG\b}|?{
-		#INCLURE{fond=liste/lien_article_une}{id_article}
-	})]
-    </BOUCLE_a>
-	</section>
 
-	</B_a>
+#SET{match,#TAG|translitteration|concat{\b}}
+<B_a>
+	<section class="articles_secondaires articles_secondaires_article">
+<BOUCLE_a(ARTICLES){recherche ##TAG}{!par date}>[(#VIDE|concat{
+		#TITRE*
+		#SOUSTITRE*
+		#CHAPO*
+		#TEXTE*
+		#PS*
+	}|translitteration|match{[#(#GET{match})]}|?{
+		#INCLURE{fond=liste/lien_article_une}{id_article}
+	})
+]</BOUCLE_a>
+	</section>
+</B_a>
 
 		<h2 style="padding: 0rem 3rem">Aucun résultat pour ce tag</h2>
 		<B_b>
