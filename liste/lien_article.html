@@ -3,7 +3,7 @@
 <style>
 #lien_article_big_#ID_ARTICLE {
 	background-color: #[(#LOGO_ARTICLE_RUBRIQUE|couleur_extraire )];
-	background-image: url([(#LOGO_ARTICLE|extraire_attribut{src})]);
+	background-image: url([(#LOGO_ARTICLE|image_reduire{2048}|extraire_attribut{src})]);
 }
 	#lien_article_big_#ID_ARTICLE span.titre {
 		[background-color: (#LOGO_ARTICLE_RUBRIQUE|couleur_extraire{3,10}|couleur_foncer_si_claire|couleur_rgba{0.6});]
