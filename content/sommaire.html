@@ -6,9 +6,10 @@
 	=  2 petits par popularité =
 
     Les articles ayant le mot-clé n°4 ("pas à la une") sont ignorés
+    Le mot-clé 5 ("secondaire") est ignoré sur les gros blocs
 
 ]<BOUCLE_ignore(ARTICLES){id_mot=4}{doublons} /><BOUCLE_enum(ARTICLES){0,5}>
-	<BOUCLE_un_article_principal(ARTICLES){0,1}{par date}{inverse}{doublons}{id_secteur=3}>
+	<BOUCLE_un_article_principal(ARTICLES){0,1}{par date}{inverse}{doublons}{id_secteur=3} {!id_mot=4}>
 		[(#_enum:COMPTEUR_BOUCLE|=={1}|oui)
 		
 		[<style>
