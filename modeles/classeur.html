@@ -7,7 +7,7 @@
 [(#ENV{debut_fichiers}|oui)[<p class="pagination">(#PAGINATION{prive})</p>]]
 <div class="two column doubling ui grid">
 <style type="text/css">
-.pswp__img--placeholder--blank{background:#f0f0f0}
+.pswp__img--placeholder--blank, .pswp__img {background:#f0f0f0}
 </style>
 <BOUCLE_fichiers(DATA){source glob, #ENV{dir_racine}public/#GET{rep}/*.{png}}
 {par valeur}{pagination 20}>
