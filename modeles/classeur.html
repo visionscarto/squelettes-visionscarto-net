@@ -6,6 +6,9 @@
 <B_fichiers>
 [(#ENV{debut_fichiers}|oui)[<p class="pagination">(#PAGINATION{prive})</p>]]
 <div class="two column doubling ui grid">
+<style type="text/css">
+.pswp__img--placeholder--blank{background:#f0f0f0}
+</style>
 <BOUCLE_fichiers(DATA){source glob, #ENV{dir_racine}public/#GET{rep}/*.{png}}
 {par valeur}{pagination 20}>
 <div class="column">
@@ -13,9 +16,9 @@
 <h3>[(#VALEUR|basename{.png}|replace{visionscarto-}|majuscules)]</h3>
 [(#SET{presentable,[(#VALEUR|timestamp|image_reduire{800}|image_aplatir{gif,f0f0f0}|extraire_attribut{src})]})]
 [(#GET{presentable}|image_reduire{400}
-|inserer_attribut{data-photo,#GET{presentable}}
-|inserer_attribut{data-photo-w,[(#GET{presentable}|largeur)]}
-|inserer_attribut{data-photo-h,[(#GET{presentable}|hauteur)]}
+|inserer_attribut{data-photo,#VALEUR}
+|inserer_attribut{data-photo-w,[(#VALEUR|largeur)]}
+|inserer_attribut{data-photo-h,[(#VALEUR|hauteur)]}
 |inserer_attribut{class,photoshow}
 )]
 #SET{svg,#VALEUR|replace{png$,svg}}
