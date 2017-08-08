@@ -9,22 +9,23 @@
 <style type="text/css">
 .pswp__img--placeholder--blank, .pswp__img {background:#f0f0f0}
 </style>
-<BOUCLE_fichiers(DATA){source glob, #ENV{dir_racine}public/#GET{rep}/*.{png}}
+<BOUCLE_fichiers(DATA){source glob, #ENV{dir_racine}public/#GET{rep}/*.{png,jpg}}
 {par valeur}{pagination 20}>
-<div class="column">
+<div class="classeur column">
 <div class="ui teal segment">
-<h3>[(#VALEUR|basename{.png}|replace{visionscarto-}|majuscules)]</h3>
-[(#SET{presentable,[(#VALEUR|timestamp|image_reduire{800}|image_aplatir{gif,f0f0f0}|extraire_attribut{src})]})]
-[(#GET{presentable}|image_reduire{400}
+<h3>[(#VALEUR|basename{.png}|basename{.jpg}|replace{visionscarto-}|majuscules)]</h3>
+[(#SET{presentable,[(#VALEUR|timestamp|image_reduire{800}|extraire_attribut{src})]})]
+[(#VALEUR|match{png$}|?{#GET{presentable}|image_aplatir{gif,f0f0f0},#GET{presentable}}
+|image_reduire{400}
 |inserer_attribut{data-photo,#VALEUR}
 |inserer_attribut{data-photo-w,[(#VALEUR|largeur)]}
 |inserer_attribut{data-photo-h,[(#VALEUR|hauteur)]}
 |inserer_attribut{class,photoshow}
 )]
-#SET{svg,#VALEUR|replace{png$,svg}}
+#SET{svg,#VALEUR|replace{"(png|jpg)$",svg}}
 
-<p>Télécharger au format[ (#GET{svg}|file_exists|non) <a href="#VALEUR" download="[(#VALEUR|basename)]" title="télécharger [(#VALEUR|replace{-}) ] [((#VALEUR|filesize|taille_en_octets))]">PNG</a>][ (#GET{svg}|file_exists|oui)
-<a href="#GET{svg}" download="[(#GET{svg}|basename)]" title="télécharger [(#GET{svg}|replace{-}) ] [((#GET{svg}|filesize|taille_en_octets))]">SVG</a>].</p>
+<p><multi>[fr] Télécharger au format [en] Download [es] Descargar </multi>[ (#GET{svg}|file_exists|non) <a href="#VALEUR" download="[(#VALEUR|basename)]">[(#VALEUR|match{(png|jpg)$}|majuscules)]</a>][ (#GET{svg}|file_exists|oui)
+<a href="#GET{svg}" download="[(#GET{svg}|basename)]">SVG</a>].</p>
 
 </div>
 </div>

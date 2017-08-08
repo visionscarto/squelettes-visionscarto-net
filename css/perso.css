@@ -1009,3 +1009,9 @@ a.lien_article_une:hover .earth svg .terre {
 @media(min-width: 1200px) {
 	#liste_tags li { width: 20%; }
 }
+
+.oembed-block figcaption {
+    text-align: center;
+    max-width: 285px;
+}
+
