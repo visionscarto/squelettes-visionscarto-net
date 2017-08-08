@@ -1010,7 +1010,8 @@ a.lien_article_une:hover .earth svg .terre {
 	#liste_tags li { width: 20%; }
 }
 
-.oembed-block figcaption {
+/* attention dans autoembed/bl.ocks on a une figure dans une figure */
+figure.spip_documents .oembed-block figcaption {
     text-align: center;
     max-width: 285px;
 }
