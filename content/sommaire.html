@@ -1,5 +1,5 @@
 [(#REM)
-	La page d'accueil fait 5 tours sur un module 
+	La page d'accueil fait 7 tours sur un module 
 
 	=  1 gros billet récent    =
 	=  2 petits par date       =
@@ -8,7 +8,7 @@
     Les articles ayant le mot-clé n°4 ("pas à la une") sont ignorés
     Le mot-clé 5 ("secondaire") est ignoré sur les gros blocs
 
-]<BOUCLE_ignore(ARTICLES){id_mot=4}{doublons} /><BOUCLE_enum(ARTICLES){0,5}>
+]<BOUCLE_ignore(ARTICLES){id_mot=4}{doublons} /><BOUCLE_enum(ARTICLES){0,7}>
 	<BOUCLE_un_article_principal(ARTICLES){0,1}{par date}{inverse}{doublons}{id_secteur=3} {!id_mot=5}>
 		[(#_enum:COMPTEUR_BOUCLE|=={1}|oui)
 		
