@@ -1,0 +1,15 @@
+<div style='color:#fafafa; font-family: nitti-grotesk,"Gill Sans","Lucida Grande","Verdana",sans-serif;'>
+
+	&nbsp;
+	<BOUCLE_tous_articles_langues(ARTICLES){fusion lang}{" | "}>
+		<a href="/#LANG" style="color:#fafafa;">[(#LANG|traduire_nom_langue)]</a>
+	</BOUCLE_tous_articles_langues>
+
+	<form class="item" action="./" method="get" style="float:right; display: inline-block">
+		<input type="hidden" name="page" value="recherche" />
+		<div class="ui input"><input name="recherche" placeholder="<:info_rechercher:>…" type="text"></div>
+		<button class="ui grey button offscreen">ok</button>
+	</form>
+	<div style="clear:both"></div>
+
+</div>
