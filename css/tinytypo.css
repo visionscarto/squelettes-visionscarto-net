@@ -1,111 +1,6 @@
-/* --------------------------------------------------
-
-   Composition helpers
-   [fr] Aides à la composition
-   
-   Tiny Typo v1.0 | MIT License
-   (c) 2010-2013 tinytypo.tetue.net
-
------------------------------------------------------ */
-/* Box model
-[fr] http://blog.goetter.fr/post/27612618411/box-sizing-et-pourquoi-pas
-[en] http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-/* Blocks */
-.block {
-  display: block;
-  margin-bottom: 1.5em;
-}
-.inline {
-  display: inline;
-}
-.inline-block {
-  display: inline-block;
-}
-/* Positioning */
-.left {
-  float: left;
-}
-.right {
-  float: right;
-}
-.center {
-  margin-right: auto;
-  margin-left: auto;
-}
-/* Blocks spacer
-[fr] Espaceur de blocs : http://romy.tetue.net/657 */
-.clear {
-  clear: both;
-}
-br.clear {
-  clear: both;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  height: 0;
-  line-height: 1px;
-  font-size: 1px;
-}
-hr.clear {
-  visibility: hidden;
-}
-/* clearfix : http://www.positioniseverything.net/easyclearing.html */
-.clearfix:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-  overflow: hidden;
-}
-.clearfix {
-  display: inline-table;
-}
-/* Hides from IE-mac \*/
-.clearfix {
-  height: 1%;
-}
-.clearfix {
-  display: block;
-}
-/* End hide from IE-mac */
-/* Not visible */
-.offscreen {
-  position: absolute;
-  left: -999em;
-  height: 1%;
-}
-.hidden {
-  visibility: hidden;
-}
-.none {
-  display: none;
-}
-/* debug */
-.todo {
-  opacity: 0.5;
-}
-.todo:hover {
-  opacity: 1;
-}
-.blink {
-  text-decoration: blink;
-}
-/* --------------------------------------------------
-
-   Typographical base
-   
-   Tiny Typo v1.0 | MIT License
-   (c) 2010-2013 tinytypo.tetue.net
-
------------------------------------------------------ */
+/*! Typographical base - Tiny Typo v2.5.4 2017 - MIT License - tinytypo.tetue.net */
+/* ------------------------------------------------------------------------------ */
+/* Sets up some sensible default typography */
 html {
   font-size: 100.01%;
   -ms-text-size-adjust: 100%;
@@ -118,7 +13,20 @@ body {
   font-size: 1em;
   line-height: 1.5;
 }
-/* Titraille / Intertitres */
+/* Fonts */
+.font1 {
+  font-family: serif;
+}
+.font2 {
+  font-family: sans-serif;
+}
+.font3 {
+  font-family: monospace, monospace;
+}
+.font4 {
+  font-family: fantasy;
+}
+/* Headings */
 h1,
 .h1,
 h2,
@@ -191,6 +99,7 @@ hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
+  overflow: visible;
   margin: 1.5em 0;
   border: solid;
   border-width: 1px 0 0;
@@ -230,6 +139,7 @@ big,
 }
 abbr[title],
 acronym[title] {
+  text-decoration: none;
   border-bottom: .1em dotted;
   cursor: help;
 }
@@ -266,32 +176,41 @@ sup,
 .sup,
 sub,
 .sub {
+  position: relative;
   font-size: 80%;
   font-variant: normal;
   line-height: 0;
+  vertical-align: baseline;
 }
 sup,
 .sup {
-  vertical-align: super;
-}
-.ie sup {
-  vertical-align: text-top;
+  top: -0.5em;
 }
 sub,
 .sub {
-  vertical-align: sub;
-}
-.ie sub {
-  vertical-align: text-bottom;
+  bottom: -0.25em;
 }
 .lead {
   font-size: 120%;
 }
-.caps {
-  font-variant: small-caps;
-}
 .quiet {
   color: #555555;
+}
+.lw {
+  text-transform: lowercase;
+}
+.up {
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.sc {
+  text-transform: lowercase;
+  font-variant: small-caps;
+  letter-spacing: .05em;
+}
+.caps {
+  font-variant: small-caps;
+  letter-spacing: .05em;
 }
 /* Alignment */
 .text-left {
@@ -308,6 +227,15 @@ sub,
   text-justify: newspaper;
 }
 /* Lists */
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
 ul {
   list-style-type: disc;
 }
@@ -345,6 +273,7 @@ dt {
 dd {
   margin-left: 1.5em;
 }
+/* Old - don't use this */
 .list-none {
   margin-left: 0;
   list-style: none;
@@ -510,10 +439,14 @@ q:before {
 q:after {
   content: close-quote;
 }
+/* [fr] http://www.iamvdo.me/blog/n-oubliez-pas-la-propriete-css-quotes */
 blockquote {
+  z-index: 0;
   position: relative;
+  margin-left: 0;
+  margin-right: 0;
   padding-left: 1.5em;
-  border: solid rgba(34, 34, 34, 0.19999999999999996);
+  border: solid rgba(102, 102, 102, 0.19999999999999996);
   border-width: 0 0 0 5px;
 }
 blockquote:before {
@@ -523,29 +456,41 @@ blockquote:before {
   top: 0;
   content: "\00AB";
   line-height: 0;
-  font-size: 10em;
-  color: rgba(34, 34, 34, 0.09999999999999998);
+  font-size: 10rem;
+  color: rgba(102, 102, 102, 0.09999999999999998);
+}
+blockquote p:last-of-type {
+  margin-bottom: 0;
+}
+blockquote footer,
+blockquote .src {
+  display: block;
+  font-size: 80%;
+}
+blockquote footer:before,
+blockquote .src:before {
+  content: "\2014 \00A0";
 }
 cite,
 .cite {
   font-style: italic;
 }
 address {
-  font-style: italic;
+  font-style: normal;
 }
 pre,
 code,
-kbd,
-samp,
 var,
-tt {
-  font-family: monospace;
+samp,
+kbd,
+tt,
+.tt {
+  font-family: monospace, monospace;
   font-size: 1em;
 }
 pre {
-  white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
+  -moz-tab-size: 4;
+  tab-size: 4;
 }
 kbd {
   white-space: nowrap;
@@ -600,12 +545,13 @@ address,
 pre,
 .table,
 fieldset {
+  margin-top: 0;
   margin-bottom: 1.5em;
 }
 /* Typography for small screens
 [fr] http://www.alsacreations.com/astuce/lire/1177 */
 @media (max-width: 640px) {
-  /* fixer une largeur maximale  de 100 % aux elements potentiellement problematiques */
+  /* Set a maximum width of 100% for potentially problematic elements */
   img,
   table,
   td,
@@ -620,7 +566,7 @@ fieldset {
   video {
     max-width: 100% !important;
   }
-  /* gestion des mots longs */
+  /* long words */
   textarea,
   table,
   td,
@@ -629,13 +575,7 @@ fieldset {
   code,
   samp {
     word-wrap: break-word;
-    /* cesure forcee */
-  }
-  pre,
-  code,
-  samp {
-    white-space: pre-line;
-    /* passage a la ligne specifique pour les elements a chasse fixe */
+    /* forced break */
   }
 }
 /* orientation iOS5 font-size fix */
@@ -673,25 +613,22 @@ Inlined to avoid required HTTP connection: h5bp.com/r */
     page-break-after: avoid;
   }
 }
-/* --------------------------------------------------
-
-   Hyperlinks
-   
-   Tiny Typo v1.0 | MIT License
-   (c) 2010-2013 tinytypo.tetue.net
-
------------------------------------------------------ */
-/* Hyperlinks
-[fr] Signalétique des hyperliens : http://letrainde13h37.fr/43/signaletique-hyperliens/ */
+/*! Hyperlinks - Tiny Typo v2.5.4 2017 - MIT License - tinytypo.tetue.net */
+/* ---------------------------------------------------------------------- */
+/* [fr] Signaletique des hyperliens : http://letrainde13h37.fr/43/signaletique-hyperliens/ */
 a {
   background: transparent;
+  -webkit-text-decoration-skip: objects;
   color: inherit;
-}
-a:link {
-  transition: .5s;
 }
 a:visited {
   color: inherit;
+}
+a:focus {
+  /* http://www.outlinenone.com
+  /* outline: thin dotted;
+  /* Remember to define focus styles! */
+
 }
 a:hover {
   outline: 0;
@@ -700,10 +637,6 @@ a:hover {
 a:active {
   outline: 0;
 }
-/* a { outline: none; }
-[en] http://www.outlinenone.com
-[fr] http://www.outlinenone.fr
-*/
 a:after,
 a:before,
 a small {
@@ -712,33 +645,35 @@ a small {
 }
 a[hreflang]:after {
   content: "\0000a0[" attr(hreflang) "]";
+  font-weight: normal;
 }
-/* External Links */
+/* external links */
 a.external:after {
   content: "\0000a0\279A";
 }
 a[hreflang].external:after {
   content: "\0000a0[" attr(hreflang) "]\0000a0\279A";
 }
-/* mailto / tel */
+/* mailto */
 a.mailto:after {
   content: "\0000a0\2709";
 }
+a[hreflang].mailto:after {
+  content: "\0000a0[" attr(hreflang) "]\0000a0\2709";
+}
+/* tel */
 a.tel:after {
   content: "\0000a0\2706";
 }
-/* Documents */
+a[hreflang].tel:after {
+  content: "\0000a0[" attr(hreflang) "]\0000a0\2706";
+}
+/* downloads */
 a.download:after {
   content: "\0000a0\21A7";
 }
 a[hreflang].download:after {
   content: "\0000a0[" attr(hreflang) "]\0000a0\21A7";
-}
-a.audio:after {
-  content: "\0000a0\266B";
-}
-a[hreflang].audio:after {
-  content: "\0000a0[" attr(hreflang) "]\0000a0\266B";
 }
 /* Linked images */
 a img {
@@ -769,62 +704,33 @@ a:active img {
   a[href^="#"]:after {
     content: '';
   }
-  /* Don't show links for images, or javascript/internal links */
 }
-/* --------------------------------------------------
-
-   Illustrations, images and albums
-   
-   Tiny Typo v1.0 | MIT License
-   (c) 2010-2013 tinytypo.tetue.net
-
------------------------------------------------------ */
-/* Make images responsive by default */
-img,
-object,
-embed {
+/*! Images and Gallery - Tiny Typo v2.5.4 2017 - MIT License - tinytypo.tetue.net */
+/* ------------------------------------------------------------------------------ */
+img {
   max-width: 100%;
   height: auto;
-}
-object,
-embed {
-  height: 100%;
+  border: 0;
+  vertical-align: middle;
 }
 @media print {
   img {
     max-width: 100% !important;
   }
 }
-/* Remove the gap between images, videos, audio and canvas
-and the bottom of their containers: h5bp.com/i/440 */
-audio,
-canvas,
-video,
-img {
-  vertical-align: middle;
+svg:not(:root) {
+  overflow: hidden;
 }
-/* Correct `inline-block` display not defined in IE 8/9 */
 audio,
 canvas,
+progress,
 video {
   display: inline-block;
+  vertical-align: baseline;
 }
-/* Prevent modern browsers from displaying `audio` without controls.
-Remove excess height in iOS 5 devices. */
 audio:not([controls]) {
   display: none;
   height: 0;
-}
-img {
-  border: 0;
-}
-/* Bicubic resizing for non-native sized IMG:
-code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
-img {
-  -ms-interpolation-mode: bicubic;
-}
-svg:not(:root) {
-  overflow: hidden;
 }
 /* thumbnail */
 .thumb,
@@ -850,19 +756,26 @@ img.shadow {
   box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7), -1px 2px 20px rgba(255, 255, 255, 0.6) inset;
 }
 /* figure */
+figure,
+figcaption {
+  display: block;
+}
 figure {
   margin: 0;
   margin-bottom: 0.75em;
-  text-align: center;
 }
 figure.center {
   margin-bottom: 1.5em;
+  text-align: center;
 }
 figure.left {
   margin-right: 1.5em;
 }
 figure.right {
   margin-left: 1.5em;
+}
+figure figcaption {
+  font-size: 80%;
 }
 @media (max-width: 640px) {
   figure {
