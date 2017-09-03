@@ -262,7 +262,6 @@ span.shadow {
 
 /* eviter que la lagende ne soit trop large ou trop collee a l'image */
 figcaption {
-	font-size: 0.8em;
 	line-height: 1.3em;
 	margin-top: 0.4em;
 	margin: auto;
