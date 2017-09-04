@@ -1014,3 +1014,10 @@ figure.spip_documents .oembed-block figcaption {
     text-align: center;
     max-width: 285px;
 }
+
+/* corriger un bug dans l'entete des articles */
+.adapt-img-wrapper p {
+    line-height: 1em;
+    margin-top: 1em;
+    margin-bottom: 0;
+}
