@@ -1,0 +1,125 @@
+/*! Clear v3 2016 WTFPL clear.tetue.net */
+/* Box model */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Blocks */
+.block {
+  display: block;
+}
+.inline {
+  display: inline;
+}
+.inline-block {
+  display: inline-block;
+}
+/* Positioning */
+.left {
+  float: left !important;
+}
+.right {
+  float: right !important;
+}
+.center {
+  margin-right: auto;
+  margin-left: auto;
+}
+/* Blocks spacer */
+.clear {
+  clear: both;
+}
+br.clear {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 0;
+  line-height: 1px;
+  font-size: 1px;
+}
+hr.clear {
+  visibility: hidden;
+}
+/* clearfix */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+/* Not visible */
+.offscreen {
+  position: absolute;
+  left: -999em;
+  height: 1%;
+}
+.hidden {
+  visibility: hidden;
+}
+.none {
+  display: none;
+}
+/* Toggle */
+.show {
+  display: block !important;
+}
+.hide {
+  display: none !important;
+}
+/* Quick & dirty */
+.m0 {
+  margin: 0 !important;
+}
+.p0 {
+  padding: 0 !important;
+}
+/* Not a grid */
+.half,
+.third,
+.quarter,
+.fifth {
+  float: left;
+  margin-right: 10px;
+}
+.half {
+  width: 47%;
+  margin-right: 3%;
+}
+.third {
+  width: 30%;
+  margin-right: 3%;
+}
+.quarter {
+  width: 23%;
+  margin-right: 2%;
+}
+.fifth {
+  width: 18%;
+  margin-right: 2%;
+}
+@media (max-width: 768px) {
+  .half,
+  .third,
+  .quarter,
+  .fifth {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+  }
+}
+/* debug */
+.todo {
+  opacity: 0.5;
+}
+.todo:hover {
+  opacity: 1;
+}
+.blink {
+  text-decoration: blink;
+}
