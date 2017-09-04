@@ -1015,3 +1015,15 @@ figure.spip_documents .oembed-block figcaption {
     max-width: 285px;
 }
 
+/* Not visible */
+.offscreen {
+  position: absolute;
+  left: -999em;
+  height: 1%;
+}
+.hidden {
+  visibility: hidden;
+}
+.none {
+  display: none;
+}
