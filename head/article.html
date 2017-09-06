@@ -5,4 +5,6 @@
 
 [(#SET{ogimage,[(#LOGO_ARTICLE|extraire_attribut{src}|sinon{[(#TEXTE*|concat{#SURTITRE*}|match{'<http\S+(jpg|png)\b'}|replace{'<'})]})]})]
 [<meta property="og:image" content="(#GET{ogimage}|image_reduire{480,}|extraire_attribut{src}|url_absolue)">
-]</BOUCLE_article_head>
+]
+#INCLUDE{fond=dublin_core_article,id_article}
+</BOUCLE_article_head>
