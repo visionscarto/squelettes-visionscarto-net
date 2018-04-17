@@ -24,7 +24,7 @@
 )]
 #SET{svg,#VALEUR|replace{"(png|jpg)$",svg}}
 
-<p><multi>[fr] Télécharger au format [en] Download [es] Descargar </multi>[ (#GET{svg}|file_exists|non) <a href="#VALEUR" download="[(#VALEUR|basename)]">[(#VALEUR|match{(png|jpg)$}|majuscules)]</a>][ (#GET{svg}|file_exists|oui)
+<p><multi>[fr] Télécharger au format [en] Download [es] Descargar [it]Scaricare nel formato </multi>[ (#GET{svg}|file_exists|non) <a href="#VALEUR" download="[(#VALEUR|basename)]">[(#VALEUR|match{(png|jpg)$}|majuscules)]</a>][ (#GET{svg}|file_exists|oui)
 <a href="#GET{svg}" download="[(#GET{svg}|basename)]">SVG</a>].</p>
 
 </div>
