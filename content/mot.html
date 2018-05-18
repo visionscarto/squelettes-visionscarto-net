@@ -1,0 +1,26 @@
+<BOUCLE_mot(MOTS){id_mot}>
+
+	<article>
+	<h1>#TITRE</h1>
+	<section class="texte">
+	<div class="#EDIT{texte}">#TEXTE</div>
+	</section>
+	</article>
+
+	<BOUCLE_liste(ARTICLES){par date}{inverse}{0,1}{id_mot}{doublons}>
+		<BOUCLE_si_3(CONDITION){si #_liste:ID_RUBRIQUE|=={3}}>
+			<INCLURE{fond=liste/lien_article}{id_article}{exclure_auteur=#ENV{id_auteur}}>
+		</BOUCLE_si_3>
+			<section class="articles_secondaires articles_secondaires_article">
+			<INCLURE{fond=liste/lien_article_une}{id_article}{exclure_auteur=#ENV{id_auteur}}>
+			<BOUCLE_suivant(ARTICLES){par date}{inverse}{0,1}{id_rubrique!=1}{id_auteur=#ENV{id_auteur}}{doublons}>
+				<INCLURE{fond=liste/lien_article_une}{id_article}{exclure_auteur=#ENV{id_auteur}}>
+			</BOUCLE_suivant>
+			</section>
+		<//B_si_3>
+			
+		<BOUCLE_suiv(BOUCLE_liste)/>
+	</BOUCLE_liste>
+</BOUCLE_mot>
+
+#FILTRE{mini_html}
