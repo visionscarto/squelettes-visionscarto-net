@@ -1,0 +1,22 @@
+<BOUCLE_coll(MOTS){id_groupe=2}{id_article}><B_autres>
+<div>
+<h2>Également dans la collection “#_coll:TITRE”&nbsp;:</h2>
+[<!-- <div class="texte">(#TEXTE)</div> -->]
+<p class=off><small>
+<BOUCLE_autres(ARTICLES){id_mot}{" &nbsp;|&nbsp; "}>
+[(#ID_ARTICLE|=={#ENV{id_article}}|?{
+  <span style="opacity:0.7">#TITRE</span>
+,
+  <a href="#URL_ARTICLE">#TITRE</a>
+})]
+</BOUCLE_autres>
+<BOUCLE_moi(ARTICLES){id_article}>
+<!-- <li>#TITRE</li> -->
+</BOUCLE_moi>
+
+</small>
+</p>
+
+</div>
+</B_autres>
+</BOUCLE_coll>

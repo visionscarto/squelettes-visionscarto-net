@@ -150,8 +150,10 @@ header.NONcartouche {
 		#MODELE{article_traductions}
 		[<aside class="notes"><h2><:info_notes:></h2>(#NOTES)</aside>]
 
-		[<aside id="appel" ><div class="ui inverted segment #EDIT{ps}">(#PS)</div></aside>]
-		
+		[<aside id="collection" >(#INCLURE{fond=inclure/collection,id_article})</aside>]
+
+		[<aside id="appel" ><div class="inverted #EDIT{ps}">(#PS)</div></aside>]
+	
   
 		[(#REM) inclure de partage RS ]
 		[(#REM) bloc precedent/suivant en guise de <nav></nav> ]
