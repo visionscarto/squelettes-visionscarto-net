@@ -18,7 +18,7 @@
 ]<BOUCLE_mots_rss(MOTS){id_article}{id_groupe>1}>
 		[<dc:subject>(#TITRE|texte_backend)</dc:subject>]</BOUCLE_mots_rss>
 
-		<description>[(#INTRODUCTION|texte_backend)]
+		<description>[(#INTRODUCTION|texte_backend)]<![CDATA[[(#LOGO_ARTICLE{right}|image_reduire{150,150}|texte_backend)]]]>
 
 [(#REM)
 	Le bloc qui suit diffuse la rubrique et les mots-cles
