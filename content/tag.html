@@ -4,7 +4,7 @@
 <article class="content-principal">
 
 	<header>
-	<h1>#NOM_SITE_SPIP &gt; [(#VAL{#}|concat{#TAG}|pretty_hashtags)]</h1>
+	<h1>#NOM_SITE_SPIP &gt; [(#VAL{#}|concat{#TAG|supprimer_tags}|pretty_hashtags)]</h1>
 	</header>
 </article>
 
@@ -39,7 +39,7 @@
 	<//B_a>
 
 	<section id="seenthis" class="small nitti" style="padding: 0rem 3rem">
-	<h2>Et sur <a href="https://seenthis.net/tag/[(#TAG|urlencode_1738_plus)]">seenthis</a>&nbsp;?</h2>
+	<h2>Et sur <a href="https://seenthis.net/tag/[(#TAG|supprimer_tags|urlencode_1738_plus)]">seenthis</a>&nbsp;?</h2>
 	</section>
 
 #FILTRE{liens_ouvrants}
