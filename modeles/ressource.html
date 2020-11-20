@@ -13,7 +13,7 @@
 
 
 [(#REM) preparer l'image pour photoswipe ]
-[(#EXTENSION|match{jpg|gif|png}|oui)
+[(#EXTENSION|match{jpe?g|gif|png}|oui)
 	[(#SET{data-photo-w,#GET{width}})]
 	[(#SET{data-photo-h,#GET{height}})]
 	[(#SET{data-photo,[(#GET{fichier}|replace{\.,__.__})]})]
