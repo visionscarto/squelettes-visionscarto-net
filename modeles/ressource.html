@@ -19,7 +19,7 @@
 	[(#SET{data-photo,[(#GET{fichier}|replace{\.,__.__})]})]
 ]
 [(#SET{link,[(#LINK|=={link}|?{#HREF,#LINK})]})]
-[(#GET{link}|match{jpg|gif|png}|?{
+[(#GET{link}|match{jpe?g|gif|png}|?{
 	[(#SET{data-photo-w,[(#GET{link}|largeur)]})]
 	[(#SET{data-photo-h,[(#GET{link}|hauteur)]})]
 	[(#SET{data-photo,[(#GET{link}|replace{\.(jpg|gif|png)$,__.__\1})]})]
