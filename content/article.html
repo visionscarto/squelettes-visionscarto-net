@@ -26,7 +26,7 @@
 [(#SET{bandeau,#LOGO_ARTICLE_RUBRIQUE|image_reduire{2048}|extraire_attribut{src}})]
 [(#SET{grotitre,[<h1><span class="#EDIT{titre}">(#TITRE|replace{^@}|replace{^Index du site$,#NOM_SITE_SPIP}|trim)</span></h1>]})]
 
-<BOUCLE_r(RUBRIQUES){id_rubrique}{si (#ID_RUBRIQUE|match{^(7|9)$})}>
+<BOUCLE_r(RUBRIQUES){id_rubrique}{si (#ID_RUBRIQUE|match{^(7|9|10|11)$})}>
 [(#SET{grotitre,[<h1><span class="#EDIT{titre}">(#TITRE|replace{^@}|trim)</span></h1>]})]
 
 </BOUCLE_r>
@@ -111,7 +111,7 @@ margin-top: 0;
 padding-top: 2.5rem;
 padding-bottom: 0.2em;
 }
-h3.spip {
+h2.spip, h3.spip {
 	[background-color: #(#LOGO_ARTICLE_RUBRIQUE|couleur_extraire{3,10}|couleur_foncer_si_claire);]
 	color: white;
 }

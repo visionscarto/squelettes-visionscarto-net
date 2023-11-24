@@ -65,7 +65,7 @@
 
 	var tileSize = 256;
 
-	var image = { w: [(#ENV{w}intval|sinon{2048})], h: [(#ENV{w}intval|sinon{1600})] };
+	var image = { w: [(#ENV{w}intval|sinon{2048})], h: [(#ENV{h}intval|sinon{1600})] };
 
 	// langue du visiteur, soit dans l'url ?lang=fr
 	// soit dans la config navigateur
@@ -88,6 +88,7 @@
 		minZoom: zoomInitial-1,
 		maxZoom: maxz,
 		crs: L.CRS.Simple,
+	//	maxBoundsViscosity: 1,
 		scrollWheelZoom: false
 	});
 
@@ -97,6 +98,14 @@
 	];
 
 	if (!window.location.hash) map.setView(center,zoomInitial);
+	
+	// console.warn(new L.LatLngBounds([0,0], [image.w,image.h]));
+	// map.setMaxBounds(new L.LatLngBounds([0,0], [image.w,image.h]));
+
+
+//var southWest = map.unproject([0, image.w], map.getMaxZoom());
+//var northEast = map.unproject([image.h, 0], map.getMaxZoom());
+//map.setMaxBounds(new L.LatLngBounds(southWest, northEast));
 
 	map.on('zoomend', function() {
 		$('a.leaflet-control-zoom-in').css({

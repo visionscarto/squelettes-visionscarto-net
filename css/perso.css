@@ -97,7 +97,7 @@ h1,.h1 {
 
 /* header */
 header.cartouche {
-	font-family: nitti-grotesk, Verdana, sans-serif;
+	font-family: nitti-grotesk, roboto, Verdana, sans-serif;
 	padding: 2rem 4rem 1.5rem 3rem;
 }
 .info-publi {
@@ -199,8 +199,9 @@ h6, .h6  {margin-top: 0.4em; margin-bottom: 0.1em;}
 
 
 .ui.menu .item, .ui.input input {
-font-family: nitti-grotesk, "Gill Sans", "Lucida Grande", "Verdana", sans-serif;
+font-family: nitti-grotesk, roboto, "Gill Sans", "Lucida Grande", "Verdana", sans-serif;
 }
+.item[href="el"] { font-size: 0.7em!important; } /* grec en roboto */
 
 /* interactions parfois difficiles avec semantic-ui */
 p + .box {  margin-top: 3em; }
@@ -292,6 +293,7 @@ figcaption .credits { color: #aaa; }
 
 figure.spip_documents figcaption,figure.spip_documents_right figcaption {
 	text-align: right;
+	min-width: 450px;
 }
 figure.spip_documents_left {
 	text-align: left;
@@ -318,11 +320,11 @@ figcaption > div > div {
 	figure.spip_documents_right {
 		margin-left: 1.5em;
 	}
-	figure.caption-right {
+	figure.ZZcaption-right {
 		display: block;
 		position: relative;
 	}
-	figure.caption-right:after {
+	figure.ZZcaption-right:after {
 		content: "\0020";
 		display: block;
 		height: 0;
@@ -330,10 +332,10 @@ figcaption > div > div {
 		visibility: hidden;
 		overflow: hidden;
 	}
-	figure.caption-right > * {
+	figure.ZZcaption-right > * {
 		float: left;
 	}
-	figure.caption-right > figcaption {
+	figure.ZZcaption-right > figcaption {
 		display: inline-block;
 		text-align: left;
 		width: 20%;
@@ -342,13 +344,13 @@ figcaption > div > div {
 		margin-top: 0;
 	}
 	/* attention: absolute explose avec les legendes qui seraient plus hautes que l'image, car elle ne cree pas de margin-top */
-	figure.caption-right > figcaption > div {
+	figure.ZZcaption-right > figcaption > div {
 		position: absolute; 
 		bottom:0;
 		min-width: 12em;
 		max-width: 25%;
 	}
-	figure.caption-right > figcaption > div > div {
+	figure.ZZcaption-right > figcaption > div > div {
 		display: block;
 	}
 }
@@ -420,7 +422,7 @@ figcaption > div > div {
 	font-weight: normal;
 }
 
-h3.spip {
+h2.spip, h3.spip {
 	display: inline-block;
 	padding: 4px 3rem !important;
 	line-height: 120%;
@@ -433,16 +435,16 @@ h3.spip {
 }
 
 @media screen {
-	h3.spip {
+	h2.spip, h3.spip {
 		background-color: black;
 	}
-	h3.spip, h3.spip * {
+	h2.spip, h2.spip *, h3.spip, h3.spip * {
 		color: white;
 	}
 }
 
 @media (max-width: 959px) {
-	h3.spip {
+	h2.spip, h3.spip {
 		padding: 4px 1rem !important;
 	}
 }
@@ -450,7 +452,7 @@ h3.spip {
 /* la legende de la colorbox */
 #cboxTitle {
 	font-weight: normal;
-	font-family: "nitti-grotesk", "Lucida Grande", sans-serif;
+	font-family: "nitti-grotesk", roboto, "Lucida Grande", sans-serif;
 	color: #fff;
 	font-size: 0.75rem;
 	padding: 0.25rem 1rem;
@@ -511,7 +513,7 @@ body {position: absolute;
 
 
 p.traductions {
-	font-family: nitti-grotesk;
+	font-family: nitti-grotesk, roboto;
 	font-size: 85%;
 	max-width: 100% !important;
 }
@@ -621,7 +623,7 @@ border: solid green 1px;
 }
 
 /* tables (notamment dans la collection cartographique) */
-table.spip {margin-bottom: 1em; font-family: nitti-grotesk; }
+table.spip {margin-bottom: 1em; font-family: nitti-grotesk, roboto; }
 table.spip>thead { font-size: 1.3em; }
 table.spip>tr {}
 table.spip th:first-child, table.spip td:first-child {min-width: 9rem; }
@@ -643,7 +645,7 @@ code, .code, .spip_code,.spip_cadre{
 }
 
 /* fonts */
-.nitti { font-family: nitti-grotesk; }
+.nitti { font-family: nitti-grotesk, roboto; }
 
 /* plan du site */
 .page_plan h3 {display:none}
@@ -710,7 +712,7 @@ hr.spip {
 	background-size: cover;
 	padding: 3em 3em;
 	text-decoration: none;
-	font-family: nitti-grotesk, Verdana, sans-serif;
+	font-family: nitti-grotesk, roboto, Verdana, sans-serif;
 
 }
 @media (max-width: 500px) {
@@ -779,7 +781,7 @@ hr.spip {
 	color: white;
 	font-size: 1.6em;
 	line-height: 1em;
-	font-family: nitti-grotesk, Verdana, sans-serif;
+	font-family: nitti-grotesk, roboto, Verdana, sans-serif;
 }
 
 #header a:hover, #header a:focus {
@@ -837,7 +839,7 @@ a.lien_article_une .titre {
 	text-decoration: none;
 	font-size: 1.3em;
 	line-height: 1em;
-	font-family: nitti-grotesk, Verdana, sans-serif;
+	font-family: nitti-grotesk, roboto, Verdana, sans-serif;
 	line-height: 100%;
 	color: #666;
 }
@@ -854,7 +856,7 @@ a.lien_article_une_3 .titre {
 	line-height: 130%;
 }
 a.lien_article_une .infos {
-	font-family: nitti-grotesk, Verdana, sans-serif;
+	font-family: nitti-grotesk, roboto, Verdana, sans-serif;
 	margin-top: 0.3em;
 	font-size: 95%;
 	line-height: 105%;
@@ -875,7 +877,7 @@ section.articles_secondaires_article {
 	background-color: #ddd;
 }
 a.lien_article_une .coll_carto {
-		font-family: nitti-grotesk, Verdana, sans-serif;
+		font-family: nitti-grotesk,roboto,  Verdana, sans-serif;
 		display: block;
 		font-size: 70%;
 		text-transform: uppercase;
@@ -929,9 +931,9 @@ a.lien_article_une:hover .earth svg .terre {
 }
 .ui.two.column.grid .message .header {
 	font-size: 1.4em;
-	font-family: nitti-grotesk, Verdana, sans-serif;
+	font-family: nitti-grotesk, roboto, Verdana, sans-serif;
 }
-.ui.two.column.grid h3.spip {
+.ui.two.column.grid h2.spip, .ui.two.column.grid h3.spip {
 	margin-bottom: 0em;
 	padding: 3px 15px !important;
 	font-size: 1.4em;

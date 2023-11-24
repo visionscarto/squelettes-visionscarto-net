@@ -6,7 +6,7 @@
 <meta http-equiv="content-type" content="text/html; charset=#CHARSET">
 <meta charset="#CHARSET">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<link rel="search" type="application/opensearchdescription+xml" href="https://visionscarto.net/opensearch.xml">
 
 [(#REM) @font-face inline pour eviter le FOUC
 ]
@@ -20,6 +20,7 @@
 	src:
 		url('squelettes/fontface/nittigrotesk-normal.woff') format('woff'),
 		url('squelettes/fontface/nittigrotesk-normal.eot') format('eot');
+	font-display: swap;
 }
 
 @font-face {
@@ -28,6 +29,7 @@
 	font-style:normal;
 	src:url('squelettes/fontface/cardo-normal.woff') format('woff'),
 	url('squelettes/fontface/cardo-normal.eot') format('eot');
+	font-display: swap;
 }
 @font-face {
 	font-family: 'Cardo';
@@ -35,12 +37,14 @@
 	font-style:normal;
 	src:url('squelettes/fontface/cardo-bold.woff') format('woff'),
 	url('squelettes/fontface/cardo-bold.eot') format('eot');
+	font-display: swap;
 }
 @font-face {
 	font-family: 'Cardo';
 	font-style:italic;
 	src:url('squelettes/fontface/cardo-italic.woff') format('woff'),
 	url('squelettes/fontface/cardo-italic.eot') format('eot');
+	font-display: swap;
 }
 
 body { font-family: Cardo[,(#GET{stack_serif_1})]; }

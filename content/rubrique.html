@@ -16,7 +16,7 @@ href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[<span class="sep"
 
 <BOUCLE_max_popularite(ARTICLES){branche}{par popularite}{inverse}{1/3}{doublons populaires}></BOUCLE_max_popularite>
 
-<BOUCLE_article_suivant(ARTICLES){branche}{par date}{inverse}{0,1}{doublons}>
+<BOUCLE_article_suivant(ARTICLES){id_secteur}{par date}{inverse}{0,1}{doublons}>
 
 		<BOUCLE_si_pop(ARTICLES){id_article}{!doublons populaires}>
 			<INCLURE{fond=liste/lien_article}{id_article}>			

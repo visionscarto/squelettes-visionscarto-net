@@ -178,7 +178,7 @@ function sortir_langues_menu($rem) {
 	arsort($liste_langues);
 
 	foreach($liste_langues as $k=>$v) {
-		$lang = traduire_nom_langue($k);
+		$lang = ucfirst(traduire_nom_langue($k));
 		$ret .= " <a class='item' href='$k'><span class='principal'>$lang ($v)</span></a>";
 	}
 	return $ret;

@@ -26,7 +26,8 @@ src="data:text/html;base64,[(#INCLURE*{fond=modeles/leaflet_code,tileserver=#GET
 [
 <figcaption[ style="max-width:(#GET{width}|max{600})px"]>(#GET{caption})</figcaption>]
 </figure></div>
-<script type='text/javascript'>
+<script async type='text/javascript'>
+setTimeout(function() {
   $(window).on('scroll resize touchmove',
     function() {
       var off = $('##GET{id}').offset().top;
@@ -39,4 +40,5 @@ src="data:text/html;base64,[(#INCLURE*{fond=modeles/leaflet_code,tileserver=#GET
       });
     }
   );
+}, 500);
 </script>
