@@ -11,8 +11,8 @@
  */
 // a passer dans apres-typo
 // avant le passage des CAPS auto
-define (_REG_CHARS, "a-z0-9\pN\pL\pM\'‘’°\&\+–\_");
-define (_REG_HASH, "(^|[\s>])(\#["._REG_CHARS."\@\.\/-]*["._REG_CHARS."])");
+define ("_REG_CHARS", "a-z0-9\pN\pL\pM\'‘’°\&\+–\_");
+define ("_REG_HASH", "(^|[\s>])(\#["._REG_CHARS."\@\.\/-]*["._REG_CHARS."])");
 function pretty_hashtags($texte) {
 	$texte = echappe_html($texte, '', true);
 	// annuler les span class=caps sur #PNUD
@@ -70,7 +70,7 @@ function doublons_auteurs($name) {
 	$last = $name;
 
 	# les suspects repetitifs
-	if ($vu[$name]++) {
+	if (@$vu[$name]++) {
 		switch($name) {
 			case 'Philippe Rekacewicz':
 				return 'Reka';
