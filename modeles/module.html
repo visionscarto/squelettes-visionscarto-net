@@ -1,0 +1,81 @@
+<BOUCLE_mot(MOTS){id_mot=#ID_MODULE}>
+
+<B_articles>
+
+<table>
+<BOUCLE_articles(ARTICLES){id_mot}{par lang,date_redac, date}{statut=publie}>
+<B_traductions>
+<tr>
+    <td>[(#SOUSTITRE|pretty_hashtags|extraire_balise{a}|supprimer_tags|replace{_," "})]</td>
+    <td>[(#LESAUTEURS|doublons_auteurs|replace{"\sand\s"," & "})]</td>
+  <BOUCLE_traductions(ARTICLES){id_trad}{id_trad>0}{id_mot}{doublons}>
+<td>    <a href="#URL_ARTICLE" lang="#LANG">#TITRE</a> </td>
+  </BOUCLE_traductions>
+</tr>
+</B_traductions>
+  <BOUCLE_solo(ARTICLES){id_article}{id_mot}{doublons}>
+  <tr>
+    <td>[(#SOUSTITRE|pretty_hashtags|extraire_balise{a}|supprimer_tags|replace{_," "})]</td>
+    <td>[(#LESAUTEURS|doublons_auteurs|replace{"\sand\s"," & "})]</td>
+    <td> <a href="#URL_ARTICLE">#TITRE</a> </td></tr>
+  </BOUCLE_solo>
+  <//B_traductions>
+</BOUCLE_articles>
+</table>
+
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px 0 4em;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+td:first-child {font-family: nitti-grotesk, Verdana, sans-serif;}
+td:nth-child(2) { font-style: italic; padding-top: 0.8em; }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f4f4f4;
+        color: #333;
+        font-weight: bold;
+    }
+
+    /* Alternate row colors */
+    tr:nth-child(even) {
+        background-color: #f8f8f8;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #ffffff;
+    }
+
+    /* Hover effect */
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    /* Responsive design */
+    @media screen and (max-width: 600px) {
+        table {
+            font-size: 14px;
+        }
+        
+        th, td {
+            padding: 8px 10px;
+        }
+    }
+</style>
+</B_articles>
+
+</BOUCLE_mot>
+
+
+
