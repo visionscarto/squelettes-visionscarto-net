@@ -1,4 +1,6 @@
-/* bloquer les largeurs maxi */
+@view-transition {
+  navigation: auto;
+}
 
 article {
 	background-color: white;
