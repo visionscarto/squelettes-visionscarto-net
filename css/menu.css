@@ -24,6 +24,10 @@
 	transition: 0.3s transform;
 }
 
+.rtl #menu {
+	transform: translate(-280px, 0);
+}
+
 #activer_menu:checked + #menu {
 	transform: translate(0, 0);
 }
