@@ -199,6 +199,11 @@ h2, .h2, h3, .h3  {margin-top: 1.5em; margin-bottom: 0.3em;}
 h4, .h4, h5, .h5  {margin-top: 0.7em; margin-bottom: 0.2em;}
 h6, .h6  {margin-top: 0.4em; margin-bottom: 0.1em;}
 
+.ui.menu .menu.vertical {
+  max-height: calc(100vh - 15em);
+  overflow: hidden;
+  overflow-y: auto;
+}
 
 .ui.menu .item, .ui.input input {
 font-family: nitti-grotesk, roboto, "Gill Sans", "Lucida Grande", "Verdana", sans-serif;
