@@ -6,6 +6,11 @@
 	transition: all 0s !important;
 }
 
+@media print {
+  #menu, .logo_menu {
+    display: none;
+  }
+}
 
 #menu {
 	position: fixed;
