@@ -11,6 +11,10 @@ article > *:not(.fullwidth) > *:not(.fullwidth) {
 	max-width: 42rem;
 	padding-right: 2rem;
 }
+/* neutralise le style="width:100%" inline des tableaux generes, qui sinon ignore la margin-left ci-dessus et deborde */
+article > *:not(.fullwidth) > table {
+	width: auto !important;
+}
 article > section.texte p:not(.fullwidth) {
 	max-width: 35rem;
 }
