@@ -528,6 +528,13 @@ body {position: absolute;
 .formulaire_crayon .crayon-active {
 	border: 1px dashed #ccc !important;
 }
+/* l'icône flottante des crayons empêche text-wrap: balance dans Chrome */
+.surtitre .crayon-icones {
+	position: absolute;
+	top: auto;
+	left: auto;
+	width: 20px;
+}
 
 
 p.traductions {
