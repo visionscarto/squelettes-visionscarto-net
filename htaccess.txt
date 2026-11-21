@@ -59,7 +59,7 @@ RewriteRule \badapt-img/(\d+/\d\dx/.*)$ spip.php?action=adapt_img&arg=$1 [QSA,L]
 RewriteRule ^source(\d+)\.txt spip.php?page=source&id_article=$1 [QSA,L]
 
 RewriteRule ^(ar|da|de|en|es|fr|hr|it|lv|nb|nl|tl)/?$ spip.php?page=langue&lang=$1 [QSA,L]
-RewriteRule ^tag/(tag/.*) /$1 [R]
+RewriteRule ^tag/(tag/.*) %{ENV:BASE}/$1 [R]
 RewriteRule ^(tag)s?/?$ spip.php?page=index_site [QSA,L]
 RewriteRule ^(tag)?/(.*)$ spip.php?page=tag&tag=$2 [QSA,L]
 #RewriteRule ^(human)s?/?$ spip.php?page=auteurs [QSA,L]
